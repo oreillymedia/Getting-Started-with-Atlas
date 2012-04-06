@@ -1,0 +1,6 @@
+== Debugging your project
+
+* Why debugging / we need valid DocBook
+* Log helps you identify problems
+* Common errors and their solution
+* If all else fails

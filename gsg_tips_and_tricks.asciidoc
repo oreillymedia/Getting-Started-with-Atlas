@@ -1,0 +1,9 @@
+== Tips and Tricks
+
+* Write in a text editor and paste the content into the Gollum wiki
+* Don't put section headers inside your content sections -- put them in the "Home" file
+* Don't use footnotes
+* Don't have an empty section
+* Don't start an xref with a number or character
+* Don't duplicate an xref name
+* To generate a PDF from this repo, use this command: "a2x -fpdf --fop  --no-xmllint README.asciidoc"

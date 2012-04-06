@@ -1,0 +1,5 @@
+== Downloading your archive
+
+* Allows you to pull files to make a backup copy. No other backups beyond what you do, although we're working on this.
+* Just click the "Download Archive" button
+* No version history (Need to revisit this.  Maybe it should just zip the entire git dir?)

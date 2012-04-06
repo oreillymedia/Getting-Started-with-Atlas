@@ -1,0 +1,21 @@
+== Attaching figures and code samples
+
+To include figures and code samples in your project, you first upload the file to the project by clicking the "Upload Attachment" button at the upper right-hand corner of the screen.  This will place the file in a directory called _attachments_.  Then, you create a link to the file you just uploaded, like this:
+
+*For figures*.  Use AsciiDoc's  _image_ macro to create a reference to the figure  It will look something like this:
+
+====
+ image::attachments/figure1.png[scaledwidth=90%]
+====
+
+Figures can "float" throughout the document and may not be on the same page you expect them to be. For this reason, saying things like "This figure..." or "The figure below..." might confuse the reader, since the figure may very well be on a totally separate page once the document is rendered.  For this reason, all figures must have an accompanying cross-reference. 
+
+*For Code Sample*.  To include code sample, use AsciiDoc's _include_ macro to pull in the listing.  Be sure to embed it within the *code* delimiters.  Here's an example:
+
+...........................
+----
+include ::attachments/my_program.py[]
+----
+...........................
+
+Note that in general, it's better to link out to listing files by linking them directly to GitHub.  This is explained in another section.
