@@ -1,0 +1,25 @@
+= Getting Started with Gollum
+
+== Introduction
+
+This is a pilot for an experimental way to develop short-form (less than 100 pages or so) content for O'Reilly.  Here's how it works:
+
+* We supply you with a https://github.com/github/gollum[Gollum] instance, the awesome, git-powered wiki from the folks at http://www.github.com[GitHub].  You write/edit your document like you would a wiki, and you can share it with friends, editors, and other people you think might help.
+* You write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham] (more on this in a bit).  Every time you save a page, it gets logged into a git repository, so it's always under version control.  (We can grant you access to your repo -- just ask!)
+* When you're ready, we suck the AsciiDoc into our publishing toolchain, convert it to DocBook (our native format), and then push it out through various channels.  You can read a bit about this at http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg's blog], where he describes how he wrote his "Programming iOS" book.  The editing environment provides some tools to help you "debug" your markup to meet DocBook's stringent requirements.
+
+So, why bother with this, you ask?  Mostly, we're trying to create a more appealing process that will get you writing as quickly as possible, not mucking around with a bunch of tools.  The cool thing about AsciiDoc, Gollum, and git (and GitHub!) is that they can help ease a lot of the complexities of the publishing process, letting you (hopefully!) focus on the what you want to say.
+
+This document covers:
+
+* Signing in with OpenID
+* Getting started with AsciiDoc
+* Attaching figures and code samples
+* Putting code examples on GitHub
+* Building the project
+* Debugging your project
+* Downloading your archive
+* Editing locally
+* Tips and tricks
+
+So, here come the rest of the sections.
