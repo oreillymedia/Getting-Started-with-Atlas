@@ -22,16 +22,3 @@ Flexible writing options::
 . When you're ready, build your book. Atlas interfaces with O'Reilly's publishing toolchain, converting the AsciiDoc to DocBook XML and then to the various ebook formats.  
 
 Why bother with this, you ask?  Mostly, we're trying to create a more appealing process that will get you writing as quickly as possible. Atlas removes the complexities of the publishing process, letting you focus on the what you want to say.
-
-
-This document covers:
-
-* Signing in with OpenID
-* Getting started with AsciiDoc
-* Attaching figures and code samples
-* Putting code examples on GitHub
-* Building the project
-* Debugging your project
-* Downloading your archive
-* Editing locally
-* Tips and tricks

@@ -1,3 +1,4 @@
+[[chapid_3]]
 == Building your project
 
 To produce an EPUB or PDF, you must create a page that assembles the individual pieces of content into a final document.  You can think of this page as a sort of master header file that lists all the other elements that should be included in the final document.   These files should:

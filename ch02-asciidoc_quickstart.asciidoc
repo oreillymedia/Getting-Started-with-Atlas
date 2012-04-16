@@ -1,19 +1,81 @@
+[[chapid_2]]
 == AsciiDoc Quickstart
 
-http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing process.  It's similar to wiki markup -- if you can write a Wikipedia article, then you're pretty much 90% of the way there.  This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently. 
-
-[NOTE]
-====
-You can get the complete nitty-gritty on how O'Reilly uses AsciiDoc from our official https://prod.oreilly.com/external/tools/docbook/prod/trunk/samples/r_and_d/asciidoc/[AsciiDoc guidelines].  You'll need to enter "guest" as the username, leave the password blank, and then navigate to the "pdf" directory to download the docs.  In addition, the https://prod.oreilly.com/external/tools/docbook/prod/trunk/samples/r_and_d/asciidoc/chapter.asc[sample chapter with markup] is particularly helpful in explaining how things work.
-====
+http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing process.  It's similar to wiki markup -- if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently. 
 
 You can create and edit AsciiDoc in any text editor, and then paste it into the wiki to push it into our system. If you're on Windows, you can use Notepad (or anything you want, really). If you're on a Mac, you can use TextEdit, TextMate, or any of a number of choices. The important thing is that you use the AsciiDoc markup.
 
-Here are some links to AsciiDoc books that you can use for reference:
+[NOTE]
+====
+Section titles can be in either of two formats: "underlined" or delimited.
 
-* https://github.com/odewahn/codebox3[Codebox: Adventures with Processing]
-* https://github.com/odewahn/mintduino[MintDuino Project Book]
-* https://github.com/odewahn/best_of_radar_data[Best of Radar: Data]
+====
+
+Top-Level Section Title (Underlined Style)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Narrative text here.
+
+Second-Level Section Title (Underlined Style)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+More text here.
+
+Third-Level Section Title (Underlined Style)
+++++++++++++++++++++++++++++++++++++++++++++
+And some more here.
+
+[[ALT1]]
+=== Top-Level Section (Delimited Style) ===
+This one designates asciidoc level 2 (DocBook +<sect1>+).
+
+[[ALT-SUB1]]
+==== Second-Level Section (Delimited Style)
+This one designates asciidoc level 3 (DocBook +<sect2>+).
+Also note that you can have the delimiter just on the left as in this one, or on both sides as in <<ALT1>>.
+
+[[ALT-SUBSUB1]] 
+===== Third-Level Section (Delimited Style)
+This one designates asciidoc level 4 (DocBook +<sect3>+).
+
+[[XREFS]]
+=== Cross-References
+
+To generate a cross-reference, use this syntax:
+
+----
+<<ID>>
+----
+
+where `ID` is the anchor or BlockID of the target, which you place in double square-brackets above that block.
+
+<<XREF_TABLE>> shows the standard text generated from xrefs in PDF builds.
+
+[[XREF_TABLE]]
+.Standard Cross-Reference Formats
+[options="header"]
+|=======
+|Target|Generated Cross-Reference Text
+|chapter|Chapter 17
+|table|Table 4-1
+|figure|Figure 2-3
+|example|Example 3-5
+|sidebar|"Fooing the Bar" on page 23
+|section|"Inline Macros" on page 14
+|=======
+
+Here are some live examples (hover over the text in the PDF to
+locate the hyperlink):
+
+* See <<BLOCKS>> for details.
+* The results is shown in <<FIG1>>.
+* Flip ahead to <<chapid_2>> for a preview.
+
+generated from this source:
+
+----
+* See <<BLOCKS>> for details.
+* The results is shown in <<FIG1>>.
+* Flip ahead to <<chapid_2>> for a preview.
+----
 
 === Inline Elements
 
@@ -208,3 +270,9 @@ Note that in general, it's better to link out to listing files by linking them d
 * Don't start an xref with a number or character
 * Don't duplicate an xref name
 * To generate a PDF from this repo, use this command: "a2x -fpdf --fop  --no-xmllint README.asciidoc"
+
+Here are some links to AsciiDoc books that you can use for reference:
+
+* https://github.com/odewahn/codebox3[Codebox: Adventures with Processing]
+* https://github.com/odewahn/mintduino[MintDuino Project Book]
+* https://github.com/odewahn/best_of_radar_data[Best of Radar: Data]
