@@ -1,3 +1,11 @@
-include::appa-code_samples.asciidoc[]
-
 include::ch01-welcome.asciidoc[]
+
+include::ch02-asciidoc_quickstart.asciidoc[]
+
+include::ch03-building_books.asciidoc[]
+
+include::ch04-debugging.asciidoc[]
+
+include::ch05-working_locally.asciidoc[]
+
+include::appa-code_samples.asciidoc[]
