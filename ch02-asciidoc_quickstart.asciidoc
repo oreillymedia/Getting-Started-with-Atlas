@@ -65,8 +65,7 @@ where `ID` is the anchor or BlockID of the target, which you place in double squ
 Here are some live examples (hover over the text in the PDF to
 locate the hyperlink):
 
-* See <<BLOCKS>> for details.
-* The results is shown in <<FIG1>>.
+
 * Flip ahead to <<chapid_2>> for a preview.
 
 generated from this source:
