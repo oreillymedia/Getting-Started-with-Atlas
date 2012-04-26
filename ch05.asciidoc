@@ -7,3 +7,45 @@ how to clone to github. pulling changes from github into atlas.
 
 hosting code on github.
 
+We recommend that you place all code samples on GitHub. This makes it easy for you, and more importantly, your readers, to pull down the code and fix it. Take a look at Matthew Russell's https://github.com/ptwobrussell/Mining-the-Social-Web[Mining the Social Web] to see how well this works when done consistently.
+
+Matthew's included a lot of niceties on the landing page, like marketing text, praise quotes, JPEG of the front cover, a plea not to steal the book, etc. We really like the way he's set up the main page, but we're certainly not mandating authors include all this material, or that they adhere to any formal strictures. If you prefer to do something much more bare-bones, that's totally fine, too. See the Jonathan LeBlanc's  https://github.com/jcleblanc/programming-social-applications[Programming Social Applications] for something far more simple.
+
+Note that Jonathan's actually organized his code in directories by chapter, which we think is a good idea if there are a lot of code examples and/or chapters in the book. It makes it easier for readers to find things. Matthew Russell's solution for enhancing findability/navigability was to add an https://github.com/ptwobrussell/Mining-the-Social-Web/wiki/Numbered-examples[Examples Listing] to his GitHub wiki.
+
+In terms of linking to GitHub content from the book, we'd recommend you do the following:
+
+=== Add preface text 
+
+Add the following text to the "Using Code Examples" section of the Preface:
+
+====
+ The code examples in the following chapters are available for download at GitHub at 
+ https://github.com/<username>/<booktitle>/ -- the official code repository for this 
+ book. You are encouraged to  monitor this repository for the latest bug-fixed code as 
+ well as extended examples by the author and the rest of 
+ the social coding community."
+====
+
+=== Link out to your examples in the text
+
+For every code listing that's in both GitHub and the book, add a hyperlink in the book to the corresponding code in GitHub. If the code is in a formal example, we recommend putting the link in the Example title (otherwise, you may want to add the link to the preceding body text). Here's an example of the AsciiDoc markup you can use (note the backslash after "microformats" in the URL, which is necessary to escape the double underscore so it is properly translated to PDF):
+
+====
+ [[EXTEST]]
+ .Scraping XFN content from a web page
+  (https://github.com/ptwobrussell/Mining-the-Social-Web/blob/master/python_code/microformats\__xfn_scrape.py[microformats__xfn_scrape.py])
+ ====
+ ----
+ import sys
+ import urllib2
+ import HTMLParser
+ ...
+ ----
+ ====
+====
+
+Note that for the hyperlink node text, we've used just the filename of the code, so that the full URL isn't displayed in the Web PDF. The elemnts will appear as in <<code-on-github>>.
+
+[[code-on-github]]
+.Here's how references to your code on GitHub will appear in text
