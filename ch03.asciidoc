@@ -1,17 +1,156 @@
 [[chapid_3]]
-== Building and Debugging
+== Advanced AsciiDoc
+This is another chapter, with some more esoteric/experimental things...
 
-To produce an EPUB or PDF, you must create a page that assembles the individual pieces of content into a final document.  You can think of this page as a sort of master header file that lists all the other elements that should be included in the final document.   These files should:
+++++
+<remark>Go back to the first chapter for general asciidoc markup demo; below are some more esoteric/experimental things...</remark>
+++++
 
+[[callout-multiples]]
+=== Yet More on Code Callouts
 
-[NOTE]
+If you want to refer to the same explanation from more than one line
+of code, please _do not_ use the built-in mechanism
+(<<bad_dup_layout>>), which does not conform to house style.
+Instead, use either <<alt_dup_layout>> or <<horiz_layout>>.
+
+[[bad_dup_layout]]
+.Built-in Mechanism (Vertical Layout Bad)
 ====
-The "All pages" button is a quick way to get list of all the pages in your project.  You can use cut-and-paste to quickly create an \_INDEX file, and then put them in the correct order.  
+-----------------------------------------------------
+ 10/17/97   9:04         <DIR>    bin
+ 10/16/97  14:11         <DIR>    DOS            <1>
+ 10/16/97  14:40         <DIR>    Program Files
+ 10/16/97  14:46         <DIR>    TEMP
+ 10/17/97   9:04         <DIR>    tmp
+ 10/16/97  14:37         <DIR>    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <2>
+  2/13/94   6:21          54,619  COMMAND.COM    <2>
+ 10/16/97  14:25             115  CONFIG.SYS     <2>
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <3>
+-----------------------------------------------------
+====
+<1> This directory holds MS-DOS.
+<2> System startup code for DOS. *[Too much whitespace; confusing to readers]*
+<3> Some sort of Windows 3.1 hack.
+
+<<alt_dup_layout>> uses the +<coref>+ element to refer to the same
++<callout>+ from multiple code lines.
+
+[[alt_dup_layout]]
+.Alternate Approach 1: Repeat Icon in Code
+====
+++++
+<programlisting>
+ 10/17/97   9:04         &lt;DIR&gt;    bin
+ 10/16/97  14:11         &lt;DIR&gt;    DOS     <co id="co-id1" linkends="co1"/>
+ 10/16/97  14:40         &lt;DIR&gt;    Program Files
+ 10/16/97  14:46         &lt;DIR&gt;    TEMP
+ 10/17/97   9:04         &lt;DIR&gt;    tmp
+ 10/16/97  14:37         &lt;DIR&gt;    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <co id="co-id2" linkends="co2"/>
+  2/13/94   6:21          54,619  COMMAND.COM    <coref linkend="co-id2"/>
+ 10/16/97  14:25             115  CONFIG.SYS     <coref linkend="co-id2"/>
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <co id="co-id3" linkends="co3"/>
+</programlisting>
+
+<calloutlist>
+  <callout arearefs="co-id1" id="co1">
+    <para>This directory holds MS-DOS.</para>
+  </callout>
+  <callout arearefs="co-id2" id="co2"> 
+    <para>System startup code for DOS.</para>
+  </callout>
+  <callout arearefs="co-id3" id="co3">    
+  <para>Some sort of Windows 3.1 hack.</para>
+  </callout>
+</calloutlist>
+++++
 ====
 
-=== Debugging Errors
+<<horiz_layout>> uses a different mechanism for several code lines to
+point to the same +<callout>+. In this case, each one gets a uniquely
+numbered icon. This is done by placing multiple values in a single
++<callout arearefs=...>+ while duplicating the +@linkends+ value in
+the corresponding +<co>+ elements in code.  Note also the use of
++<?dbfo...>+ markup below the +<calloutlist>+ opener; this adjusts the
+alignment for side-by-side icons.
 
-* Why debugging / we need valid DocBook
-* Log helps you identify problems
-* Common errors and their solution
-* If all else fails
+[[horiz_layout]]
+.Alternate Approach 2: Unique Icons; Align Side-by-Side in Explanation 
+====
+++++
+<programlisting>
+ 10/17/97   9:04         &lt;DIR&gt;    bin
+ 10/16/97  14:11         &lt;DIR&gt;    DOS      <co id="thing1-co" linkends="thing1"/>
+ 10/16/97  14:40         &lt;DIR&gt;    Program Files
+ 10/16/97  14:46         &lt;DIR&gt;    TEMP
+ 10/17/97   9:04         &lt;DIR&gt;    tmp
+ 10/16/97  14:37         &lt;DIR&gt;    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <co id="thing2-co" linkends="thing2"/>
+  2/13/94   6:21          54,619  COMMAND.COM    <co id="thing3-co" linkends="thing2"/>
+ 10/16/97  14:25             115  CONFIG.SYS     
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <co id="thing5-co" linkends="thing3"/>
+</programlisting>
+
+<calloutlist>
+<?dbfo label-width="1.75pc"?>
+  <callout arearefs="thing1-co" id="thing1">
+    <para>This directory holds MS-DOS.</para>
+  </callout>
+  <callout arearefs="thing2-co thing3-co" id="thing2"> 
+    <para>System startup code for DOS.</para>
+  </callout>
+  <callout arearefs="thing5-co" id="thing3">    
+  <para>Some sort of Windows 3.1 hack.</para>
+  </callout>
+</calloutlist>
+++++
+====
+
+=== Experiments
+
+==== Literal Blocks (asciidoc terminology)
+Following the general asciidoc cheatsheat/samples; many of these don't
+behave under our toolchain (or relative to house style), so please
+ask before using anything here...
+
+// ORMTODO: "literal" becomes <literallayout class="monospaced">
+
+[literal]
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
+
+// ORMTODO: "verse" becomes <literallayout>, with inline markup
+
+[verse]
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
+
+// ORMTODO: indented block becomes <literallayout class="monospaced">
+
+  Consul *necessitatibus* per id,
+  consetetur, eu pro everti postulant
+  homero verear ea mea, qui.
+
+// ORMTODO: dotted-delimited becomes <literallayout class="monospaced">
+...................................
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
+...................................
+
+// ORMTODO: "verse" plus underscore-delimited becomes <blockquote><literallayout>
+
+[verse, William Blake, from Auguries of Innocence]
+__________________________________________________
+To see a world in a grain of sand,
+And a heaven in a wild flower,
+Hold infinity in the palm of your hand,
+And eternity in an hour.
+__________________________________________________

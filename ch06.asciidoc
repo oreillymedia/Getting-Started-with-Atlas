@@ -1,4 +1,3 @@
-
 [[chapid_6]]
 == Cloning to GitHub
 
