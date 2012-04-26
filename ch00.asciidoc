@@ -15,15 +15,14 @@ An invitation system::
 Flexible writing options::
 	You can write directly within Atlas, but if writing in a web browser is not for you, no problem. Just use git to clone your book to a local machine and write in the text editor of your choice.
 
-== How It Works
+=== How It Works
 
-. Receive an invite from an O'Reilly editor or another author and create an account.
-. Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a file, it gets logged into a git repository, so it's always under version control.
+. Receive an invite from an O'Reilly editor or another author and create an account. Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a file, it gets logged into a git repository, so it's always under version control.
 . When you're ready, build your book. Atlas interfaces with O'Reilly's publishing toolchain, converting the AsciiDoc to DocBook XML and then to the various ebook formats.  
 
 Why bother with this, you ask?  We're trying to create an appealing authoring process that will get you writing as quickly as possible. Atlas removes the complexities of publishing, letting you focus on what you want to say.
 
-== Start Writing Today
+=== Start Writing Today
 
 Atlas is still in its early development stages, and you can play a role in determining future development by opting to use the platform as you write your book. If you're willing to use the platform, we ask that you:
 * Write in AsciiDoc or DocBook 4.5, which are the preferred formats for Atlas. The system also supports Markdown, but Markdown itself is sometimes not up to the task of representing complex technical content. For simpler projects, however, Markdown works well. Talk to us about what you prefer, and we'll try to make it work.
