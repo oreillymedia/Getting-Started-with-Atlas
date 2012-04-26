@@ -1,277 +1,156 @@
 [[chapid_2]]
-== AsciiDoc Quickstart
+== Advanced AsciiDoc
+This is another chapter, with some more esoteric/experimental things...
 
-http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing process.  It's similar to wiki markup -- if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently. 
+++++
+<remark>Go back to the first chapter for general asciidoc markup demo; below are some more esoteric/experimental things...</remark>
+++++
 
-You can create and edit AsciiDoc in any text editor, and then paste it into the wiki to push it into our system. If you're on Windows, you can use Notepad (or anything you want, really). If you're on a Mac, you can use TextEdit, TextMate, or any of a number of choices. The important thing is that you use the AsciiDoc markup.
+[[callout-multiples]]
+=== Yet More on Code Callouts
 
-[NOTE]
+If you want to refer to the same explanation from more than one line
+of code, please _do not_ use the built-in mechanism
+(<<bad_dup_layout>>), which does not conform to house style.
+Instead, use either <<alt_dup_layout>> or <<horiz_layout>>.
+
+[[bad_dup_layout]]
+.Built-in Mechanism (Vertical Layout Bad)
 ====
-Section titles can be in either of two formats: "underlined" or delimited.
-
+-----------------------------------------------------
+ 10/17/97   9:04         <DIR>    bin
+ 10/16/97  14:11         <DIR>    DOS            <1>
+ 10/16/97  14:40         <DIR>    Program Files
+ 10/16/97  14:46         <DIR>    TEMP
+ 10/17/97   9:04         <DIR>    tmp
+ 10/16/97  14:37         <DIR>    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <2>
+  2/13/94   6:21          54,619  COMMAND.COM    <2>
+ 10/16/97  14:25             115  CONFIG.SYS     <2>
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <3>
+-----------------------------------------------------
 ====
+<1> This directory holds MS-DOS.
+<2> System startup code for DOS. *[Too much whitespace; confusing to readers]*
+<3> Some sort of Windows 3.1 hack.
 
-Top-Level Section Title (Underlined Style)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Narrative text here.
+<<alt_dup_layout>> uses the +<coref>+ element to refer to the same
++<callout>+ from multiple code lines.
 
-Second-Level Section Title (Underlined Style)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-More text here.
-
-Third-Level Section Title (Underlined Style)
-++++++++++++++++++++++++++++++++++++++++++++
-And some more here.
-
-[[ALT1]]
-=== Top-Level Section (Delimited Style) ===
-This one designates asciidoc level 2 (DocBook +<sect1>+).
-
-[[ALT-SUB1]]
-==== Second-Level Section (Delimited Style)
-This one designates asciidoc level 3 (DocBook +<sect2>+).
-Also note that you can have the delimiter just on the left as in this one, or on both sides as in <<ALT1>>.
-
-[[ALT-SUBSUB1]] 
-===== Third-Level Section (Delimited Style)
-This one designates asciidoc level 4 (DocBook +<sect3>+).
-
-[[XREFS]]
-=== Cross-References
-
-To generate a cross-reference, use this syntax:
-
-----
-<<ID>>
-----
-
-where `ID` is the anchor or BlockID of the target, which you place in double square-brackets above that block.
-
-<<XREF_TABLE>> shows the standard text generated from xrefs in PDF builds.
-
-[[XREF_TABLE]]
-.Standard Cross-Reference Formats
-[options="header"]
-|=======
-|Target|Generated Cross-Reference Text
-|chapter|Chapter 17
-|table|Table 4-1
-|figure|Figure 2-3
-|example|Example 3-5
-|sidebar|"Fooing the Bar" on page 23
-|section|"Inline Macros" on page 14
-|=======
-
-Here are some live examples (hover over the text in the PDF to
-locate the hyperlink):
-
-
-* Flip ahead to <<chapid_2>> for a preview.
-
-generated from this source:
-
-----
-* See <<BLOCKS>> for details.
-* The results is shown in <<FIG1>>.
-* Flip ahead to <<chapid_2>> for a preview.
-----
-
-=== Inline Elements
-
-Here's some some _italic_ and some +monospaced+ (aka "constant-width" or "CW") text:
-
-----
-Here's some some _italic_ and some +monospaced+ (aka "constant-width" or "CW") text:
-----
-
-Backticks can also be used for literal (CW) text, for example: `ls -al`:
-
-----
-Backticks can also be used for literal (CW) text, for example: `ls -al`:
-----
-
-[WARNING]
+[[alt_dup_layout]]
+.Alternate Approach 1: Repeat Icon in Code
 ====
-Using inlines in AsciiDoc can be tricky.
+++++
+<programlisting>
+ 10/17/97   9:04         &lt;DIR&gt;    bin
+ 10/16/97  14:11         &lt;DIR&gt;    DOS     <co id="co-id1" linkends="co1"/>
+ 10/16/97  14:40         &lt;DIR&gt;    Program Files
+ 10/16/97  14:46         &lt;DIR&gt;    TEMP
+ 10/17/97   9:04         &lt;DIR&gt;    tmp
+ 10/16/97  14:37         &lt;DIR&gt;    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <co id="co-id2" linkends="co2"/>
+  2/13/94   6:21          54,619  COMMAND.COM    <coref linkend="co-id2"/>
+ 10/16/97  14:25             115  CONFIG.SYS     <coref linkend="co-id2"/>
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <co id="co-id3" linkends="co3"/>
+</programlisting>
 
-Delimiters may not be interpreted as intended if they don't abut whitespace on both sides; the fix for this is to double them up, as explained under http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and
-Unconstrained Quotes''] in the AsciiDoc User Guide.  For example, compare how these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
+<calloutlist>
+  <callout arearefs="co-id1" id="co1">
+    <para>This directory holds MS-DOS.</para>
+  </callout>
+  <callout arearefs="co-id2" id="co2"> 
+    <para>System startup code for DOS.</para>
+  </callout>
+  <callout arearefs="co-id3" id="co3">    
+  <para>Some sort of Windows 3.1 hack.</para>
+  </callout>
+</calloutlist>
+++++
 ====
 
-=== Hyperlinks
+<<horiz_layout>> uses a different mechanism for several code lines to
+point to the same +<callout>+. In this case, each one gets a uniquely
+numbered icon. This is done by placing multiple values in a single
++<callout arearefs=...>+ while duplicating the +@linkends+ value in
+the corresponding +<co>+ elements in code.  Note also the use of
++<?dbfo...>+ markup below the +<calloutlist>+ opener; this adjusts the
+alignment for side-by-side icons.
 
-To add a hyperlink, just type the URL followed by the description in brackets. Do not put a space between the brackets and the URL.  Here's an example:
-
-----
-http://oreilly.com/[O'Reilly Media Website]
-http://www.makezine.com/[Makezine]
-https://github.com/odewahn/codebox2/blob/master/code/fractal_barnsley.pde[Fractal Example in Processing]
-----
-
-=== Notes, Warnings, and Sidebars
-If you need to add a note or warning, here's the format:
-
-----
-[NOTE]
-===============================
-O'Reilly Animal books traditionally make no distinction between the
-DocBook +<note>+, +<tip>+, and +<important>+ elements.
-===============================
-
-.Add a Title
-[WARNING] .Add a Title
-===============================
-O'Reilly Animal books traditionally make no distinction between the
-DocBook +<warning>+ and +<caution>+ elements.
-===============================
-----
-
-Here's a Sidebar:
-
-----
-.Titled vs. Untitled Blocks
-****
-O'Reilly house style generally uses titles only on formal blocks
-(figures, tables, examples, and sidebars in particular). Although
-AsciiDoc supports optional titles on many other blocks, these
-generally are not appropriate for O'Reilly books.
-
-Conversely, _omitting_ a title from a sidebar is generally not
-conformant to O'Reilly style. If you have questions about whether
-content belongs in an sidebar vs. admonition vs. quote or other
-element, please consult with your editor.
-****
-----
-
-=== Code
-
-Enclose code samples inside 4 consecutive minus signs ("-"), like this:
-
-----
- ----
-     if (x < X_MIN) {
-        X_MIN = x;
-     }
-     if (x > X_MAX) {
-       X_MAX = x;
-     }
-     if (y < Y_MIN) {
-       Y_MIN = y;
-     }
-     if (y > Y_MAX) {
-       Y_MAX = y;
-     }
- ----
-----
-
-You can also use the AsciiDoc "include" macro to pull in code files:
-
-----
- ----
- include::code/example.c[]
- ----
-----
-
-=== Bullet lists
-
-Use asterisks ("*") to create bullets.  ou can indent items by using multiple asterisks:
-----
-* Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-* Nulla blandit eros eget velit bibendum placerat.
-** Pellentesque id justo ultrices est pharetra suscipit.
-** Cras nec magna a lectus consequat varius.
-* Phasellus tempor lacinia neque, et scelerisque lectus luctus id.
-----
-
-The list will look like this:
-
-* Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-* Nulla blandit eros eget velit bibendum placerat.
-** Pellentesque id justo ultrices est pharetra suscipit.
-** Cras nec magna a lectus consequat varius.
-* Phasellus tempor lacinia neque, et scelerisque lectus luctus id.
-
-=== Numbered lists
-
-Use periods (".") to create a ordered (i.e., "1, 2, 3, ...") lists:
-
-----
-. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-.. Nulla blandit eros eget velit bibendum placerat.
-.. Pellentesque id justo ultrices est pharetra suscipit.
-. Cras nec magna a lectus consequat varius.
-. Phasellus tempor lacinia neque, et scelerisque lectus luctus id.
-----
-
-Here's how it will look:
-
-. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-.. Nulla blandit eros eget velit bibendum placerat.
-.. Pellentesque id justo ultrices est pharetra suscipit.
-. Cras nec magna a lectus consequat varius.
-. Phasellus tempor lacinia neque, et scelerisque lectus luctus id.
-
-=== Simple Tables
-
-Here's the basic format for creating tables:
-
-----
-.An example table
-[width="40%",options="header"]
-|=============
-|col 1| col 2| col3
-|1  | 2 | 3
-|4  | 5 | 6
-|7  | 8  | 9
-|=============
-----
-
-It will look like this:
-
-.An example table
-[width="40%",options="header"]
-|=============
-|col 1| col 2| col3
-|1  | 2 | 3
-|4  | 5 | 6
-|7  | 8  | 9
-|=============
-
-== Attaching figures and code samples
-
-To include figures and code samples in your project, you first upload the file to the project by clicking the "Upload Attachment" button at the upper right-hand corner of the screen.  This will place the file in a directory called _attachments_.  Then, you create a link to the file you just uploaded, like this:
-
-*For figures*.  Use AsciiDoc's  _image_ macro to create a reference to the figure  It will look something like this:
-
+[[horiz_layout]]
+.Alternate Approach 2: Unique Icons; Align Side-by-Side in Explanation 
 ====
- image::attachments/figure1.png[scaledwidth=90%]
+++++
+<programlisting>
+ 10/17/97   9:04         &lt;DIR&gt;    bin
+ 10/16/97  14:11         &lt;DIR&gt;    DOS      <co id="thing1-co" linkends="thing1"/>
+ 10/16/97  14:40         &lt;DIR&gt;    Program Files
+ 10/16/97  14:46         &lt;DIR&gt;    TEMP
+ 10/17/97   9:04         &lt;DIR&gt;    tmp
+ 10/16/97  14:37         &lt;DIR&gt;    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <co id="thing2-co" linkends="thing2"/>
+  2/13/94   6:21          54,619  COMMAND.COM    <co id="thing3-co" linkends="thing2"/>
+ 10/16/97  14:25             115  CONFIG.SYS     
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <co id="thing5-co" linkends="thing3"/>
+</programlisting>
+
+<calloutlist>
+<?dbfo label-width="1.75pc"?>
+  <callout arearefs="thing1-co" id="thing1">
+    <para>This directory holds MS-DOS.</para>
+  </callout>
+  <callout arearefs="thing2-co thing3-co" id="thing2"> 
+    <para>System startup code for DOS.</para>
+  </callout>
+  <callout arearefs="thing5-co" id="thing3">    
+  <para>Some sort of Windows 3.1 hack.</para>
+  </callout>
+</calloutlist>
+++++
 ====
 
-Figures can "float" throughout the document and may not be on the same page you expect them to be. For this reason, saying things like "This figure..." or "The figure below..." might confuse the reader, since the figure may very well be on a totally separate page once the document is rendered.  For this reason, all figures must have an accompanying cross-reference. 
+=== Experiments
 
-*For Code Sample*.  To include code sample, use AsciiDoc's _include_ macro to pull in the listing.  Be sure to embed it within the *code* delimiters.  Here's an example:
+==== Literal Blocks (asciidoc terminology)
+Following the general asciidoc cheatsheat/samples; many of these don't
+behave under our toolchain (or relative to house style), so please
+ask before using anything here...
 
-...........................
-----
-include ::attachments/my_program.py[]
-----
-...........................
+// ORMTODO: "literal" becomes <literallayout class="monospaced">
 
-Note that in general, it's better to link out to listing files by linking them directly to GitHub.  This is explained in another section.
+[literal]
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
 
+// ORMTODO: "verse" becomes <literallayout>, with inline markup
 
-== Tips and Tricks
+[verse]
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
 
-* Write in a text editor and paste the content into the Gollum wiki
-* Don't put section headers inside your content sections -- put them in the "Home" file
-* Don't use footnotes
-* Don't have an empty section
-* Don't start an xref with a number or character
-* Don't duplicate an xref name
-* To generate a PDF from this repo, use this command: "a2x -fpdf --fop  --no-xmllint README.asciidoc"
+// ORMTODO: indented block becomes <literallayout class="monospaced">
 
-Here are some links to AsciiDoc books that you can use for reference:
+  Consul *necessitatibus* per id,
+  consetetur, eu pro everti postulant
+  homero verear ea mea, qui.
 
-* https://github.com/odewahn/codebox3[Codebox: Adventures with Processing]
-* https://github.com/odewahn/mintduino[MintDuino Project Book]
-* https://github.com/odewahn/best_of_radar_data[Best of Radar: Data]
+// ORMTODO: dotted-delimited becomes <literallayout class="monospaced">
+...................................
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
+...................................
+
+// ORMTODO: "verse" plus underscore-delimited becomes <blockquote><literallayout>
+
+[verse, William Blake, from Auguries of Innocence]
+__________________________________________________
+To see a world in a grain of sand,
+And a heaven in a wild flower,
+Hold infinity in the palm of your hand,
+And eternity in an hour.
+__________________________________________________

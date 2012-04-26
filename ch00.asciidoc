@@ -1,5 +1,7 @@
-[preface]
-== Preface: Join the Publishing Revolution
+++++
+<preface id="preface">
+<title>Join the Publishing Revolution</title>
+++++
 
 Thank you for your interest in Atlas! Atlas is a wiki-like authoring platform for creating books easily. Some of the features of Atlas are as follows:
 
