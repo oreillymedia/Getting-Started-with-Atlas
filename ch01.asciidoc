@@ -1,5 +1,3 @@
-= Getting Started with Atlas
-
 == Introduction
 
 Welcome to Atlas! Atlas is a wiki-like authoring platform for creating books easily. Some of the features of Atlas are as follows:
@@ -15,7 +13,7 @@ An invitation system::
 Flexible writing options::
 	You can write directly within Atlas, but if writing in a web browser is not for you, no problem. Just use git to clone your book to a local machine and write in the text editor of your choice.
 
-=== How It Works ===
+== How It Works
 
 . Receive an invite from an O'Reilly editor or another author and create an account.
 . Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a page, it gets logged into a git repository, so it's always under version control.
