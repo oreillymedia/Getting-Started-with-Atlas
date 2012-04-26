@@ -1,11 +1,9 @@
-= Getting Started with Atlas
-
 == Introduction
 
 Welcome to Atlas! Atlas is a wiki-like authoring platform for creating books easily. Some of the features of Atlas are as follows:
 
 Simple markup::
-    Atlas supports http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] and http://daringfireball.net/projects/markdown/[Markdown]. Projects written in 
+    Atlas supports http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] and, for simpler projects, http://daringfireball.net/projects/markdown/[Markdown]. 
 Git backend::
 	If you have a book, you have a http://git-scm.com/[git] repository and all of the power and convenience that comes with using git version control. 
 Easy book and ebook builds::
@@ -15,10 +13,12 @@ An invitation system::
 Flexible writing options::
 	You can write directly within Atlas, but if writing in a web browser is not for you, no problem. Just use git to clone your book to a local machine and write in the text editor of your choice.
 
-=== How It Works ===
+=== How It Works
 
 . Receive an invite from an O'Reilly editor or another author and create an account.
-. Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a page, it gets logged into a git repository, so it's always under version control.
+. Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a file, it gets logged into a git repository, so it's always under version control.
 . When you're ready, build your book. Atlas interfaces with O'Reilly's publishing toolchain, converting the AsciiDoc to DocBook XML and then to the various ebook formats.  
 
 Why bother with this, you ask?  Mostly, we're trying to create a more appealing process that will get you writing as quickly as possible. Atlas removes the complexities of the publishing process, letting you focus on the what you want to say.
+
+
