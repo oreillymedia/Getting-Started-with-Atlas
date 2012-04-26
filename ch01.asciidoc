@@ -1,4 +1,4 @@
-== Introduction
+=== Introduction
 
 Welcome to Atlas! Atlas is a wiki-like authoring platform for creating books easily. Some of the features of Atlas are as follows:
 
