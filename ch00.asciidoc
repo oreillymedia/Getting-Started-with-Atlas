@@ -1,7 +1,6 @@
-++++
-<preface>
-<title>Join the Publishing Revolution</title>
-++++
+.Join the Publishing Revolution
+== Preface
+
 Thank you for your interest in Atlas! Atlas is a wiki-like authoring platform for creating books easily. Some of the features of Atlas are as follows:
 
 Simple markup::
@@ -29,7 +28,4 @@ Atlas is still in its early development stages, and you can play a role in deter
 * Provide feedback. Atlas is an exciting tool, but it has a long way to go and we need to hear from you to take it to the next level. If you're not able or willing to provide feedback, Atlas might not be right for you at this time.
 * Post the finished book to a publicly readable GitHub repo. At O'Reilly, we're excited by the prospect of your book being a living, breathing thing that continues to thrive after we publish it. By posting your book on GitHub, you expose it a wider audience and you create opportunities that were, before now, unthinkable in publishing. Talk to us more about how we can make this work for you.  
 
-If the above sounds good to you, then you're the perfect candidate to work in Atlas. We're eager to help you get started. Let's revolutionize publishing together! 
-++++
-</preface>
-++++
+If the above sounds good to you, then you're the perfect candidate to work in Atlas. We're eager to help you get started. Let's revolutionize publishing together!
