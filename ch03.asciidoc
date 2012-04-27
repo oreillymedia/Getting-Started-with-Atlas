@@ -28,6 +28,15 @@ Third-Level Section Title (Underlined Style)
 And some more here.
 
 
+Finally, keep in mind that there may be situations where it's hard to
+get Asciidoc to format something the way you want. Sometimes there's a
+trick to get around it; sometimes it's better to use a passthrough
+block to embed a bit of DocBook; and sometimes there may be a
+different formatting approach that will mesh better with our
+production systems. If you need to do something not illustrated in
+this chapter, please ask mailto:toolsreq@oreilly.com[]...
+
+
 Using inlines in asciidoc can be tricky:
 
 * Delimiters may not be interpreted as intended if they don't abut

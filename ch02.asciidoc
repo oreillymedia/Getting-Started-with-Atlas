@@ -1,15 +1,18 @@
 [[chapid_2]]
 == AsciiDoc 101
 
-http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing tools, including Atlas. It's similar to wiki markup -- if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently. 
+http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing tools, including Atlas. It's similar to wiki markup--if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently. 
 
 You can create and edit AsciiDoc in any text editor, and then add it to Atlas by either pasting it into the wiki interface or using git. If you're on Windows, you can use http://notepad-plus-plus.org/[Notepad++] or any other text editor. If you're on a Mac, you can use TextEdit, http://macromates.com/[TextMate] (which you can pair with an https://github.com/zuckschwerdt/asciidoc.tmbundle[AsciiDoc bundle]), http://www.barebones.com/products/textwrangler/[TextWrangler], or any of a number of choices. Or maybe you prefer old school vi or Emacs. That's okay, too. The important thing is that you use the AsciiDoc markup.
 
-This file illustrates some of the most common elements used in writing technical documentation.
+This chapter illustrates some of the most common elements used in writing technical documentation.
 
 .Use the Source, Luke
 [WARNING]
+====
 If you're viewing this document as a PDF, EPUB, or Mobi, you're seeing the _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself. Since this chapter is intended as an introduction to the markup, you should view the source, available on GitHub.
+====
+
 ++++
 <remark>Need to figure out where to put the source. On Github? Somewhere else? Okay to make it available to the public?</remark>
 ++++
@@ -27,9 +30,9 @@ This one designates AsciiDoc level 4 (DocBook +<sect3>+).
 [[INLINES]]
 === Inline Elements
 
-Here's some some _italic_, +monospaced+ (aka "constant-width" or "CW"), *bold*, *+CW bold+*, ^super^, and ~sub~ text. 
+Here's some some _italic_, `monospaced` (aka "constant-width" or "CW"), *bold*, *+CW bold+*, ^super^, and ~sub~ text. 
 
-Backticks can also be used for literal (CW) text, for example: `ls -al`
+Plus signs can also be used for literal (CW) text, for example: +ls -al+
 
 Standard O'Reilly font conventions are as follows:
 
