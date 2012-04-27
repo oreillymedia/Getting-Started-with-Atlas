@@ -2,6 +2,85 @@
 == Advanced AsciiDoc
 This is another chapter, with some more esoteric/experimental things...
 
+.Underlined vs. Delimited
+[NOTE]
+====
+Section titles can be in either of two formats: "underlined" or delimited.
+
+Note that the levels described in the
+http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide]
+can be confusing: in asciidoc, the document (book) is considered level
+0; generally a chapter will be at asciidoc level 1 (unless you're
+dividing the book into parts), and sections within chapters start at
+asciidoc level 3 (which is equivalent to DocBook +<sect1>+).
+====
+
+Top-Level Section Title (Underlined Style)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Narrative text here.
+
+Second-Level Section Title (Underlined Style)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+More text here.
+
+Third-Level Section Title (Underlined Style)
+++++++++++++++++++++++++++++++++++++++++++++
+And some more here.
+
+
+Using inlines in asciidoc can be tricky:
+
+* Delimiters may not be interpreted as intended if they don't abut
+whitespace on both sides; the fix for this is to double them up, as
+explained under
+http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and
+Unconstrained Quotes''] in the AsciiDoc User Guide.  For example,
+compare how these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
+
+* Attempting to nest inlines within each other may result in invalid
+DocBook (because the content model of one may not include the
+other). For example, *+foo+* requires the asterisk (*) pair outside
+and the plus-symbol (+) pair inside.  If you try the other way around,
+the build will fail and you'll find a message like this in [role =
+"filename"]_pdf/.dcpsgen.buildlog_: 
+----
+Element emphasis is not declared in literal list of possible children
+----
+* For more precise semantics, you can always use ``passthroughs'' to
+  embed DocBook markup as is,
+  e.g. pass:[<replaceable>foo</replaceable>],
+  pass:[<userinput>foo</userinput>], and
+  pass:[<userinput><replaceable>foo</replaceable></userinput>] are
+  fairly common in O'Reilly books, rendered as CWI, CWB, and CWBI,
+  respectively (constant-width with italic, bold, and bold+italic).
+
+For generic emphasis, you can also surround a string with single,
+straight quotation marks (apostrophes): i.e., 'this' is equivalent to
+_that_. As an enhancement for finer-tuned semantic distinctions
+downstream, the ORM config supports the following variants, via 
+`@role` attributes:
+
+* to indicate a filename or path, use [role="filename"]'/path/to/file.ext' or [role="filename"]_/path/to/file.ext_
+* for a book title, use [role="citetitle"]'This Book Needs No Title' or [role="citetitle"]_This Book Needs No Title_
+
+To get curly quotes you can use asciidoc's mechanism for `singles' and
+``doubles'' (or you can always use Unicode like so: &#x201C;quote
+me&#x201D;). Note that it's also fine to leave straight quotes in
+running text; part of our intake process curls quotes in body, while
+leaving them unchanged in literal and code contexts.
+
+Subscripts and superscripts work like so: H~2~O and 2^5^ = 32 (but if
+you're doing math, you'd probably want to italicize the variables,
+like so: _x_^2^ + _y_^2^ = _z_^2^).
+
+If using footnotes, please place the macro footnote:[This is a standard
+footnote.] directly after the text, with no space between (otherwise
+you'll introduce extra space footnote:[This one has extraneous space
+before the in-text mark (although the footnote itself is fine).]
+before the in-text mark); footnotes at the end of a sentence belong
+after the period.footnote:[If your footnote text includes +++[square
+brackets]+++, you can escape them with a passthrough macro.]
+
 ++++
 <remark>Go back to the first chapter for general asciidoc markup demo; below are some more esoteric/experimental things...</remark>
 ++++

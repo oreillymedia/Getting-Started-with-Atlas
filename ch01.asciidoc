@@ -1,7 +1,7 @@
 [[chapid_1]]
 == Join the Publishing Revolution
 
-Thank you for your interest in Atlas! Atlas is a wiki-like authoring platform for creating books easily. Some of the features of Atlas are as follows:
+Thank you for your interest in Atlas! Atlas is a wiki-like, git-managed authoring platform for creating books easily. Some of the features of Atlas are as follows:
 
 Simple markup::
 	Atlas supports http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] and, for simpler projects, http://daringfireball.net/projects/markdown/[Markdown]. 
@@ -16,17 +16,18 @@ Flexible writing options::
 
 === How It Works
 
-. Receive an invite from an O'Reilly editor or another author and create an account. Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a file, it gets logged into a git repository, so it's always under version control.
-. When you're ready, build your book. Atlas interfaces with O’Reilly’s publishing toolchain and generates EPUB, Mobi, and PDF files for you on the fly. The ebook files look just like those for sale on O'Reilly.com 
+. Receive an invite from an O'Reilly editor or another author and create an account.
+. Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a file, it will be logged into a git repository, so it's always under version control.
+. When you're ready, build your book. Atlas interfaces with O'Reilly's publishing toolchain, generating PDF, EPUB, and Mobi files for you on the fly. The ebook files look just like those for sale on O'Reilly.com. 
 
 Why bother with this, you ask? We're trying to create an appealing authoring process that will get you writing as quickly as possible.
 
 === Start Writing Today
 
-Atlas is still in its early development stages, and you can play a role in determining future development by opting to use the platform as you write your book. If you're willing to use the platform, we ask that you:
+Atlas is still in its early development stages, and you can play a role in determining future development by using the platform to write your book. If you're willing to use Atlas, we ask that you:
 
 * Write in AsciiDoc or DocBook 4.5, which are the preferred formats for Atlas. The system also supports Markdown, but Markdown itself is sometimes not up to the task of representing complex technical content. For simpler projects, however, Markdown works well. Talk to us about what you prefer, and we'll try to make it work.
-* Provide feedback. Atlas is current in alpha testing, and we need to hear from you to take it to the next level. If you're not able or willing to provide feedback, Atlas might not be right for you at this time.
-* Post the finished book to a publicly readable GitHub repo. At O'Reilly, we're excited by the prospect of your book being a living, breathing thing that continues to thrive after we publish it. By posting your book on GitHub, you expose it a wider audience and you create opportunities that were, before now, unthinkable in publishing. Talk to us more about how we can make this work for you. 
+* Provide feedback. Atlas is currently in alpha testing, and we need to hear from you to take the platform to the next level. If you're not able or willing to provide feedback, Atlas might not be right for you at this time.
+* Post the finished book to a public or private GitHub repo. At O'Reilly, we're excited by the prospect of your book being a living, breathing thing that continues to thrive after we publish it. By posting your book on GitHub, you expose it a wider audience and you create opportunities that were, before now, unthinkable in publishing. Talk to us more about how we can make this work for you. 
 
 If the above sounds good to you, then you're the perfect candidate to work in Atlas. We're eager to help you get started. Let's revolutionize publishing together!

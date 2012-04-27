@@ -1,5 +1,13 @@
 [[chapid_5]]
-== Working Locally
+== Write Where You Want
+
+Atlas gives you the option to etc.
+
+=== Working in the Atlas Wiki
+
+
+
+=== Working Locally
 
 One of the cool things about the Gollum wiki is that it's basically just a plain interface on top of a git repository.  This allows a lot of flexibility in using the tool.  For example, suppose you have a long flight and want to edit on the plane.  No problem -- just pull down your changes, do your edits, and then push them back up when you land.  Or, suppose you'd rather just skip the wiki interface entirely and just do everything locally.  That's fine to -- you can just do your edits, but you can push your project to the editing environment to share it with tech reviewers or access O'Reilly's build systems (more on that in a bit).   
 

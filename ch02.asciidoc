@@ -1,48 +1,67 @@
 [[chapid_2]]
 == AsciiDoc 101
 
-http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing process.  It's similar to wiki markup -- if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently. 
+http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing tools, including Atlas. It's similar to wiki markup -- if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently. 
 
-You can create and edit AsciiDoc in any text editor, and then paste it into the wiki to push it into our system. If you're on Windows, you can use Notepad (or anything you want, really). If you're on a Mac, you can use TextEdit, TextMate, or any of a number of choices. The important thing is that you use the AsciiDoc markup.
+You can create and edit AsciiDoc in any text editor, and then add it to Atlas by either pasting it into the wiki interface or using git. If you're on Windows, you can use http://notepad-plus-plus.org/[Notepad++] or any other text editor. If you're on a Mac, you can use TextEdit, http://macromates.com/[TextMate] (which you can pair with an https://github.com/zuckschwerdt/asciidoc.tmbundle[AsciiDoc bundle]), http://www.barebones.com/products/textwrangler/[TextWrangler], or any of a number of choices. Or maybe you prefer old school vi or Emacs. That's okay, too. The important thing is that you use the AsciiDoc markup.
 
 This file illustrates some of the most common elements used in writing technical documentation.
 
-[NOTE]
-====
-Section titles can be in either of two formats: "underlined" or delimited.
+.Use the Source, Luke
+[WARNING]
+If you're viewing this document as a PDF, EPUB, or Mobi, you're seeing the _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself. Since this chapter is intended as an introduction to the markup, you should view the source, available on GitHub.
+++++
+<remark>Need to figure out where to put the source. On Github? Somewhere else? Okay to make it available to the public?</remark>
+++++
 
-Note that the levels described in the
-http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide]
-can be confusing: in asciidoc, the document (book) is considered level
-0; generally a chapter will be at asciidoc level 1 (unless you're
-dividing the book into parts), and sections within chapters start at
-asciidoc level 3 (which is equivalent to DocBook +<sect1>+).
-====
-
-Top-Level Section Title (Underlined Style)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Narrative text here.
-
-Second-Level Section Title (Underlined Style)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-More text here.
-
-Third-Level Section Title (Underlined Style)
-++++++++++++++++++++++++++++++++++++++++++++
-And some more here.
-
-[[ALT1]]
-=== Top-Level Section (Delimited Style) ===
+[[SECTION_ID]]
+=== Top-Level Section
 This one designates asciidoc level 2 (DocBook +<sect1>+).
 
-[[ALT-SUB1]]
 ==== Second-Level Section (Delimited Style)
 This one designates asciidoc level 3 (DocBook +<sect2>+).
 Also note that you can have the delimiter just on the left as in this one, or on both sides as in <<ALT1>>.
 
-[[ALT-SUBSUB1]] 
 ===== Third-Level Section (Delimited Style)
 This one designates asciidoc level 4 (DocBook +<sect3>+).
+
+[[INLINES]]
+=== Inline Elements
+
+Here's some some _italic_, +monospaced+ (aka "constant-width" or "CW"), *bold*, *+CW bold+*, ^super^, and ~sub~ text. 
+
+Backticks can also be used for literal (CW) text, for example: `ls -al`
+
+Standard O'Reilly font conventions are as follows:
+
+++++
+<remark>DocBook passthrough, for comparison:</remark>
+<literallayout>
+  <emphasis>emphasis (italic)</emphasis>
+  <literal>literal (constant width)</literal>
+  <userinput>userinput (constant-width bold)</userinput>
+  <replaceable>replaceable (constant-width italic)</replaceable>
+  <userinput><replaceable>userinput+replaceable (constant-width bold+italic)</replaceable></userinput>
+</literallayout>
+++++
+
+Italic::
+  _Ital_ indicates new terms, URLs, email addresses, filenames, and file extensions. 
++Constant width+::
+  +CW+ is used for program listings, as well as within paragraphs to refer to program elements
+  such as variable or function names, databases, data types, environment variables,
+  statements, and keywords.
+*+Constant width bold+*::
+  *+CWB+* shows commands or other text that should be typed literally by the user.
+pass:[<replaceable>Constant width italic</replaceable>]::
+  pass:[<replaceable>CWI</replaceable>] shows text that should be replaced with user-supplied values or by values determined
+  by context.
+
+[WARNING]
+====
+Please do not use AsciiDoc's mechanisms for forcing linebreaks, page
+breaks, or "ruler" lines, as these don't mesh with Atlas's book building tools.
+====
 
 [[XREFS]]
 === Cross-References
@@ -56,14 +75,13 @@ To generate a cross-reference, use this syntax:
 where `ID` is the anchor or BlockID of the target, which you place in
 double square-brackets above that block.
 
-The O'Reilly build system will transform this into a standard +<xref>+
+The Atlas build system will transform this into a standard cross-reference (or +<xref>+)
 for you: the rendered text will adjust automatically if you later move
 the target or reword its title, and it will work as a hyperlink in
 online versions. Any time you refer to another component of your book,
 please be sure to use xref markup, not hardcoded text.
 
-<<XREF_TABLE>> shows the standard text generated from xrefs in
-PDF builds.
+<<XREF_TABLE>> shows the standard text generated from xrefs in PDF builds.
 
 [[XREF_TABLE]]
 .Standard Cross-Reference Formats
@@ -100,126 +118,6 @@ Please do not use asciidoc's optional `xreflabel` and `caption`
 features on anchors and xrefs, as these interfere with standard
 generated xref formats.
 ====
-
-[[INLINES]]
-=== Inline Elements
-
-Here's some some _italic_ and some +monospaced+ (aka "constant-width"
-or "CW") text. 
-
-Backticks can also be used for literal (CW) text, for example: `ls -al`
-
-Using inlines in asciidoc can be tricky:
-
-* Delimiters may not be interpreted as intended if they don't abut
-whitespace on both sides; the fix for this is to double them up, as
-explained under
-http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and
-Unconstrained Quotes''] in the AsciiDoc User Guide.  For example,
-compare how these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
-
-* Attempting to nest inlines within each other may result in invalid
-DocBook (because the content model of one may not include the
-other). For example, *+foo+* requires the asterisk (*) pair outside
-and the plus-symbol (+) pair inside.  If you try the other way around,
-the build will fail and you'll find a message like this in [role =
-"filename"]_pdf/.dcpsgen.buildlog_: 
-----
-Element emphasis is not declared in literal list of possible children
-----
-* For more precise semantics, you can always use ``passthroughs'' to
-  embed DocBook markup as is,
-  e.g. pass:[<replaceable>foo</replaceable>],
-  pass:[<userinput>foo</userinput>], and
-  pass:[<userinput><replaceable>foo</replaceable></userinput>] are
-  fairly common in O'Reilly books, rendered as CWI, CWB, and CWBI,
-  respectively (constant-width with italic, bold, and bold+italic).
-
-[NOTE]
-====
-While it's easy to apply *bold* and it's one of our standard
-conventions in code (to denote *+user input+*), please note that it's
-rarely used for body text in O'Reilly books (for general emphasis, our
-style is to use _italics_). Please discuss with your editor if you
-have questions about whether or when boldface is appropriate.
-====
-
-For generic emphasis, you can also surround a string with single,
-straight quotation marks (apostrophes): i.e., 'this' is equivalent to
-_that_. As an enhancement for finer-tuned semantic distinctions
-downstream, the ORM config supports the following variants, via 
-`@role` attributes:
-
-* to indicate a filename or path, use [role="filename"]'/path/to/file.ext' or [role="filename"]_/path/to/file.ext_
-* for a book title, use [role="citetitle"]'This Book Needs No Title' or [role="citetitle"]_This Book Needs No Title_
-
-To get curly quotes you can use asciidoc's mechanism for `singles' and
-``doubles'' (or you can always use Unicode like so: &#x201C;quote
-me&#x201D;). Note that it's also fine to leave straight quotes in
-running text; part of our intake process curls quotes in body, while
-leaving them unchanged in literal and code contexts.
-
-Subscripts and superscripts work like so: H~2~O and 2^5^ = 32 (but if
-you're doing math, you'd probably want to italicize the variables,
-like so: _x_^2^ + _y_^2^ = _z_^2^). For more on math see !!ORMTODO!!.
-
-Standard O'Reilly font conventions are as follows:
-
-++++
-<remark>DocBook passthrough, for comparison:</remark>
-<literallayout>
-  <emphasis>emphasis (italic)</emphasis>
-  <literal>literal (constant width)</literal>
-  <userinput>userinput (constant-width bold)</userinput>
-  <replaceable>replaceable (constant-width italic)</replaceable>
-  <userinput><replaceable>userinput+replaceable (constant-width bold+italic)</replaceable></userinput>
-</literallayout>
-++++
-
-These are usually explained in a +<variablelist>+ (asciidoc's
-``labeled list'') in the preface, but note that expressing inlines in
-the ``item label'' (+<term>+) as opposed to the text description
-(+<listitem>+) can be tricky, as shown in the first item below. If you
-have questions about how to do these, please ask...
-
-// ORMTODO: Fix/explain first below (override for <term role=plain>)
-
-++++
-<variablelist>
-  <varlistentry>
-    <term role="plain">Plain</term>
-      <listitem><para>Body text.</para></listitem>
-  </varlistentry>
-</variablelist>
-++++
-        
-Italic::
-  _Ital_ indicates new terms, URLs, email addresses, filenames, and file extensions. 
-+Constant width+::
-  +CW+ is used for program listings, as well as within paragraphs to refer to program elements
-  such as variable or function names, databases, data types, environment variables,
-  statements, and keywords.
-*+Constant width bold+*::
-  *+CWB+* shows commands or other text that should be typed literally by the user.
-pass:[<replaceable>Constant width italic</replaceable>]::
-  pass:[<replaceable>CWI</replaceable>] shows text that should be replaced with user-supplied values or by values determined
-  by context.
-
-[WARNING]
-====
-Please do not use asciidoc's mechanisms for forcing linebreaks, page
-breaks, or "ruler" lines, as these don't mesh with our production
-process. (Your production editor will handle linebreaks and
-pagebreaking at appropriate stages of the production process.)
-====
-
-If using footnotes, please place the macrofootnote:[This is a standard
-footnote.] directly after the text, with no space between (otherwise
-you'll introduce extra space footnote:[This one has extraneous space
-before the in-text mark (although the footnote itself is fine).]
-before the in-text mark); footnotes at the end of a sentence belong
-after the period.footnote:[If your footnote text includes +++[square
-brackets]+++, you can escape them with a passthrough macro.]
 
 [[BLOCKS]]
 === Block Elements
