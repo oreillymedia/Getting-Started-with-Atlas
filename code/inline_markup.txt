@@ -1,0 +1,39 @@
+++++
+<programlisting>int GetCustLastOrder(DatabaseHandle db, string customer_id, Order* order) {
+  string customer_name;
+  LOOKUP_OR_RETURN("names", customer_id, &amp;customer_name);  <co id="escape-src" linkends="escapes-co"/>
+  order-&gt;set_customer_name(customer_name);  
+
+  string <replaceable>last_order_id</replaceable>;  <co id="inline1-src" linkends="inline1-co"/>
+  LOOKUP_OR_RETURN("recent_orders", customer_id, &amp;last_order_id); <lineannotation>lineannotation...</lineannotation>
+
+  string <userinput>order_data</userinput>; <co id="inline2-src" linkends="inline2-co"/>
+  LOOKUP_OR_RETURN("orders", last_order_id, &amp;order_data);
+  order-&gt;set_order_data(order_data);
+
+  return SUCCESS;
+}
+
+#define LOOKUP_OR_RETURN(table_id, row_id, data_ptr) { \
+  Table table; \
+  int err = OpenTable(db, table_id, &amp;table);   \
+  if (err != SUCCESS) return err;   \
+  err = RetrieveRow(db, table, row_id, data_ptr); \
+  if (err != SUCCESS) return err; \
+}</programlisting>
+
+<calloutlist>
+  <callout id="escapes-co" arearefs="escape-src">
+    <para>When using this approach to include code from an external
+    file, you'll have to escape special XML characters such as <literal>&amp;</literal>
+    (<markup>&amp;amp;</markup>), <literal>&gt;</literal> (<markup>&amp;gt;</markup>),
+    and <literal>&lt;</literal> (<markup>&amp;gt;</markup>).</para>
+  </callout>
+  <callout id="inline1-co" arearefs="inline1-src">
+    <para>Inline markup here: <markup>&lt;replaceable&gt;</markup></para>
+  </callout>
+  <callout id="inline2-co" arearefs="inline2-src">
+    <para>Inline markup here: <markup>&lt;userinput&gt;</markup></para>
+  </callout>
+</calloutlist>
+++++
