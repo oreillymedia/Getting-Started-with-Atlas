@@ -14,16 +14,23 @@ If you're viewing this document as a PDF, EPUB, or Mobi, you're seeing the _outp
 <remark>Need to figure out where to put the source. On Github? Somewhere else? Okay to make it available to the public?</remark>
 ++++
 
+.What's Going On, Anyway?
+****
+A general understanding of what is going on under the hood of Atlas will help you make the most of it. One of the primary appeals of AsciiDoc is that it was created to export to http://www.docbook.org/[DocBook XML]. In other words, for each AsciiDoc markup syntax, there is an equivalent DocBook element. When you build your book (as described in <<chapid_4>>), Atlas converts the AsciiDoc to DocBook and then generates the book formats from that DocBook. This series of magical transformations is part of what makes writing in Atlas fun, but it also requires you to use the correct AsciiDoc markup for things to work right.
+
+If you get a build error, the most likely cause is an AsciiDoc markup error. Atlas provides error message logs to help you troubleshoot and fix syntax errors. Read more about building and debugging in <<chapid_4>>.       
+****
+
 [[SECTION_ID]]
 === Top-Level Section
-This one designates asciidoc level 2 (DocBook +<sect1>+).
+This one designates AsciiDoc level 2 (DocBook +<sect1>+).
 
 ==== Second-Level Section (Delimited Style)
-This one designates asciidoc level 3 (DocBook +<sect2>+).
+This one designates AsciiDoc level 3 (DocBook +<sect2>+).
 Also note that you can have the delimiter just on the left as in this one, or on both sides as in <<ALT1>>.
 
 ===== Third-Level Section (Delimited Style)
-This one designates asciidoc level 4 (DocBook +<sect3>+).
+This one designates AsciiDoc level 4 (DocBook +<sect3>+).
 
 [[INLINES]]
 === Inline Elements
@@ -113,8 +120,7 @@ generated from this source:
 
 [WARNING]
 ====
-
-Please do not use asciidoc's optional `xreflabel` and `caption`
+Please do not use AsciiDoc's optional `xreflabel` and `caption`
 features on anchors and xrefs, as these interfere with standard
 generated xref formats.
 ====
@@ -139,6 +145,127 @@ content belongs in an sidebar vs. admonition vs. quote or other
 element, please consult with your editor.
 ****
 
+==== Admonitions (Notes and Warnings)
+
+Here are some admonitions:
+
+[NOTE]
+===============================
+O'Reilly Animal books traditionally make no distinction between the
+DocBook +<note>+, +<tip>+, and +<important>+ elements.
+===============================
+
+.Titled Tip
+[TIP]
+===============================
+We do support optional titles in admonitions (in most series).
+===============================
+
+.Titled Warning
+[WARNING]
+===============================
+O'Reilly Animal books traditionally make no distinction between the
+DocBook +<warning>+ and +<caution>+ elements.
+===============================
+
+[CAUTION]
+===============================
+O'Reilly Animal books traditionally make no distinction between the
+DocBook +<warning>+ and +<caution>+ elements.
+===============================
+
+==== Figures and Other Images
+
+Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike other block elements, figures "float" by default. While AsciiDoc permits you to specify http://www.methods.co.nz/asciidoc/userguide.html#X9[various image-related attributes] for scaling/alignment/etc., generally these sorts of adjustments are not necessary.
+
+[[FIG1]]
+.A Figure
+image::images/tiger.png[]
+
+However, if you prefer that your image not float, you can deactivate the float, like so:
+
+----
+image::images/myimage.png[float="none"]
+----
+
+Or you may prefer an image with no caption, like so:
+
+image::images/screenshot.png[]
+
+==== Lists
+
+===== Labeled (aka Variable or Term-Definition) Lists
+
+Term 1::
+  Definition/description
+Term 2::
+  Something else
+
+===== Bulleted (aka Itemized) Lists
+
+* lions
+* tigers
+** sabre-toothed
+** teapotted
+* bears
+
+===== Ordered (aka Numbered) Lists
+
+. Preparation
+. Assembly
+.. Measure 
+.. Combine
+.. Bake
+. Applause
+
+==== Tables
+
+O'Reilly table styles vary slightly between series; those styles are
+supplied by our stylesheets. Please don't use asciidoc markup to
+change the gridlines and so forth, as such alterations may be stripped
+out once the book moves into production. Similarly, don't bother
+fine-tuning things like column widths, as that will be handled by your
+production editor for the print version (and may not carry over for
+downstream channels). If your material warrants something other than
+the default style as shown in <<STD_TABLE>>, please consult with your
+editor and be sure to communicate what you intend when the book is
+submitted for production.
+
+[[STD_TABLE]]
+.A Table
+[options="header"]
+|=======
+|P|Q|P^Q
+|T|T|T
+|T|F|F
+|F|T|F
+|F|F|F
+|=======
+
+==== Other Block Elements
+
+++++
+<remark>Use a passthrough block like this for notes to production staff</remark>
+++++
+
+// NB: asciidoc comments do _not_ get passed to DocBook output by 
+// default. If want to add a note for production staff, use a 
+// passthrough block to embed it in a <remark> element instead. 
+// By default, this will be preserved in the generated DocBook
+// (book.dcpsgen.xml) but will not render in your 
+// PDF; if you would like <remark>s to be visible in your drafts PDFs 
+// for convenience, send a request to toolsreq@oreilly.com and we'll 
+// toggle a switch that will render them in red (as shown in the 
+// pdf/demo_with_commentary.pdf version of this doc).
+
+Here's a +<quote>+ attributed to Benjamin Disraeli (by Wilfred
+Meynell, according to Frank Muir):
+
+[quote]
+____
+Many thanks; I shall lose no time in reading it.
+____
+
 ==== Code ("Listing" Blocks and Examples)
 
 Here's a code block:
@@ -146,27 +273,11 @@ Here's a code block:
 ----
 Hello world!
 
-Standard line length for code is 85 in an "Animal" book:
-
-0        10        20        30        40        50        60        70        80
-1234567890123456789012345678901234567890123456789012345678901234567890123456789012345
+0        10        20        30        40
+1234567890123456789012345678901234567890
 ----
 
-Anything longer than the above will spill into the margin and have to be broken 
-before the book goes to print. It's most efficient for you to keep an eye on code 
-lengths and adjust linebreaks yourself before submitting the book for production.
-
-Note that the maximum length within a formal example is slightly
-longer (as shown in <<EX1>>); within other elements such as notes and
-sidebars, it will be slightly smaller. (If your book is a "small
-Animal" (6x9) or a different series, its width constraints will be
-different; more extensive examples can be found at
-https://prod.oreilly.com/external/tools/docbook/prod/trunk/samples/code_lengths/
-but please check with your editor or mailto:toolsreq@oreilly.com[] if you are
-unsure which applies to your book.)
-
-Contrast the code block above with <<EX1>>, which is a _formal_ code
-example (titled and cross-referenced).
+Contrast the code block above with <<EX1>>, which is a _formal_ code example (titled and cross-referenced).
 
 [[EX1]]
 .An Example
@@ -174,10 +285,8 @@ example (titled and cross-referenced).
 ----
 Hello world!
 
-Note that the line length is a bit longer here (90 in an Animal):
-
-0        10        20        30        40        50        60        70        80        9
-123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+0        10        20        30        40
+1234567890123456789012345678901234567890
 ----
 ====
 
@@ -190,8 +299,10 @@ and _++<replaceable> (CW+italic)++_ or if you want to include line
 annotations--you can do so by using a passthrough block, like so:
 
 ++++
-<screen>hostname $ <userinput>date</userinput>
-Sun Apr  1 12:34:56 GMT 1984</screen>
+<screen>
+hostname $ <userinput>date</userinput>
+Sun Apr  1 12:34:56 GMT 1984
+</screen>
 ++++
 
 or this:
@@ -204,17 +315,9 @@ with open("<replaceable>hello.txt</replaceable>") as f:
         print line</programlisting>
 ++++
 
-Notes:
+All whitespace in ++<programlisting>++s and ++<screen>++s is significant, including leading or trailing blank lines, as shown below
 
-* code blocks in asciidoc convert to `<screen>` by default; when using
-  a passthrough block, you can choose whether to make it `<screen>` or
-  `<programlisting>` (they'll render the same in the PDF).
-
-* all whitespace in ++<programlisting>++s and ++<screen>++s is
-  significant, including leading or trailing blank lines, as shown below
-
-To avoid extra vertical space in layout when using passthrough blocks
-for code, do them like this:
+To avoid extra vertical space in layout when using passthrough blocks for code, do them like this:
 
 ++++
 <programlisting>class C:
@@ -312,7 +415,7 @@ Your Code in DocBook'' in our DocBook authoring docs].
 
 ===== Syntax Highlighting
 
-O'Reilly's book-building toolchain now supports syntax highlighting via http://pygments.org/[Pygments]. All you need to do is add +[source]+ above each code block that you want to be syntax-highlighted, and specify the language of the code. For example, the following code:
+The Atlas book-building toolchain now supports syntax highlighting via http://pygments.org/[Pygments]. All you need to do is add +[source]+ above each code block that you want to be syntax-highlighted, and specify the language of the code. For example, the following code:
 
 ....
 [source,java]
@@ -345,174 +448,3 @@ Please note the following caveats:
 * The PDF used for print will contain no highlighting.
 
 If you would like to do something in a language that's not supported, please write to us at mailto:toolsreq@oreilly.com[] and we'll try to work with you on incorporating it.
-
-==== Admonitions (Notes and Warnings)
-
-Here are some admonitions:
-
-[NOTE]
-===============================
-O'Reilly Animal books traditionally make no distinction between the
-DocBook +<note>+, +<tip>+, and +<important>+ elements.
-===============================
-
-.Titled Tip
-[TIP]
-===============================
-We do support optional titles in admonitions (in most series).
-===============================
-
-.Titled Warning
-[WARNING]
-===============================
-O'Reilly Animal books traditionally make no distinction between the
-DocBook +<warning>+ and +<caution>+ elements.
-===============================
-
-[CAUTION]
-===============================
-O'Reilly Animal books traditionally make no distinction between the
-DocBook +<warning>+ and +<caution>+ elements.
-===============================
-
-==== Figures and Other Images
-
-Somewhere nearby is <<FIG1>> (a figure, titled and
-cross-referenced). Unlike other block elements, figures "float" by
-default (after the book enters production, your production editor will
-adjust their placement as needed). While asciidoc permits you to
-specify various image-related attributes for
-scaling/alignment/etc.,footnote:[http://www.methods.co.nz/asciidoc/userguide.html#X9]
-generally these sorts of adjustments are not necessary for production
-(and some of them are only for its HTML output, not DocBook).  As part
-of the production process, your images will be processed by a
-professional illustrator to ensure their size, resolution, color, and
-fonts are appropriate for the printed page as well as online channels.
-
-However, if you find that any of your images overflow the PDF page as
-is, then you can you can force-scale them by setting a +width+
-attribute as shown in the markup for <<FIG2>>; note that this is
-strictly for your own convenience while reviewing the PDFs; it's not
-necessary for production. (When the manuscript is submitted for
-production, our "intake" process will strip out any tweaks you've made
-to image-related attributes, instead using standardized markup along
-with reprocessed versions of your images prepared by illustration
-staff.)
-
-[NOTE]
-====
-For general guidelines on preparing illustrations--along with how and
-when to get in touch with our illustration staff--see
-https://prod.oreilly.com/external/illustrations/. Thanks for your
-attention to these details.
-====
-
-[[FIG1]]
-.A Figure
-image::images/tiger.png[]
-
-[[FIG2]]
-.Another Figure
-image::images/screenshot.png[]
-
-.When Does an Image Not Belong in a Figure?
-****
-O'Reilly books generally use informal figures (standalone images
-without captions) sparingly; please consult first with your editor.
-
-Inline images (such as icons) are appropriate on occasion, but may
-cause problems downstream, in addition to requiring additional
-processing by illustration staff (for sizing relative to text) and
-manual placement during production (to ensure that they align
-appropriately). If you plan to use inline images, please discuss the
-rationale early on with your editor and the illustration staff, and
-call our attention to them when the book is submitted to production so
-we can handle them properly.
-
-Here's some dummy text around an inline image to demonstrate why these
-can be problematic. Even if image:images/icons/up.png[] were sized
-appropriately relative to the text height in the printed book and PDF,
-that might not work so well for other downstream channels.  
-****
-
-==== Lists
-
-===== Labeled (aka Variable or Term-Definition) Lists
-
-Term 1::
-  Definition/description
-Term 2::
-  Something else
-
-===== Bulleted (aka Itemized) Lists
-
-* lions
-* tigers
-** sabre-toothed
-** teapotted
-* bears
-
-===== Ordered (aka Numbered) Lists
-
-. Preparation
-. Assembly
-.. Measure 
-.. Combine
-.. Bake
-. Applause
-
-==== Tables
-
-O'Reilly table styles vary slightly between series; those styles are
-supplied by our stylesheets. Please don't use asciidoc markup to
-change the gridlines and so forth, as such alterations may be stripped
-out once the book moves into production. Similarly, don't bother
-fine-tuning things like column widths, as that will be handled by your
-production editor for the print version (and may not carry over for
-downstream channels). If your material warrants something other than
-the default style as shown in <<STD_TABLE>>, please consult with your
-editor and be sure to communicate what you intend when the book is
-submitted for production.
-
-[[STD_TABLE]]
-.A Table
-[options="header"]
-|=======
-|P|Q|P^Q
-|T|T|T
-|T|F|F
-|F|T|F
-|F|F|F
-|=======
-
-==== Other Block Elements
-
-++++
-<remark>Use a passthrough block like this for notes to production staff</remark>
-++++
-
-// NB: asciidoc comments do _not_ get passed to DocBook output by 
-// default. If want to add a note for production staff, use a 
-// passthrough block to embed it in a <remark> element instead. 
-// By default, this will be preserved in the generated DocBook
-// (book.dcpsgen.xml) but will not render in your 
-// PDF; if you would like <remark>s to be visible in your drafts PDFs 
-// for convenience, send a request to toolsreq@oreilly.com and we'll 
-// toggle a switch that will render them in red (as shown in the 
-// pdf/demo_with_commentary.pdf version of this doc).
-
-Here's a +<quote>+ attributed to Benjamin Disraeli (by Wilfred
-Meynell, according to Frank Muir):
-
-[quote]
-____
-Many thanks; I shall lose no time in reading it.
-____
-
-Finally, keep in mind that there may be situations where it's hard to
-get asciidoc to format something the way you want. Sometimes there's a
-trick to get around it; sometimes it's better to use a passthrough
-block to embed a bit of DocBook; and sometimes there may be a
-different formatting approach that will mesh better with our
-production systems. If you need to do something not illustrated in
-this chapter, please ask mailto:toolsreq@oreilly.com[]...

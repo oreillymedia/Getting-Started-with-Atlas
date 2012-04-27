@@ -81,6 +81,28 @@ before the in-text mark); footnotes at the end of a sentence belong
 after the period.footnote:[If your footnote text includes +++[square
 brackets]+++, you can escape them with a passthrough macro.]
 
+.When Does an Image Not Belong in a Figure?
+****
+O'Reilly books generally use informal figures (standalone images
+without captions) sparingly; please consult first with your editor.
+
+Inline images (such as icons) are appropriate on occasion, but may
+cause problems downstream, in addition to requiring additional
+processing by illustration staff (for sizing relative to text) and
+manual placement during production (to ensure that they align
+appropriately). If you plan to use inline images, please discuss the
+rationale early on with your editor and the illustration staff, and
+call our attention to them when the book is submitted to production so
+we can handle them properly.
+
+Here's some dummy text around an inline image to demonstrate why these
+can be problematic. Even if image:images/icons/up.png[] were sized
+appropriately relative to the text height in the printed book and PDF,
+that might not work so well for other downstream channels.  
+****
+
+
+
 ++++
 <remark>Go back to the first chapter for general asciidoc markup demo; below are some more esoteric/experimental things...</remark>
 ++++
