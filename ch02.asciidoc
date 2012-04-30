@@ -157,7 +157,7 @@ Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike oth
 
 [[FIG1]]
 .A Figure
-image::images/tiger.png[]
+image::images/tiger.png[float="none"]
 
 However, if you prefer that your image not float, you can deactivate the float, like so:
 
