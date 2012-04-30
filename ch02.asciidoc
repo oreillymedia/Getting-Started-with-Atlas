@@ -157,7 +157,7 @@ Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike oth
 
 [[FIG1]]
 .A Figure
-image::images/tiger.png
+image::images/tiger.png[]
 
 Or you may prefer an image with no caption, like so:
 
