@@ -25,7 +25,8 @@ technical documentation.
 
 .Use the Source, Luke
 [WARNING]
-==== If you're viewing this document as a PDF,
+====
+If you're viewing this document as a PDF,
 EPUB, or Mobi, you're seeing the _output_ from the AsciiDoc source, rather
 than the AsciiDoc markup itself. Since this chapter is intended as an
 introduction to the markup, you should view the source, available on GitHub.

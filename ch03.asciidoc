@@ -6,7 +6,7 @@ This is another chapter, with some more esoteric/experimental things...
 [[passthroughs]]
 === Passthroughs
 
-A section
+<<chapid_2>> makes several to passthroughs, 
 
 === Underlined vs. Delimited
 
