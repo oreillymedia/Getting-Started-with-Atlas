@@ -1,13 +1,10 @@
 [[chapid_4]]
 == Building and Debugging
 
-To produce an EPUB or PDF, you must create a page that assembles the individual pieces of content into a final document.  You can think of this page as a sort of master header file that lists all the other elements that should be included in the final document.   These files should:
-
-
-[NOTE]
-====
-The "All pages" button is a quick way to get list of all the pages in your project.  You can use cut-and-paste to quickly create an \_INDEX file, and then put them in the correct order.  
-====
+To produce an EPUB or PDF, you must create a page that assembles the
+individual pieces of content into a final document. You can think of this page
+as a sort of master header file that lists all the other elements that should
+be included in the final document. These files should:
 
 === Debugging Errors
 

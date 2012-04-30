@@ -6,7 +6,33 @@ This is another chapter, with some more esoteric/experimental things...
 [[passthroughs]]
 === Passthroughs
 
-<<chapid_2>> makes several to passthroughs, 
+<<chapid_2>> makes several references to "passthroughs." You can use a DocBook passthrough when you've got an especially complex piece of markup or you're trying to do something that AsciiDoc doesn't support. AsciiDoc supports two types of passthroughs:
+
+Inline passthroughs::
+  For inlines, you can indicate a passthrough at any time by like this:
+  ++pass:[passthrough goes here]++. See <<challenging_inlines>> for examples
+  of inline passthroughs.
+Block passthroughs::
+  You can also pass though a block of DocBook XML. For example, if I wanted an
+  image not to float, I could use a passthrough to prevent the float, like so:
+
+....
+----
+<figure id="FIG1" float="none">
+<title>A Figure</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/tiger.png"/>
+  </imageobject>
+</mediaobject>
+</figure>
+----
+....
+
+[NOTE]
+=========
+Using the block passthrough method described above, you could potentially passthrough an entire chapter of DocBook. 
+=========
 
 === Underlined vs. Delimited
 
@@ -26,13 +52,22 @@ Third-Level Section Title (Underlined Style)
 ++++++++++++++++++++++++++++++++++++++++++++
 And some more here.
 
+[[challenging_inlines]]
 === Challenging Inlines
 
 Using inlines in AsciiDoc can be tricky:
 
-* Delimiters may not be interpreted as intended if they don't abut whitespace on both sides; the fix for this is to double them up, as explained under http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and Unconstrained Quotes''] in the AsciiDoc User Guide. For example, compare how these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
+* Delimiters may not be interpreted as intended if they don't abut whitespace
+  on both sides; the fix for this is to double them up, as explained under
+  http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and
+  Unconstrained Quotes''] in the AsciiDoc User Guide. For example, compare how
+  these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
 
-* Attempting to nest inlines within each other may result in invalid DocBook (because the content model of one may not include the other). For example, *+foo+* requires the asterisk (*) pair outside and the plus-symbol (+) pair inside. If you try the other way around, the build will likely fail with this error message: 
+* Attempting to nest inlines within each other may result in invalid DocBook
+  (because the content model of one may not include the other). For example,
+  *+foo+* requires the asterisk (*) pair outside and the plus-symbol (+) pair
+  inside. If you try the other way around, the build will likely fail with
+  this error message:
 ----
 Element emphasis is not declared in literal list of possible children
 ----
@@ -44,20 +79,19 @@ Element emphasis is not declared in literal list of possible children
   fairly common in O'Reilly books, rendered as CWI, CWB, and CWBI,
   respectively (constant-width with italic, bold, and bold+italic).
 
-For generic emphasis, you can also surround a string with single,
-straight quotation marks (apostrophes): i.e., 'this' is equivalent to
-_that_. As an enhancement for finer-tuned semantic distinctions
-downstream, the ORM config supports the following variants, via 
-`@role` attributes:
+For generic emphasis, you can also surround a string with single, straight
+quotation marks (apostrophes): i.e., 'this' is equivalent to _that_. As an
+enhancement for finer-tuned semantic distinctions downstream, the O'Reilly
+configuration file supports the following variants, via `@role` attributes:
 
-* to indicate a filename or path, use [role="filename"]'/path/to/file.ext' or [role="filename"]_/path/to/file.ext_
-* for a book title, use [role="citetitle"]'This Book Needs No Title' or [role="citetitle"]_This Book Needs No Title_
+* to indicate a filename or path, use [role="filename"]'/path/to/file.ext' or
+  [role="filename"]_/path/to/file.ext_
+* for a book title, use [role="citetitle"]'This Book Needs No Title' or
+  [role="citetitle"]_This Book Needs No Title_
 
-To get curly quotes you can use asciidoc's mechanism for `singles' and
+To get curly quotes you can use AsciiDoc's mechanism for `singles' and
 ``doubles'' (or you can always use Unicode like so: &#x201C;quote
-me&#x201D;). Note that it's also fine to leave straight quotes in
-running text; part of our intake process curls quotes in body, while
-leaving them unchanged in literal and code contexts.
+me&#x201D;).
 
 Subscripts and superscripts work like so: H~2~O and 2^5^ = 32 (but if
 you're doing math, you'd probably want to italicize the variables,
@@ -70,32 +104,6 @@ before the in-text mark (although the footnote itself is fine).]
 before the in-text mark); footnotes at the end of a sentence belong
 after the period.footnote:[If your footnote text includes +++[square
 brackets]+++, you can escape them with a passthrough macro.]
-
-.When Does an Image Not Belong in a Figure?
-****
-O'Reilly books generally use informal figures (standalone images
-without captions) sparingly; please consult first with your editor.
-
-Inline images (such as icons) are appropriate on occasion, but may
-cause problems downstream, in addition to requiring additional
-processing by illustration staff (for sizing relative to text) and
-manual placement during production (to ensure that they align
-appropriately). If you plan to use inline images, please discuss the
-rationale early on with your editor and the illustration staff, and
-call our attention to them when the book is submitted to production so
-we can handle them properly.
-
-Here's some dummy text around an inline image to demonstrate why these
-can be problematic. Even if image:images/icons/up.png[] were sized
-appropriately relative to the text height in the printed book and PDF,
-that might not work so well for other downstream channels.  
-****
-
-
-
-++++
-<remark>Go back to the first chapter for general asciidoc markup demo; below are some more esoteric/experimental things...</remark>
-++++
 
 [[callout-multiples]]
 === Yet More on Code Callouts
@@ -202,6 +210,15 @@ alignment for side-by-side icons.
 ++++
 ====
 
+=== Page Breaking
+
+If you want to insert page breaks into your PDF builds ... TK
+
+
+=== Controlling Line Breaks
+
+TK
+
 === Experiments
 
 ==== Literal Blocks (asciidoc terminology)
@@ -246,11 +263,10 @@ Hold infinity in the palm of your hand,
 And eternity in an hour.
 __________________________________________________
 
-
 Finally, keep in mind that there may be situations where it's hard to
-get Asciidoc to format something the way you want. Sometimes there's a
+get AsciiDoc to format something the way you want. Sometimes there's a
 trick to get around it; sometimes it's better to use a passthrough
 block to embed a bit of DocBook; and sometimes there may be a
 different formatting approach that will mesh better with our
 production systems. If you need to do something not illustrated in
-this chapter, please ask mailto:toolsreq@oreilly.com[]...
+this guide, please check with your editor.

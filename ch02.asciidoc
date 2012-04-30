@@ -26,10 +26,10 @@ technical documentation.
 .Use the Source, Luke
 [WARNING]
 ====
-If you're viewing this document as a PDF,
-EPUB, or Mobi, you're seeing the _output_ from the AsciiDoc source, rather
-than the AsciiDoc markup itself. Since this chapter is intended as an
-introduction to the markup, you should view the source, available on GitHub.
+If you're viewing this document as a PDF, EPUB, or Mobi, you're seeing the
+_output_ from the AsciiDoc source, rather than the AsciiDoc markup itself.
+Since this chapter is intended as an introduction to the markup, you should
+view the source, available on GitHub.
 ====
 
 ++++
@@ -51,7 +51,7 @@ This one designates AsciiDoc level 4 (DocBook +<sect3>+).
 [[INLINES]]
 === Inline Elements
 
-Here's some some _italic_, `monospaced` (aka ``constant-width'' or "CW"),
+Here's some some _italic_, `monospaced` (aka ``constant-width'' or “CW”),
 *bold*, *+CW bold+*, ^super^, and ~sub~ text.
 
 Plus signs can also be used for literal (CW) text, for example: +ls -al+
@@ -272,7 +272,7 @@ In AsciiDoc, there is no built-in mechanism for inline formatting within code.
 If you want to use inline formatting--in particular, for standard O'Reilly
 font conventions such as *+<userinput> (CW+bold)+* and _++<replaceable>
 (CW+italic)++_ or if you want to include line annotations--you can do so by
-using a passthrough block, like so:
+using a passthrough block (see <<passthroughs>> for an explanation of passthroughs), like so:
 
 ++++
 <screen>
@@ -360,8 +360,7 @@ click on the icon in the code to jump to the explanation, and vice versa).
 
 The built-in AsciiDoc mechanism (shown in <<asc_callouts>>) is somewhat more
 limited; for one thing, icons are hyperlinked from text to code, but not vice
-versa. However, you can always use a passthrough block for full functionality,
-as shown in <<bidir_callouts>>.
+versa. However, you can always use a passthrough block (see <<passthroughs>>) for full functionality, as shown in <<bidir_callouts>>.
 
 If you have a need to refer to the same bit of explanatory text from more than
 one line of code, see <<callout-multiples>> (in <<chapid_2>>).
