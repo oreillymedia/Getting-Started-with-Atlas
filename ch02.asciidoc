@@ -157,13 +157,7 @@ Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike oth
 
 [[FIG1]]
 .A Figure
-image::images/tiger.png[float="none"]
-
-However, if you prefer that your image not float, you can deactivate the float, like so:
-
-----
-image::images/myimage.png[float="none"]
-----
+image::images/tiger.png
 
 Or you may prefer an image with no caption, like so:
 
@@ -211,9 +205,9 @@ the default style as shown in <<STD_TABLE>>, please consult with your editor.
 |F|F|F
 |=======
 
-==== Code ("Listing" Blocks and Examples)
+==== Code
 
-Here's a code block:
+The AsciiDoc documentation refers to code blocks as "listing" blocks. Here's one:
 
 ----
 Hello world!
@@ -236,7 +230,7 @@ Hello world!
 ====
 
 [[inline-formatting]]
-===== Inline Formatting within Code
+===== Inline Formatting Within Code
 
 In AsciiDoc, there is no built-in mechanism for inline formatting within code. If you want to use inline formatting--in particular, for standard O'Reilly font conventions such as *+<userinput> (CW+bold)+* and _++<replaceable> (CW+italic)++_ or if you want to include line annotations--you can do so by using a passthrough block, like so:
 
@@ -306,7 +300,7 @@ include::code/inline_markup.txt[]
 
 ===== Code Callouts
 
-In DocBook, http://www.sagehill.net/docbookxsl/AnnotateListing.html#Callouts[code callouts] are used to mark specific lines of code with icons keyed to explanatory text outside the code block. These icon pairs function as bidirectional links in electronic PDF and downstream formats (i.e., you can click on the icon in the code to jump to the explanation, and vice versa). 
+http://www.sagehill.net/docbookxsl/AnnotateListing.html#Callouts[Code callouts] are used to mark specific lines of code with icons keyed to explanatory text outside the code block. These icon pairs function as bidirectional links in electronic PDF and downstream formats (i.e., you can click on the icon in the code to jump to the explanation, and vice versa). 
 
 The built-in AsciiDoc mechanism (shown in <<asc_callouts>>) is somewhat more limited; for one thing, icons are hyperlinked from text to code, but not vice versa. However, you can always use a passthrough block for full functionality, as shown in <<bidir_callouts>>.
 
@@ -361,15 +355,7 @@ shown above (not +<areaspec>+).
 <remark>Use a passthrough block like this for notes to production staff</remark>
 ++++
 
-// NB: asciidoc comments do _not_ get passed to DocBook output by 
-// default. If want to add a note for production staff, use a 
-// passthrough block to embed it in a <remark> element instead. 
-// By default, this will be preserved in the generated DocBook
-// (book.dcpsgen.xml) but will not render in your 
-// PDF; if you would like <remark>s to be visible in your drafts PDFs 
-// for convenience, send a request to toolsreq@oreilly.com and we'll 
-// toggle a switch that will render them in red (as shown in the 
-// pdf/demo_with_commentary.pdf version of this doc).
+// NB: AsciiDoc comments do _not_ get passed to DocBook output by default.
 
 Here's a +<quote>+ attributed to Benjamin Disraeli (by Wilfred Meynell, according to Frank Muir):
 

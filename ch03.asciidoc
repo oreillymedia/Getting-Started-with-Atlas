@@ -1,5 +1,6 @@
 [[chapid_3]]
 == Advanced AsciiDoc
+
 This is another chapter, with some more esoteric/experimental things...
 
 .Underlined vs. Delimited
