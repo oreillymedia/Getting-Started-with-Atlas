@@ -3,18 +3,16 @@
 
 This is another chapter, with some more esoteric/experimental things...
 
-.Underlined vs. Delimited
-[NOTE]
-====
+[[passthroughs]]
+=== Passthroughs
+
+A section
+
+=== Underlined vs. Delimited
+
 Section titles can be in either of two formats: "underlined" or delimited.
 
-Note that the levels described in the
-http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide]
-can be confusing: in asciidoc, the document (book) is considered level
-0; generally a chapter will be at asciidoc level 1 (unless you're
-dividing the book into parts), and sections within chapters start at
-asciidoc level 3 (which is equivalent to DocBook +<sect1>+).
-====
+Note that the levels described in the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] can be confusing: in AsciiDoc, the document (book) is considered level 0; generally a chapter will be at AsciiDoc level 1 (unless you're dividing the book into parts), and sections within chapters start at AsciiDoc level 3 (which is equivalent to DocBook +<sect1>+).
 
 Top-Level Section Title (Underlined Style)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,31 +26,13 @@ Third-Level Section Title (Underlined Style)
 ++++++++++++++++++++++++++++++++++++++++++++
 And some more here.
 
+=== Challenging Inlines
 
-Finally, keep in mind that there may be situations where it's hard to
-get Asciidoc to format something the way you want. Sometimes there's a
-trick to get around it; sometimes it's better to use a passthrough
-block to embed a bit of DocBook; and sometimes there may be a
-different formatting approach that will mesh better with our
-production systems. If you need to do something not illustrated in
-this chapter, please ask mailto:toolsreq@oreilly.com[]...
+Using inlines in AsciiDoc can be tricky:
 
+* Delimiters may not be interpreted as intended if they don't abut whitespace on both sides; the fix for this is to double them up, as explained under http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and Unconstrained Quotes''] in the AsciiDoc User Guide. For example, compare how these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
 
-Using inlines in asciidoc can be tricky:
-
-* Delimiters may not be interpreted as intended if they don't abut
-whitespace on both sides; the fix for this is to double them up, as
-explained under
-http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and
-Unconstrained Quotes''] in the AsciiDoc User Guide.  For example,
-compare how these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
-
-* Attempting to nest inlines within each other may result in invalid
-DocBook (because the content model of one may not include the
-other). For example, *+foo+* requires the asterisk (*) pair outside
-and the plus-symbol (+) pair inside.  If you try the other way around,
-the build will fail and you'll find a message like this in [role =
-"filename"]_pdf/.dcpsgen.buildlog_: 
+* Attempting to nest inlines within each other may result in invalid DocBook (because the content model of one may not include the other). For example, *+foo+* requires the asterisk (*) pair outside and the plus-symbol (+) pair inside. If you try the other way around, the build will likely fail with this error message: 
 ----
 Element emphasis is not declared in literal list of possible children
 ----
@@ -265,3 +245,12 @@ And a heaven in a wild flower,
 Hold infinity in the palm of your hand,
 And eternity in an hour.
 __________________________________________________
+
+
+Finally, keep in mind that there may be situations where it's hard to
+get Asciidoc to format something the way you want. Sometimes there's a
+trick to get around it; sometimes it's better to use a passthrough
+block to embed a bit of DocBook; and sometimes there may be a
+different formatting approach that will mesh better with our
+production systems. If you need to do something not illustrated in
+this chapter, please ask mailto:toolsreq@oreilly.com[]...
