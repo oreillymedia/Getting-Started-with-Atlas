@@ -30,7 +30,7 @@ This one designates AsciiDoc level 4 (DocBook +<sect3>+).
 [[INLINES]]
 === Inline Elements
 
-Here's some some _italic_, `monospaced` (aka "constant-width" or "CW"), *bold*, *+CW bold+*, ^super^, and ~sub~ text. 
+Here's some some _italic_, `monospaced` (aka “constant-width” or “CW”), *bold*, *+CW bold+*, ^super^, and ~sub~ text. 
 
 Plus signs can also be used for literal (CW) text, for example: +ls -al+
 
