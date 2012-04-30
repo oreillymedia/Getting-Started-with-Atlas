@@ -30,7 +30,7 @@ Once you have git installed, click on the "Metadata" tab in the Atlas interface 
 
 [[git_repo_url]]
 .Grab your git repository URL from the Metadata tab
-image::images/git_repo_url.png
+image::images/git_repo_url.png[]
 
 ----
 $ cd /the/local/directory
