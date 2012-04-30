@@ -6,7 +6,7 @@
       <firstname>David</firstname>
 
       <surname>Futato</surname>
-    
+    </othercredit>
     <publisher>
       <publishername>O’Reilly Media, Inc.</publishername>
 
@@ -73,7 +73,7 @@
 
     <revhistory>
       <revision>
-        <date>2012-02-10</date>
+        <date>2012-05-01</date>
 
         <revremark>First release</revremark>
       </revision>
