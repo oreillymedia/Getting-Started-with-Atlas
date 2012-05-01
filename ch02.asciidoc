@@ -35,6 +35,7 @@ image::images/atlas_editor.png[]
 
 ==== Adding Images via the Atlas Interface
 
+You can also use the Atlas interface to upload and insert images into your book. Simply click on the "Image Manager" button 
 
 === Working Locally
 
