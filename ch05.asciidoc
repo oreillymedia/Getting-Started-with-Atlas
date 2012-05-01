@@ -1,103 +1,272 @@
-[[chapid_5]]
-== Write How You Want
+[[chapid_3]]
+== Advanced AsciiDoc
 
-Atlas gives you the option to etc.
+This is another chapter, with some more esoteric/experimental things...
 
-=== Working in the Atlas Wiki
+[[passthroughs]]
+=== Passthroughs
 
-Intro.
+<<chapid_2>> makes several references to "passthroughs." You can use a DocBook passthrough when you've got an especially complex piece of markup or you're trying to do something that AsciiDoc doesn't support. AsciiDoc supports two types of passthroughs:
 
-==== Working with AsciiDoc Text in Atlas
+Inline passthroughs::
+  For inlines, you can indicate a passthrough at any time by like this:
+  ++pass:[passthrough goes here]++. See <<challenging_inlines>> for examples
+  of inline passthroughs.
+Block passthroughs::
+  You can also pass though a block of DocBook XML. For example, if I wanted an
+  image not to float, I could use a passthrough to prevent the float, like so:
 
-
-==== Adding Images via the Atlas Interface
-
-
-=== Working Locally
-
-Atlas sits on top of a git repository, giving you the flexibility to write how
-and when you want. For example, suppose you have a long flight and want to
-edit on the plane. No problem--just pull down your book files, make your
-changes locally, and then push them back up when your connected to the
-internet again. Or perhaps you'd rather skip the wiki interface entirely and
-work on your local machine exclusively. That's fine too.
-
-==== Cloning Your Book
-
-In order to work locally, you will need to have http://git-scm.com/[git] installed on your machine. 
-
-Once you have git installed, click on the "Metadata" tab in the Atlas interface to retrieve your git repository URL, as shown in <<git_repo_url>>.
-
-[[git_repo_url]]
-.Grab your git repository URL from the Metadata tab
-image::images/git_repo_url.png[]
-
+....
 ----
-$ cd /the/local/directory
-$ git add remote gollum git@example.makerpress.com
-$ git push gollum master
+<figure id="FIG1" float="none">
+<title>A Figure</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/tiger.png"/>
+  </imageobject>
+</mediaobject>
+</figure>
 ----
+....
 
-This will push the repo up to your editing environment.  This is the way a lot of people start the projects.
+[NOTE]
+=========
+Using the block passthrough method described above, you could potentially passthrough an entire chapter of DocBook. 
+=========
 
+=== Underlined vs. Delimited
 
-* Add lots of images or code examples
+Section titles can be in either of two formats: "underlined" or delimited.
 
-The "Upload Attachment" feature is nice, but it can be a real drag if you want to add a bunch of images or code examples.  Using git locally is one of the best ways to get a bunch of files added quickly.  Al you have to do is bring down the repo and put the files into the "attachments" directory.  For example:
+Note that the levels described in the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] can be confusing: in AsciiDoc, the document (book) is considered level 0; generally a chapter will be at AsciiDoc level 1 (unless you're dividing the book into parts), and sections within chapters start at AsciiDoc level 3 (which is equivalent to DocBook +<sect1>+).
 
+Top-Level Section Title (Underlined Style)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Narrative text here.
+
+Second-Level Section Title (Underlined Style)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+More text here.
+
+Third-Level Section Title (Underlined Style)
+++++++++++++++++++++++++++++++++++++++++++++
+And some more here.
+
+[[challenging_inlines]]
+=== Challenging Inlines
+
+Using inlines in AsciiDoc can be tricky:
+
+* Delimiters may not be interpreted as intended if they don't abut whitespace
+  on both sides; the fix for this is to double them up, as explained under
+  http://www.methods.co.nz/asciidoc/userguide.html#X52[``Constrained and
+  Unconstrained Quotes''] in the AsciiDoc User Guide. For example, compare how
+  these render in the PDF: _+foo+ bar_ vs. _++foo++ bar_
+
+* Attempting to nest inlines within each other may result in invalid DocBook
+  (because the content model of one may not include the other). For example,
+  *+foo+* requires the asterisk (*) pair outside and the plus-symbol (+) pair
+  inside. If you try the other way around, the build will likely fail with
+  this error message:
 ----
-$ git clone git@example.makerpress.com:git_repo.git add_images_and_code
-$ cd add_images_and_code
-$ cd attachments
-$ cp /some/image/dir/*.jpg .
-$ cp /some/code/dir/*.c .
-$ cd ..
-$ git add attachments/*.*
-$ git commit -a -m"Added a bunch of images and code"
-$ git push origin master
-$ cd ..
-$ rm -rf add_images_and_code
+Element emphasis is not declared in literal list of possible children
 ----
+* For more precise semantics, you can always use ``passthroughs'' to
+  embed DocBook markup as is,
+  e.g. pass:[<replaceable>foo</replaceable>],
+  pass:[<userinput>foo</userinput>], and
+  pass:[<userinput><replaceable>foo</replaceable></userinput>] are
+  fairly common in O'Reilly books, rendered as CWI, CWB, and CWBI,
+  respectively (constant-width with italic, bold, and bold+italic).
 
-You can not reference all these files in your document, like this:
+For generic emphasis, you can also surround a string with single, straight
+quotation marks (apostrophes): i.e., 'this' is equivalent to _that_. As an
+enhancement for finer-tuned semantic distinctions downstream, the O'Reilly
+configuration file supports the following variants, via `@role` attributes:
 
-----
-  image::attachments/new_img.jpg[]
-  ...
-  include::attachments/new_code.c[]
-----
+* to indicate a filename or path, use [role="filename"]'/path/to/file.ext' or
+  [role="filename"]_/path/to/file.ext_
+* for a book title, use [role="citetitle"]'This Book Needs No Title' or
+  [role="citetitle"]_This Book Needs No Title_
+
+To get curly quotes you can use AsciiDoc's mechanism for `singles' and
+``doubles'' (or you can always use Unicode like so: &#x201C;quote
+me&#x201D;).
+
+Subscripts and superscripts work like so: H~2~O and 2^5^ = 32 (but if
+you're doing math, you'd probably want to italicize the variables,
+like so: _x_^2^ + _y_^2^ = _z_^2^).
+
+If using footnotes, please place the macro footnote:[This is a standard
+footnote.] directly after the text, with no space between (otherwise
+you'll introduce extra space footnote:[This one has extraneous space
+before the in-text mark (although the footnote itself is fine).]
+before the in-text mark); footnotes at the end of a sentence belong
+after the period.footnote:[If your footnote text includes +++[square
+brackets]+++, you can escape them with a passthrough macro.]
+
+[[callout-multiples]]
+=== Yet More on Code Callouts
+
+If you want to refer to the same explanation from more than one line
+of code, please _do not_ use the built-in mechanism
+(<<bad_dup_layout>>), which does not conform to house style.
+Instead, use either <<alt_dup_layout>> or <<horiz_layout>>.
+
+[[bad_dup_layout]]
+.Built-in Mechanism (Vertical Layout Bad)
+====
+-----------------------------------------------------
+ 10/17/97   9:04         <DIR>    bin
+ 10/16/97  14:11         <DIR>    DOS            <1>
+ 10/16/97  14:40         <DIR>    Program Files
+ 10/16/97  14:46         <DIR>    TEMP
+ 10/17/97   9:04         <DIR>    tmp
+ 10/16/97  14:37         <DIR>    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <2>
+  2/13/94   6:21          54,619  COMMAND.COM    <2>
+ 10/16/97  14:25             115  CONFIG.SYS     <2>
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <3>
+-----------------------------------------------------
+====
+<1> This directory holds MS-DOS.
+<2> System startup code for DOS. *[Too much whitespace; confusing to readers]*
+<3> Some sort of Windows 3.1 hack.
+
+<<alt_dup_layout>> uses the +<coref>+ element to refer to the same
++<callout>+ from multiple code lines.
+
+[[alt_dup_layout]]
+.Alternate Approach 1: Repeat Icon in Code
+====
+++++
+<programlisting>
+ 10/17/97   9:04         &lt;DIR&gt;    bin
+ 10/16/97  14:11         &lt;DIR&gt;    DOS     <co id="co-id1" linkends="co1"/>
+ 10/16/97  14:40         &lt;DIR&gt;    Program Files
+ 10/16/97  14:46         &lt;DIR&gt;    TEMP
+ 10/17/97   9:04         &lt;DIR&gt;    tmp
+ 10/16/97  14:37         &lt;DIR&gt;    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <co id="co-id2" linkends="co2"/>
+  2/13/94   6:21          54,619  COMMAND.COM    <coref linkend="co-id2"/>
+ 10/16/97  14:25             115  CONFIG.SYS     <coref linkend="co-id2"/>
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <co id="co-id3" linkends="co3"/>
+</programlisting>
+
+<calloutlist>
+  <callout arearefs="co-id1" id="co1">
+    <para>This directory holds MS-DOS.</para>
+  </callout>
+  <callout arearefs="co-id2" id="co2"> 
+    <para>System startup code for DOS.</para>
+  </callout>
+  <callout arearefs="co-id3" id="co3">    
+  <para>Some sort of Windows 3.1 hack.</para>
+  </callout>
+</calloutlist>
+++++
+====
+
+<<horiz_layout>> uses a different mechanism for several code lines to
+point to the same +<callout>+. In this case, each one gets a uniquely
+numbered icon. This is done by placing multiple values in a single
++<callout arearefs=...>+ while duplicating the +@linkends+ value in
+the corresponding +<co>+ elements in code.  Note also the use of
++<?dbfo...>+ markup below the +<calloutlist>+ opener; this adjusts the
+alignment for side-by-side icons.
+
+[[horiz_layout]]
+.Alternate Approach 2: Unique Icons; Align Side-by-Side in Explanation 
+====
+++++
+<programlisting>
+ 10/17/97   9:04         &lt;DIR&gt;    bin
+ 10/16/97  14:11         &lt;DIR&gt;    DOS      <co id="thing1-co" linkends="thing1"/>
+ 10/16/97  14:40         &lt;DIR&gt;    Program Files
+ 10/16/97  14:46         &lt;DIR&gt;    TEMP
+ 10/17/97   9:04         &lt;DIR&gt;    tmp
+ 10/16/97  14:37         &lt;DIR&gt;    WINNT
+ 10/16/97  14:25             119  AUTOEXEC.BAT   <co id="thing2-co" linkends="thing2"/>
+  2/13/94   6:21          54,619  COMMAND.COM    <co id="thing3-co" linkends="thing2"/>
+ 10/16/97  14:25             115  CONFIG.SYS     
+ 11/16/97  17:17      61,865,984  pagefile.sys
+  2/13/94   6:21           9,349  WINA20.386     <co id="thing5-co" linkends="thing3"/>
+</programlisting>
+
+<calloutlist>
+<?dbfo label-width="1.75pc"?>
+  <callout arearefs="thing1-co" id="thing1">
+    <para>This directory holds MS-DOS.</para>
+  </callout>
+  <callout arearefs="thing2-co thing3-co" id="thing2"> 
+    <para>System startup code for DOS.</para>
+  </callout>
+  <callout arearefs="thing5-co" id="thing3">    
+  <para>Some sort of Windows 3.1 hack.</para>
+  </callout>
+</calloutlist>
+++++
+====
+
+=== Page Breaking
+
+If you want to insert page breaks into your PDF builds ... TK
 
 
-* Clean up file names
+=== Controlling Line Breaks
 
-The native Gollum interface doesn't allow you to change file names or manipulate the directory structure for your repo.  If you want to do this, you can just pull the repo down, make your changes in git, do your commit, and then push some files up.  For example:
+TK
 
-----
-$ git clone git@example.makerpress.com:git_repo.git move_files
-$ cd move_files
-$ git mv crappy_name.asciidoc nice_name.asciidoc
-$ git rm unused_file.asciidoc
-$ git commit -a -m"Changed some file names"
-$ git push origin master
-$ cd ..
-$ rm -rf move_files
-----
+=== Experiments
 
+==== Literal Blocks (asciidoc terminology)
+Following the general asciidoc cheatsheat/samples; many of these don't
+behave under our toolchain (or relative to house style), so please
+ask before using anything here...
 
-* Manipulate your repo with scripts
+// ORMTODO: "literal" becomes <literallayout class="monospaced">
 
-Suppose you want to do something sort of complex, like performing a global search and replace or converting all the URLs in your document into bit.ly links.  (Or whatever).  To do this, you can simple clone the repo, execute your script (or whatever), commit your changes, and then push the repo back up.  For example:
+[literal]
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
 
-----
-$ git clone git@example.makerpress.com:git_repo.git manipulate
-$ cd manipulate
-...
-Run script to replace all URLs with equivalent bit.ly links
-...
-$ git commit -a -m"Changed all links to bit.ly links"
-$ git push origin master
-----
+// ORMTODO: "verse" becomes <literallayout>, with inline markup
 
-=== Resolving Conflicts
+[verse]
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
 
-Describing conflict resolution is beyond the scope of this document, but Scontt Chacon's http://progit.org/book/[Pro git] book is an outstanding resource.
+// ORMTODO: indented block becomes <literallayout class="monospaced">
+
+  Consul *necessitatibus* per id,
+  consetetur, eu pro everti postulant
+  homero verear ea mea, qui.
+
+// ORMTODO: dotted-delimited becomes <literallayout class="monospaced">
+...................................
+Consul *necessitatibus* per id,
+consetetur, eu pro everti postulant
+homero verear ea mea, qui.
+...................................
+
+// ORMTODO: "verse" plus underscore-delimited becomes <blockquote><literallayout>
+
+[verse, William Blake, from Auguries of Innocence]
+__________________________________________________
+To see a world in a grain of sand,
+And a heaven in a wild flower,
+Hold infinity in the palm of your hand,
+And eternity in an hour.
+__________________________________________________
+
+Finally, keep in mind that there may be situations where it's hard to
+get AsciiDoc to format something the way you want. Sometimes there's a
+trick to get around it; sometimes it's better to use a passthrough
+block to embed a bit of DocBook; and sometimes there may be a
+different formatting approach that will mesh better with our
+production systems. If you need to do something not illustrated in
+this guide, please check with your editor.
