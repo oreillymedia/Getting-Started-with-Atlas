@@ -68,6 +68,9 @@ You can upload images to your book directly in the Atlas wiki interface. Click
 on "Image manager" and then select "Choose File" and finally "Upload," as
 shown in <<image_upload>>.
 
+Once you've uploaded your image, Atlas will generate a thumbnail preview of
+that image, which you can see at any time by bringing up the Image manager.
+
 ++++
 <figure id="image_upload" float="none">
   <title>Upload your images within Atlas</title>
@@ -78,13 +81,6 @@ shown in <<image_upload>>.
   </mediaobject>
 </figure>
 ++++
-
-[[image_upload]]
-.Upload your images within Atlas
-image::images/image_upload.png[]
-
-Once you've uploaded your image, Atlas will generate a thumbnail preview of
-that image, which you can see at any time by bringing up the Image manager.
 
 [NOTE]
 =========
