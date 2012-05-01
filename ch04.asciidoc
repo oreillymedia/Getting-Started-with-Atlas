@@ -182,6 +182,7 @@ O'Reilly Animal books traditionally make no rendering distinction between the
 DocBook +<warning>+ and +<caution>+ elements.
 ===============================
 
+[[figures_and_other_images]]
 ==== Figures and Other Images
 
 Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike

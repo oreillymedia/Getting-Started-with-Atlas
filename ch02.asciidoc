@@ -1,11 +1,18 @@
 [[write_how_you_want]]
 == Write How You Want
 
-When you are using Altas to write your book, you have the option of writing in the wiki interface or locally on your own computer. This chapter covers each of those scenarios. Note that, as you write your book, you can jump back and forth between the two writing environments. As long as you are saving in the web interface or using git to push and pull from your local machine, you'll always be in sync. 
+When you are using Altas to write your book, you have the option of writing in
+the wiki interface or locally on your own computer. This chapter covers each
+of those scenarios. Note that, as you write your book, you can jump back and
+forth between the two writing environments. As long as you are saving in the
+web interface or using git to push and pull from your local machine, you'll
+always be in sync.
 
 === Working in the Atlas Wiki
 
-If you've used a wiki before, you will find the Atlas interface to be very familiar. In the following sections, you'll learn how to create and edit new files in the interface.
+If you've used a wiki before, you will find the Atlas interface to be very
+familiar. In the following sections, you'll learn how to create and edit new
+files in the interface.
 
 ==== Creating New Files
 
@@ -15,7 +22,9 @@ When you create your book in Atlas, it will have no files, as shown in <<blank_s
 .When you create a new book in Atlas, you start off with a blank slate
 image::images/blank_slate.png[]
 
-You can create your first file by clicking on "Open Editor." Atlas will recognize that your book has no files and you will be prompted to create one. Click "Create your first file" and name the file, as shown in <<create_file>>.
+You can create your first file by clicking on "Open Editor." Atlas will
+recognize that your book has no files and you will be prompted to create one.
+Click "Create your first file" and name the file, as shown in <<create_file>>.
 
 [[create_file]]
 .Create your first file
@@ -25,9 +34,14 @@ Once you've created the file, you're ready to start writing!
 
 ==== Working with AsciiDoc Text in Atlas
 
-When you're working in the Atlas wiki interface, you will need to write in AsciiDoc.footnote:[Atlas supports Markdown for less technically complex text. Ask your editor if Markdown is a good fit for your project.] See <<asciidoc_101>> for an introduction to AsciiDoc markup.
+When you're working in the Atlas wiki interface, you will need to write in
+AsciiDoc.footnote:[Atlas supports Markdown for less technically complex text.
+Ask your editor if Markdown is a good fit for your project.] See
+<<asciidoc_101>> for an introduction to AsciiDoc markup.
 
-The Atlas wiki editor works just as you'd expect. Use the buttons to insert simple AsciiDoc markup. For example, <<atlas_editor>> shows what happens when you click the H1 button.
+The Atlas wiki editor works just as you'd expect. Use the buttons to insert
+simple AsciiDoc markup. For example, <<atlas_editor>> shows what happens when
+you click the H1 button.
 
 [[atlas_editor]]
 .Use the Atlas wiki interface to write in your web browser
@@ -35,13 +49,58 @@ image::images/atlas_editor.png[]
 
 Once you've entered some text, click Save and your changes will be committed
 to a git repository that is created automatically each time you start a new
-book.
+book. Optionally, you can enter a log message before you click Save, and it
+will be included with the commit to the git repository, as show in
+<<log_message>>. Read more about making the most of your git repository in
+<<working_locally>> and <<cloning_to_github>>.
 
-Note that you can use the "File Manager" drop-down to jump to 
+[[log_message]]
+.It's good practice to add a meaningful log message
+image::images/log_message.png[]
 
+Note also that you can use the "File Manager" drop-down to jump to other files
+or to create new ones.
+
+[[adding_images]]
 ==== Adding Images via the Atlas Interface
 
+You can upload images to your book directly in the Atlas wiki interface. Click
+on "Image manager" and then select "Choose File" and finally "Upload," as
+shown in <<image_upload>>.
 
+[[image_upload]]
+.Upload your images within Atlas
+image::images/image_upload.png[]
+
+Once you've uploaded your image, Atlas will generate a thumbnail preview of
+that image, which you can see at any time by bringing up the Image manager.
+
+[NOTE]
+=========
+At this time, if you upload an image via git, the image will note have a thumbnail preview within the Image manager.
+=========
+
+You can also use the Image manager to insert the AsciiDoc reference to that
+image:
+
+. Place the cursor where you'd like to insert the image within the text.
+. Click on Image manager.
+. Select the thumbnail preview of the image you've uploaded and click Insert
+(<<insert_image_asciidoc>>).
+
+[[insert_image_asciidoc]]
+.You've uploaded the image; now reference it within your document
+image::images/insert_image_asciidoc.png[]
+
+Once you click insert, Atlas will add something like the following to your document:
+
+----
+image::images/insert_image_asciidoc.png[]
+----
+
+Read more about figure and image markup in <<figures_and_other_images>> in <<asciidoc_101>>.
+
+[[working_locally]]
 === Working Locally
 
 Atlas sits on top of a git repository, giving you the flexibility to write how
@@ -61,200 +120,6 @@ Once you have git installed, click on the "Metadata" tab in the Atlas interface 
 .Grab your git repository URL from the Metadata tab
 image::images/git_repo_url.png[]
 
-----
-$ cd /the/local/directory
-$ git add remote gollum git@example.makerpress.com
-$ git push gollum master
-----
+==== Resolving Conflicts
 
-This will push the repo up to your editing environment.  This is the way a lot of people start the projects.
-
-
-* Add lots of images or code examples
-
-The "Upload Attachment" feature is nice, but it can be a real drag if you want to add a bunch of images or code examples.  Using git locally is one of the best ways to get a bunch of files added quickly.  Al you have to do is bring down the repo and put the files into the "attachments" directory.  For example:
-
-----
-$ git clone git@example.makerpress.com:git_repo.git add_images_and_code
-$ cd add_images_and_code
-$ cd attachments
-$ cp /some/image/dir/*.jpg .
-$ cp /some/code/dir/*.c .
-$ cd ..
-$ git add attachments/*.*
-$ git commit -a -m"Added a bunch of images and code"
-$ git push origin master
-$ cd ..
-$ rm -rf add_images_and_code
-----
-
-You can not reference all these files in your document, like this:
-
-----
-  image::attachments/new_img.jpg[]
-  ...
-  include::attachments/new_code.c[]
-----
-
-
-* Clean up file names
-
-The native Gollum interface doesn't allow you to change file names or manipulate the directory structure for your repo.  If you want to do this, you can just pull the repo down, make your changes in git, do your commit, and then push some files up.  For example:
-
-----
-$ git clone git@example.makerpress.com:git_repo.git move_files
-$ cd move_files
-$ git mv crappy_name.asciidoc nice_name.asciidoc
-$ git rm unused_file.asciidoc
-$ git commit -a -m"Changed some file names"
-$ git push origin master
-$ cd ..
-$ rm -rf move_files
-----
-
-
-* Manipulate your repo with scripts
-
-Suppose you want to do something sort of complex, like performing a global search and replace or converting all the URLs in your document into bit.ly links.  (Or whatever).  To do this, you can simple clone the repo, execute your script (or whatever), commit your changes, and then push the repo back up.  For example:
-
-----
-$ git clone git@example.makerpress.com:git_repo.git manipulate
-$ cd manipulate
-...
-Run script to replace all URLs with equivalent bit.ly links
-...
-$ git commit -a -m"Changed all links to bit.ly links"
-$ git push origin master
-----
-
-=== Resolving Conflicts
-
-Describing conflict resolution is beyond the scope of this document, but Scontt Chacon's http://progit.org/book/[Pro git] book is an outstanding resource.
-=======
-[[write_how_you_want]]
-== Write How You Want
-
-When you are using Altas to write your book, you have the option of writing in the wiki interface or locally on your own computer. This chapter covers each of those scenarios. Note that, as you write your book, you can jump back and forth between the two writing environments. As long as you are saving in the web interface or using git to push and pull from your local machine, you'll always be in sync. 
-
-=== Working in the Atlas Wiki
-
-If you've used a wiki before, you will find the Atlas interface to be very familiar. In the following sections, you'll learn how to create and edit new files in the interface.
-
-==== Creating New Files
-
-When you create your book in Atlas, it will have no files, as shown in <<blank_slate>>.
-
-[[blank_slate]]
-.When you create a new book in Atlas, you start off with a blank slate
-image::images/blank_slate.png[]
-
-You can create your first file by clicking on "Open Editor." Atlas will recognize that your book has no files and you will be prompted to create one. Click "Create your first file" and name the file, as shown in <<create_file>>.
-
-[[create_file]]
-.Create your first file
-image::images/create_file.png[]
-
-Once you've created the file, you're ready to start writing!
-
-==== Working with AsciiDoc Text in Atlas
-
-When you're working in the Atlas wiki interface, you will need to write in AsciiDoc.footnote:[Atlas supports Markdown for less technically complex text. Ask your editor if Markdown is a good fit for your project.] See <<asciidoc_101>> for an introduction to AsciiDoc markup.
-
-The Atlas wiki editor works just as you'd expect. Use the buttons to insert simple AsciiDoc markup. For example, <<atlas_editor>> shows what happens when you click the H1 button.
-
-[[atlas_editor]]
-.Use the Atlas wiki interface to write in your web browser
-image::images/atlas_editor.png[]
-
-==== Adding Images via the Atlas Interface
-
-You can also use the Atlas interface to upload and insert images into your book. Simply click on the "Image Manager" button 
-
-=== Working Locally
-
-Atlas sits on top of a git repository, giving you the flexibility to write how
-and when you want. For example, suppose you have a long flight and want to
-edit on the plane. No problem--just pull down your book files, make your
-changes locally, and then push them back up when your connected to the
-internet again. Or perhaps you'd rather skip the wiki interface entirely and
-work on your local machine exclusively. That's fine too.
-
-==== Cloning Your Book
-
-In order to work locally, you will need to have http://git-scm.com/[git] installed on your machine. 
-
-Once you have git installed, click on the "Metadata" tab in the Atlas interface to retrieve your git repository URL, as shown in <<git_repo_url>>.
-
-[[git_repo_url]]
-.Grab your git repository URL from the Metadata tab
-image::images/git_repo_url.png[]
-
-----
-$ cd /the/local/directory
-$ git add remote gollum git@example.makerpress.com
-$ git push gollum master
-----
-
-This will push the repo up to your editing environment.  This is the way a lot of people start the projects.
-
-
-* Add lots of images or code examples
-
-The "Upload Attachment" feature is nice, but it can be a real drag if you want to add a bunch of images or code examples.  Using git locally is one of the best ways to get a bunch of files added quickly.  Al you have to do is bring down the repo and put the files into the "attachments" directory.  For example:
-
-----
-$ git clone git@example.makerpress.com:git_repo.git add_images_and_code
-$ cd add_images_and_code
-$ cd attachments
-$ cp /some/image/dir/*.jpg .
-$ cp /some/code/dir/*.c .
-$ cd ..
-$ git add attachments/*.*
-$ git commit -a -m"Added a bunch of images and code"
-$ git push origin master
-$ cd ..
-$ rm -rf add_images_and_code
-----
-
-You can not reference all these files in your document, like this:
-
-----
-  image::attachments/new_img.jpg[]
-  ...
-  include::attachments/new_code.c[]
-----
-
-
-* Clean up file names
-
-The native Gollum interface doesn't allow you to change file names or manipulate the directory structure for your repo.  If you want to do this, you can just pull the repo down, make your changes in git, do your commit, and then push some files up.  For example:
-
-----
-$ git clone git@example.makerpress.com:git_repo.git move_files
-$ cd move_files
-$ git mv crappy_name.asciidoc nice_name.asciidoc
-$ git rm unused_file.asciidoc
-$ git commit -a -m"Changed some file names"
-$ git push origin master
-$ cd ..
-$ rm -rf move_files
-----
-
-
-* Manipulate your repo with scripts
-
-Suppose you want to do something sort of complex, like performing a global search and replace or converting all the URLs in your document into bit.ly links.  (Or whatever).  To do this, you can simple clone the repo, execute your script (or whatever), commit your changes, and then push the repo back up.  For example:
-
-----
-$ git clone git@example.makerpress.com:git_repo.git manipulate
-$ cd manipulate
-...
-Run script to replace all URLs with equivalent bit.ly links
-...
-$ git commit -a -m"Changed all links to bit.ly links"
-$ git push origin master
-----
-
-=== Resolving Conflicts
-
-Describing conflict resolution is beyond the scope of this document, but Scontt Chacon's http://progit.org/book/[Pro git] book is an outstanding resource.
+Describing conflict resolution is beyond the scope of this document, but Scott Chacon's http://progit.org/book/[Pro git] book is an outstanding resource.

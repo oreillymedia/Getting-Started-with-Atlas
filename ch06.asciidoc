@@ -1,4 +1,4 @@
-[[chapid_6]]
+[[cloning_to_github]]
 == Cloning to GitHub
 
 Consider cloning all or pieces of your book to GitHub.
