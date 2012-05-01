@@ -1,4 +1,4 @@
-[[chapid_4]]
+[[building_and_debugging]]
 == Building and Debugging
 
 To produce an EPUB or PDF, you must create a page that assembles the

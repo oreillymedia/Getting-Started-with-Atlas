@@ -1,4 +1,4 @@
-[[chapid_2]]
+[[asciidoc_101]]
 == AsciiDoc 101
 
 http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document
@@ -112,14 +112,16 @@ to use xref markup, not hardcoded text.
 Here are some live examples (hover over the text in the PDF to locate the
 hyperlink):
 
-* See <<BLOCKS>> for details. * The results is shown in <<FIG1>>. * Flip ahead
-to <<chapid_2>> for a preview.
+* See <<BLOCKS>> for details.
+* The results is shown in <<FIG1>>.
+* Flip ahead to <<advanced_asciidoc>> for a preview.
 
 generated from this source:
 
 ----
-* See <<BLOCKS>> for details. * The results is shown in <<FIG1>>. * Flip
-ahead to <<chapid_2>> for a preview.
+* See <<BLOCKS>> for details.
+* The results is shown in <<FIG1>>.
+* Flip ahead to <<advanced_asciidoc>> for a preview.
 ----
 
 [WARNING]
@@ -141,14 +143,14 @@ A general understanding of what is going on under the hood of Atlas will help
 you make the most of it. One of the primary appeals of AsciiDoc is that it was
 created to export to http://www.docbook.org/[DocBook XML]. In other words, for
 each AsciiDoc markup syntax, there is an equivalent DocBook element. When you
-build your book (as described in <<chapid_4>>), Atlas converts the AsciiDoc to
+build your book (as described in <<building_and_debugging>>), Atlas converts the AsciiDoc to
 DocBook and then generates the book formats from that DocBook. This series of
 magical transformations is part of what makes writing in Atlas fun, but it
 also requires you to use the correct AsciiDoc markup for things to work right.
 
 If you get a build error, the most likely cause is an AsciiDoc markup error.
 Atlas provides error message logs to help you troubleshoot and fix syntax
-errors. Read more about building and debugging in <<chapid_4>>.
+errors. Read more about building and debugging in <<building_and_debugging>>.
 **** 
 
 ==== Admonitions (Notes and Warnings)
@@ -363,7 +365,7 @@ limited; for one thing, icons are hyperlinked from text to code, but not vice
 versa. However, you can always use a passthrough block (see <<passthroughs>>) for full functionality, as shown in <<bidir_callouts>>.
 
 If you have a need to refer to the same bit of explanatory text from more than
-one line of code, see <<callout-multiples>> (in <<chapid_2>>).
+one line of code, see <<callout-multiples>> (in <<advanced_asciidoc>>).
 
 [[asc_callouts]]
 .Built-in Callout Mechanism (Unidirectional Callouts)

@@ -1,4 +1,4 @@
-[[chapid_3]]
+[[advanced_asciidoc]]
 == Advanced AsciiDoc
 
 This is another chapter, with some more esoteric/experimental things...
@@ -6,7 +6,7 @@ This is another chapter, with some more esoteric/experimental things...
 [[passthroughs]]
 === Passthroughs
 
-<<chapid_2>> makes several references to "passthroughs." You can use a DocBook passthrough when you've got an especially complex piece of markup or you're trying to do something that AsciiDoc doesn't support. AsciiDoc supports two types of passthroughs:
+<<asciidoc_101>> makes several references to "passthroughs." You can use a DocBook passthrough when you've got an especially complex piece of markup or you're trying to do something that AsciiDoc doesn't support. AsciiDoc supports two types of passthroughs:
 
 Inline passthroughs::
   For inlines, you can indicate a passthrough at any time by like this:

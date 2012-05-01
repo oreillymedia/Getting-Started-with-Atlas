@@ -1,14 +1,37 @@
-[[chapid_5]]
+[[write_how_you_want]]
 == Write How You Want
 
-Atlas gives you the option to etc.
+When you are using Altas to write your book, you have the option of writing in the wiki interface or locally on your own computer. This chapter covers each of those scenarios. Note that, as you write your book, you can jump back and forth between the two writing environments. As long as you are saving in the web interface or using git to push and pull from your local machine, you'll always be in sync. 
 
 === Working in the Atlas Wiki
 
-Intro.
+If you've used a wiki before, you will find the Atlas interface to be very familiar. In the following sections, you'll learn how to create and edit new files in the interface.
+
+==== Creating New Files
+
+When you create your book in Atlas, it will have no files, as shown in <<blank_slate>>.
+
+[[blank_slate]]
+.When you create a new book in Atlas, you start off with a blank slate
+image::images/blank_slate.png[]
+
+You can create your first file by clicking on "Open Editor." Atlas will recognize that your book has no files and you will be prompted to create one. Click "Create your first file" and name the file, as shown in <<create_file>>.
+
+[[create_file]]
+.Create your first file
+image::images/create_file.png[]
+
+Once you've created the file, you're ready to start writing!
 
 ==== Working with AsciiDoc Text in Atlas
 
+When you're working in the Atlas wiki interface, you will need to write in AsciiDoc.footnote:[Atlas supports Markdown for less technically complex text. Ask your editor if Markdown is a good fit for your project.] See <<asciidoc_101>> for an introduction to AsciiDoc markup.
+
+The Atlas wiki editor works just as you'd expect. Use the buttons to insert simple AsciiDoc markup. For example, <<atlas_editor>> shows what happens when you click the H1 button.
+
+[[atlas_editor]]
+.Use the Atlas wiki interface to write in your web browser
+image::images/atlas_editor.png[]
 
 ==== Adding Images via the Atlas Interface
 
