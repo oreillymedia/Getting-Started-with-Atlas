@@ -33,6 +33,12 @@ The Atlas wiki editor works just as you'd expect. Use the buttons to insert simp
 .Use the Atlas wiki interface to write in your web browser
 image::images/atlas_editor.png[]
 
+Once you've entered some text, click Save and your changes will be committed
+to a git repository that is created automatically each time you start a new
+book.
+
+Note that you can use the "File Manager" drop-down to jump to 
+
 ==== Adding Images via the Atlas Interface
 
 
