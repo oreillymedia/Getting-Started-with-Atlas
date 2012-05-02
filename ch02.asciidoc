@@ -195,7 +195,8 @@ Now if you look in the Altas web interface, you will see the changes that you ma
 
 ==== Fetching and Pulling 
 
-You can also use git to pull down changes that were made in the wiki environment or by other contributors. 
+You can also use git to pull down changes that were made in the wiki environment or by other contributors. There are two ways of downloading changes. One way is to use `fetch` followed by `merge`, as in this example:
+
 
 ==== Resolving Conflicts
 
