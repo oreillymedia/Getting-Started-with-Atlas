@@ -220,7 +220,17 @@ Fast-forward
 Alternatively, you can use `pull`, which downloads the changes and merges them in with a single command:
 
 ----
-
+$ git pull
+remote: Counting objects: 8, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 4), reused 0 (delta 0)
+Unpacking objects: 100% (6/6), done.
+From https://atlas-admin.oreilly.com/git/1230000000065
+   cba41ff..a972d49  master     -> origin/master
+Updating cba41ff..a972d49
+Fast-forward
+ ch02.asciidoc |   25 +++++++++++++++++++++++++
+ 1 files changed, 25 insertions(+), 0 deletions(-)
 ----
 
 ==== Resolving Conflicts
