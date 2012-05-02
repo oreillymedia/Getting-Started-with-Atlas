@@ -197,7 +197,27 @@ Now if you look in the Altas web interface, you will see the changes that you ma
 
 You can also use git to pull down changes that were made in the wiki environment or by other contributors. There are two ways of downloading changes. One way is to use `fetch` followed by `merge`, as in this example:
 
+----
+$ git fetch
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From https://atlas-admin.oreilly.com/git/1230000000065
+   cd86112..cba41ff  master     -> origin/master
+----
 
+`fetch` downloads the changes. Now use `merge` to bring your local files up to date:
+
+----
+$ git merge origin
+Updating cd86112..cba41ff
+Fast-forward
+ ch02.asciidoc |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+----
+
+Alternatively, you can use 
 ==== Resolving Conflicts
 
 Describing conflict resolution is beyond the scope of this document, but Scott Chacon's http://progit.org/book/[Pro git] book is an outstanding resource.
