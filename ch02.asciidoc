@@ -183,7 +183,7 @@ TextMate, a text editor for the Mac.
 
 [[editing_in_textmate]]
 .Editing an AsciiDoc file in TextMate
-image::images/editing_in_textmate[]
+image::images/editing_in_textmate.png[]
 
 Now it's time to commit the changes to the git repo. You can include a log
 message `-m`. The `-a` means to include all changes.
