@@ -5,8 +5,8 @@ When you are using Altas to write your book, you have the option of writing in
 the wiki interface or locally on your own computer. This chapter covers each
 of those scenarios. Note that, as you write your book, you can jump back and
 forth between the two writing environments. As long as you are saving in the
-web interface or using git to push and pull from your local machine, you'll
-always be in sync.
+web interface or using git to `push` and `pull` from your local machine,
+you'll always be in sync.
 
 === Working in the Atlas Wiki
 
@@ -23,7 +23,7 @@ When you create your book in Atlas, it will have no files, as shown in <<blank_s
 image::images/blank_slate.png[]
 
 You can create your first file by clicking on Open Editor. Atlas will
-recognize that your book has no files and you will be prompted to create one.
+recognize that your book has no files, and you will be prompted to create one.
 Click "Create your first file" and name the file, as shown in <<create_file>>.
 
 [[create_file]]
