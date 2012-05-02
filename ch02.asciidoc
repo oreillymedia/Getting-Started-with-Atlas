@@ -123,20 +123,22 @@ work on your local machine exclusively. That's fine too.
 
 ==== Cloning Your Book
 
-In order to work locally, you will need to have http://git-scm.com/[git] installed on your machine. 
+In order to work locally, you will need to have http://git-scm.com/[git]
+installed on your machine. 
 
-Once you have git installed, click on the Metadata tab in the Atlas interface to retrieve your git repository URL, as shown in <<git_repo_url>>.
+Once you have git installed, click on the Metadata tab in the Atlas interface
+to retrieve your git repository URL, as shown in <<git_repo_url>>.
 
 [[git_repo_url]]
 .Grab your git repository URL from the Metadata tab
 image::images/git_repo_url.png[]
 
-Now that you have the URL, you can use git to clone it to your computer. When you clone the repo, you can optionally add the name of the directory, like so:
+Now that you have the URL, you can use git to clone it to your computer. When
+you clone the repo, you can optionally add the name of the directory, like so:
 
 ----
 $ git clone https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git getting_started_with_atlas/
 Cloning into getting_started_with_atlas...
-Password: 
 remote: Counting objects: 338, done.
 remote: Compressing objects: 100% (337/337), done.
 remote: Total 338 (delta 136), reused 0 (delta 0)
@@ -155,6 +157,8 @@ command line is not for you, there are several GUI git clients available for
 Windows, OS X, and Linux.
 ========
 
+==== Committing and Pushing
+
 Now that you've got a local checkout of your project, you can open the
 _.asciidoc_ file and make some edits. As explained in <<asciidoc_101>>,
 AsciiDoc is a text-based markup language. You can use any text editor to edit
@@ -165,11 +169,31 @@ TextMate, a text editor for the Mac.
 .Editing an AsciiDoc file in TextMate
 image::images/editing_in_textmate[]
 
-Now commit the changes to you git repo. You can include a log message `-m`. The `-a` means to include all changes.
+Now it's time to commit the changes to the git repo. You can include a log message `-m`. The `-a` means to include all changes.
 
 ----
+$ git commit -a -m'added section on interfacing with the Atlas git backend'
+[master 0e487ee] added section on interfacing with the Atlas git backend
+ 3 files changed, 46 insertions(+), 6 deletions(-)
+ create mode 100644 images/editing_in_textmate.png
+----
+
+Finally, `push` your committed changes:
 
 ----
+$ git push origin
+Counting objects: 11, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 54.03 KiB, done.
+Total 7 (delta 4), reused 0 (delta 0)
+To https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git
+   ffb554d..90fd00f  master -> master
+----
+
+Now if you look in the Altas web interface, you will see all the changes that you made locally reflected in the wiki interface.
+
+==== Fetching and Pulling 
 
 ==== Resolving Conflicts
 
