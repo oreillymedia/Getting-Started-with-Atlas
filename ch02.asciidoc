@@ -107,7 +107,8 @@ document:
 image::images/insert_image_asciidoc.png[]
 ----
 
-Read more about figure and image markup in <<figures_and_other_images>> in <<asciidoc_101>>.
+Read more about figure and image markup in <<figures_and_other_images>> in
+<<asciidoc_101>>.
 
 === Tracking Changes in Atlas
 
@@ -116,8 +117,8 @@ to your repository (as described in <<committing_and_pushing>>), Atlas
 displays that change on the Changes tab.
 
 [[changes_in_atlas]]
-.Atlas shows additions and deletions made to the text
-image::images/changes_in_atlas.png
+.An Atlas change box shows additions and deletions made to the text
+image::images/changes_in_atlas.png[]
 
 <<changes_in_atlas>> shows a change that was saved to the repository via a
 `git push`. In this change notification box, Atlas displays the author who
