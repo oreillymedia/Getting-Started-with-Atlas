@@ -137,6 +137,10 @@ anchors and xrefs, as these interfere with standard generated xref formats.
 
 Here's a +<sidebar>+:
 
+++++
+<?hard-pagebreak?>
+++++
+
 .What's Going On, Anyway?
 ****
 A general understanding of what is going on under the hood of Atlas will help
@@ -178,8 +182,7 @@ DocBook +<warning>+ and +<caution>+ elements.
 
 [CAUTION]
 ===============================
-O'Reilly Animal books traditionally make no rendering distinction between the
-DocBook +<warning>+ and +<caution>+ elements.
+This one is a +<caution>+.
 ===============================
 
 [[figures_and_other_images]]
