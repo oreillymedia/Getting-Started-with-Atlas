@@ -215,9 +215,9 @@ alignment for side-by-side icons.
 If you want to insert a hard page break into your PDF builds, you can do so with this passthrough:
 
 ....
-----
+++++
 <?hard-pagebreak?>
-----
+++++
 ....
 
 Please note that adding this page break processing instruction will have no effect on the EPUB and Mobi files.
