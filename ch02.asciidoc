@@ -14,6 +14,13 @@ If you've used a wiki before, you will find the Atlas interface to be very
 familiar. In the following sections, you'll learn how to create and edit new
 files in the interface.
 
+.Invite Some Collaborators
+****
+Once you are working on a project in Atlas, you can invite additional collaborators at any time. First, create your project. Then, click on the Collaborators tab. Enter the mail address of anyone you'd like to collaborate with on your project. If you choose a permission type of Collaborator, the invited author will have full read and write access to your project, via the wiki interface and the git repository.
+
+You can also remove collaborators using the same Collaborators tab.
+****
+
 ==== Creating New Files
 
 When you create your book in Atlas, it will have no files, as shown in <<blank_slate>>.

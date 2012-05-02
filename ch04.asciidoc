@@ -194,6 +194,10 @@ to specify http://www.methods.co.nz/asciidoc/userguide.html#X9[various
 image-related attributes] for scaling/alignment/etc., generally these sorts of
 adjustments are not necessary.
 
+++++
+<?hard-pagebreak?>
+++++
+
 [[FIG1]]
 .A Figure
 image::images/tiger.png[]
