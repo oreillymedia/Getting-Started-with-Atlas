@@ -191,9 +191,11 @@ To https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git
    ffb554d..90fd00f  master -> master
 ----
 
-Now if you look in the Altas web interface, you will see all the changes that you made locally reflected in the wiki interface.
+Now if you look in the Altas web interface, you will see the changes that you made locally reflected in the wiki interface.
 
 ==== Fetching and Pulling 
+
+You can also use git to pull down changes that were made in the wiki environment or by other contributors. 
 
 ==== Resolving Conflicts
 
