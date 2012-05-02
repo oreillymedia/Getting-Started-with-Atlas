@@ -217,7 +217,12 @@ Fast-forward
  1 files changed, 2 insertions(+), 1 deletions(-)
 ----
 
-Alternatively, you can use 
+Alternatively, you can use `pull`, which downloads the changes and merges them in with a single command:
+
+----
+
+----
+
 ==== Resolving Conflicts
 
 Describing conflict resolution is beyond the scope of this document, but Scott Chacon's http://progit.org/book/[Pro git] book is an outstanding resource.
