@@ -8,7 +8,6 @@ forth between the two writing environments. As long as you are saving in the
 web interface or using git to `push` and `pull` from your local machine,
 you'll always be in sync.
 
-.Set Up Your Gravatar
 [NOTE]
 ====
 You may notice that some users have personal icons in the Changes and Collaborators sections of Atlas. Those icons are pulled in from http://en.gravatar.com/[Gravatar], based on the user's email address. Set up your Gravatar to get a more personalized icon.
