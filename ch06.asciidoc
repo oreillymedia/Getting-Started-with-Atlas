@@ -45,7 +45,7 @@ For every code listing that's in both GitHub and the book, add a hyperlink in th
  ====
 ====
 
-Note that for the hyperlink node text, we've used just the filename of the code, so that the full URL isn't displayed in the Web PDF. The elemnts will appear as in <<code-on-github>>.
+Note that for the hyperlink node text, we've used just the filename of the code, so that the full URL isn't displayed in the Web PDF. The elemnts will appear as in .
 
 [[code-on-github]]
 .Here's how references to your code on GitHub will appear in text

@@ -1,6 +1,10 @@
 [[building_and_debugging]]
 == Building and Debugging
 
+This chapter needs to be rewritten.
+
+No, it REALLY should be rewritten.
+
 To produce an EPUB or PDF, you must create a page that assembles the
 individual pieces of content into a final document. You can think of this page
 as a sort of master header file that lists all the other elements that should
