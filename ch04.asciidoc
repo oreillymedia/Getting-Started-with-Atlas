@@ -319,6 +319,10 @@ int direction = 1;
 ----
 ....
 
+++++
+<?hard-pagebreak?>
+++++
+
 will render in the EPUB, PDF, and Mobi (Kindle Fire only) as follows:
 
 [source,java]

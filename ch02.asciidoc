@@ -8,6 +8,12 @@ forth between the two writing environments. As long as you are saving in the
 web interface or using git to `push` and `pull` from your local machine,
 you'll always be in sync.
 
+.Set Up Your Gravatar
+[TIP]
+====
+You may notice that some users have personal icons in the Changes and Collaborators sections of Atlas. Those icons are pulled in from http://en.gravatar.com/[Gravatar], based on the user's email address. Set up your Gravatar to get a more personalized icon.
+====
+
 === Working in the Atlas Wiki
 
 If you've used a wiki before, you will find the Atlas interface to be very
@@ -164,7 +170,7 @@ image::images/git_repo_url.png[]
 Now that you have the URL, you can use git to clone it to your computer. When
 you clone the repo, you can optionally add the name of the directory, like so:
 
-[source,bash]
+[source,console]
 ----
 $ git clone https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git getting_started_with_atlas/
 Cloning into getting_started_with_atlas...
@@ -202,6 +208,7 @@ image::images/editing_in_textmate.png[]
 Now it's time to commit the changes to the git repo. You can include a log
 message with `-m`. The `-a` means to include all changes.
 
+[source,console]
 ----
 $ git commit -a -m'added section on interfacing with the Atlas git backend'
 [master 0e487ee] added section on interfacing with the Atlas git backend
@@ -211,6 +218,7 @@ $ git commit -a -m'added section on interfacing with the Atlas git backend'
 
 Finally, `push` your committed changes:
 
+[source,console]
 ----
 $ git push origin
 Counting objects: 11, done.
@@ -231,6 +239,7 @@ You can also use git to pull down changes that were made in the wiki
 environment or by other contributors. There are two ways of downloading
 changes. One way is to use `fetch` followed by `merge`, as in this example:
 
+[source,console]
 ----
 $ git fetch
 remote: Counting objects: 5, done.
@@ -244,6 +253,7 @@ From https://atlas-admin.oreilly.com/git/1230000000065
 `fetch` downloads the changes. Now use `merge` to bring your local files up to
 date:
 
+[source,console]
 ----
 $ git merge origin
 Updating cd86112..cba41ff

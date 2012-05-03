@@ -1,14 +1,22 @@
 [[building_and_debugging]]
 == Building and Debugging
 
-This chapter needs to be rewritten.
+You can use Atlas to build your book in three formats--PDF, EPUB, and Mobi--whenever you like. To kick off a build, click on the Build tab.
 
-No, it REALLY should be rewritten.
+.Three Major Ebook Formats
+****
+You may be wondering about the three book formats that Altas produces. An overview of each follows:
 
-To produce an EPUB or PDF, you must create a page that assembles the
-individual pieces of content into a final document. You can think of this page
-as a sort of master header file that lists all the other elements that should
-be included in the final document. These files should:
+* The fixed-layout PDF format is undoubtedly familiar to you and remains the http://radar.oreilly.com/2012/03/publishers-data-direct-sales-customers.html[most popular format] among customers who buy direct from O'Reilly. If your book ends up being printed, we will use a slightly modified version of the online-friendly PDF that Atlas outputs.  
+* http://en.wikipedia.org/wiki/EPUB[EPUB] uses a fluid layout, which means that the text reflows to fit the container in which it is presented. EPUB is sold by most major ebook retailers, with the exception of Amazon. You can read an EPUB with http://itunes.apple.com/us/app/ibooks/id364709193?mt=8[iBooks] on an iOS device, http://www.aldiko.com/download.html[Aldiko] on an Android device, and http://www.adobe.com/products/digitaleditions/[Adobe Digital Editions] on your desktop.
+* The http://en.wikipedia.org/wiki/Mobipocket[Mobipocket] format is also a fluid format and is used by Amazon's Kindle platform. You can copy the Mobi that Atlas outputs to your Kindle, or you can preview it with the http://www.amazon.com/gp/feature.html?docId=1000729511[Kindle Previewer].
+****
+
+Click the New Build button, and you will be presented with a list of the files that you've created so far. Drag or click the files that you'd like to include in the build, as shown in <<files_to_build>>.
+
+[[files_to_build]]
+.You can drag or click on the files to move them to and from the Files to Build box
+image::images/files_to_build.png[]
 
 === Debugging Errors
 

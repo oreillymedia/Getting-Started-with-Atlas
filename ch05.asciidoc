@@ -36,7 +36,7 @@ Using the block passthrough method described above, you could potentially passth
 
 === Underlined vs. Delimited
 
-Section titles can be in either of two formats: "underlined" or delimited.
+Section titles can be in either of two formats: ``underlined'' or delimited.
 
 Note that the levels described in the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] can be confusing: in AsciiDoc, the document (book) is considered level 0; generally a chapter will be at AsciiDoc level 1 (unless you're dividing the book into parts), and sections within chapters start at AsciiDoc level 3 (which is equivalent to DocBook +<sect1>+).
 
