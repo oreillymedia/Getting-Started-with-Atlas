@@ -349,6 +349,7 @@ code block.
 To include an external code file that is text-only (no markup), use the
 +include::+ macro inside of a delimited code block, as shown here:
 
+[source,java]
 ----
 include::code/HelloWorld.java[]
 ----

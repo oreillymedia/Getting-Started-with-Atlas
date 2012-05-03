@@ -254,6 +254,7 @@ Fast-forward
 Alternatively, you can use `pull`, which downloads the changes and merges them
 in with a single command:
 
+[source,console]
 ----
 $ git pull
 remote: Counting objects: 8, done.
