@@ -3,7 +3,7 @@
 
 When you are using Altas to write your book, you have the option of writing in
 the wiki interface or locally on your own computer. This chapter covers each
-of those scenarios. Note that, as you write your book, you can jump back and
+of those scenarios. As you write your book, you can jump back and
 forth between the two writing environments. As long as you are saving in the
 web interface or using git to `push` and `pull` from your local machine,
 you'll always be in sync.
@@ -12,11 +12,16 @@ you'll always be in sync.
 
 If you've used a wiki before, you will find the Atlas interface to be very
 familiar. In the following sections, you'll learn how to create and edit new
-files in the interface.
+files in the wiki interface.
 
 .Invite Some Collaborators
 ****
-Once you are working on a project in Atlas, you can invite additional collaborators at any time. First, create your project. Then, click on the Collaborators tab. Enter the mail address of anyone you'd like to collaborate with on your project. If you choose a permission type of Collaborator, the invited author will have full read and write access to your project, via the wiki interface and the git repository.
+Once you are working on a project in Atlas, you can invite additional
+collaborators at any time. First, create your project. Then, click on the
+Collaborators tab. Enter the mail address of anyone you'd like to collaborate
+with on your project. If you choose a permission type of Collaborator, the
+invited author will have full read and write access to your project, via the
+wiki interface and the git repository.
 
 You can also remove collaborators using the same Collaborators tab.
 ****
@@ -169,7 +174,7 @@ Receiving objects: 100% (338/338), 4.10 MiB | 534 KiB/s, done.
 Resolving deltas: 100% (136/136), done.
 ----
 
-This command will download all of the files into a directory named
+The `clone` command will download all of the files into a directory named
 _getting_started_with_atlas_, and that directory is now under version control
 with git.
 
@@ -194,7 +199,7 @@ TextMate, a text editor for the Mac.
 image::images/editing_in_textmate.png[]
 
 Now it's time to commit the changes to the git repo. You can include a log
-message `-m`. The `-a` means to include all changes.
+message with `-m`. The `-a` means to include all changes.
 
 ----
 $ git commit -a -m'added section on interfacing with the Atlas git backend'
@@ -263,9 +268,13 @@ Fast-forward
  1 files changed, 25 insertions(+), 0 deletions(-)
 ----
 
-Using `push` and `pull` to interface with your Atlas repo is the just the
-beginning of what you can do with git. Check out http://gitref.org/[Git
-Reference] and <<cloning_to_github>> to learn what is possible.
+==== Adding New Files
+
+Using git is a great way to add files, especially when you have a lot of files to add at once. For example, you might have a number of images, and you don't want to have to add them one by one via the wiki interface, as described in <<adding_images>>.
+
+Using `push`, `pull`, and `add` to interface with your Atlas repo is the just
+the beginning of what you can do with git. Check out http://gitref.org/[Git
+Reference] and <<cloning_to_github>> to learn what else is possible.
 
 ==== Resolving Conflicts
 
