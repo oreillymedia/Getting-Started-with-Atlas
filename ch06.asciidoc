@@ -1,51 +1,275 @@
-[[cloning_to_github]]
-== Cloning to GitHub
+== Git and Atlas Quickstart Guide
 
-Consider cloning all or pieces of your book to GitHub.
+While Atlas hides a lot of the complexity of using git, there are still times when you may want to use it, such as:
 
-how to clone to github. pulling changes from github into atlas.
+* You hate editing in a web browser, and would like to use TextMate, emacs, BBEdit, or whatever.
+* You're going to be on a plane and want to write
+* You've got a bunch of images to upload in bulk
 
-hosting code on github.
+If this sounds like you, then using git directly may be an attractive option.  This is a quick intro to using git with Atlas.  If you really want to know more about git and all the things you can do with it, check out these resources:
 
-We recommend that you place all code samples on GitHub. This makes it easy for you, and more importantly, your readers, to pull down the code and fix it. Take a look at Matthew Russell's https://github.com/ptwobrussell/Mining-the-Social-Web[Mining the Social Web] to see how well this works when done consistently.
+* http://help.github.com/git-cheat-sheets/[git Cheat Sheet (GitHub)].  A great reference to the key commands.
+* http://hoth.entp.com/output/git_for_designers.html[git for Designers].  A nice introduction to git focused at the non-programmer set.  
+* http://progit.org/book/[Pro git].  The online version of Scott Chacon's excellent book, _Pro git_.
+* http://www.youtube.com/watch?v=OFkgSjRnay4[O'Reilly Webcast: Git in One Hour].  A nice video from Scott Chacon that introduces all the key parts of using git.
 
-Matthew's included a lot of niceties on the landing page, like marketing text, praise quotes, JPEG of the front cover, a plea not to steal the book, etc. We really like the way he's set up the main page, but we're certainly not mandating authors include all this material, or that they adhere to any formal strictures. If you prefer to do something much more bare-bones, that's totally fine, too. See the Jonathan LeBlanc's  https://github.com/jcleblanc/programming-social-applications[Programming Social Applications] for something far more simple.
 
-Note that Jonathan's actually organized his code in directories by chapter, which we think is a good idea if there are a lot of code examples and/or chapters in the book. It makes it easier for readers to find things. Matthew Russell's solution for enhancing findability/navigability was to add an https://github.com/ptwobrussell/Mining-the-Social-Web/wiki/Numbered-examples[Examples Listing] to his GitHub wiki.
+=== Terminology and Command Reference
 
-In terms of linking to GitHub content from the book, we'd recommend you do the following:
+Here are some of the key terms you'll need to understand to use git:
 
-=== Add preface text 
+Local Repository::
+   A git repository that is on your local drive.  You can make any changes you want to this copy without affecting other files.
+Branch::
+   A named version set of files within a git repository.  The default name is "master."  We won't be doing much with branches, but they're a very handy tool that you can lean more in the http://book.git-scm.com/3_basic_branching_and_merging.html[Basic Branching and Merging] chapter of the http://book.git-scm.com/[git community book].
+Remote Repository::
+   A named link to a git repository on another machine.  You can have as many remote repositories as you want.  "Origin" is the default name, but you can choose any name you like when you add new "remotes" (links to other repositories on different servers).    
+Push and Pull::
+   git lingo for sending the changes made in a local repository to a remote repository, or vice versa.
+Cloning::  
+   Pulling a remote git repository onto your own machine so that you can edit it locally.
+Forking::
+   GitHub lingo for cloning a repo from someone else's GitHub account into your own so that you can modify and change without touching the original copy.  Forking a repo is often the first thing people toto start playing around with a project.
+Commit::
+   TBD   
 
-Add the following text to the "Using Code Examples" section of the Preface:
+The following table summarizes a few of the commands we'll use in this case.
+ 
+
+.Command quick reference
+|===================================================
+| git init | Creates a new blank repo 
+| git commit -a -m"Your helpful commit message" | Commits changes to the repo 
+| git status | Returns the commit status of the current repo
+| git add * | Adds all files to the repo
+| git remote add _remote_name_ _remote_URL_ | Adds a remote repository to which you can push or pull changes
+| git remote -v | Lists the remotes in your repo
+| git push _remote_name_ _branch_name_ | Pushes changes from the specified local branch specified to a remote repo.   We'll mostly use "git push origin master"
+|===================================================
+
+
+=== How do I get git?
+
+You can download git from link:http://git-scm.com/[the git-scm site].  Just follow the instructions for your platform.
+
+=== How do I pull down my project from Atlas?
+
+To pull down your project from Atlas:
+
+* Go to the "Metadata" tab and copy the "Git URL"  (it's the first field)
+* Drop into a command line and use "git clone your_git_url" to pull down the repo.
+** By default, this will pull the repo into a directory name based on the book's ISBN.  You can override this by putting a new directory name at the end of the command.
+* You'll be prompted for a password -- enter the password you use to log into Atlas
+
+Here's a log:
+
+----
+$ cd ~/Desktop
+$ git clone https://odewahn%40oreilly.com@atlas-admin.oreilly.com/git/1230000000189.git
+Cloning into 1230000000189...
+Password: 
+remote: Counting objects: 68, done.
+remote: Compressing objects: 100% (63/63), done.
+remote: Total 68 (delta 16), reused 0 (delta 0)
+Unpacking objects: 100% (68/68), done.
+$ cd 1230000000189
+----
+
+=== How do I write locally using Textmate?
+
+You can use any text editor you want to edit Atlas projects.  If you're on a Mac, here's how you'd use the popular tool Textmate editor:
+
+* Install the editor, which you can get from the http://macromates.com/[TextMate] site
+* Enable command line usage
+* Install and configure the AsciiDoc bundle, which does syntax highlighting, previews, and other goodies
+* Edit some files
+
+
+Once you've installed Textmate, go grab the https://github.com/zuckschwerdt/asciidoc.tmbundle[AsciiDoc bundle] to make it much easier to work with AsciiDoc.  It will give you features like like automatic previews, source highlighting, and so forth.  Here's what you do for this:
+
+----
+mkdir -p /Library/Application\ Support/TextMate/Bundles   
+cd ~/"Library/Application Support/TextMate/Bundles/"
+git clone git://github.com/zuckschwerdt/asciidoc.tmbundle.git "AsciiDoc.tmbundle"
+osascript -e 'tell app "TextMate" to reload bundles'
+----
+
+Now the the bundle is installed, your asciidoc markup will have all the color coded goodness you've come to expect in most editors.  One note: you have to give the files a ".asc" extension for the color coding to happen.  Change into the directory where you installed the sample repository and type the following command:
+
+----
+mate .
+----
+
+This will open the editor and display the _project drawer_, which is a navigation tree that you can use to move around between files.  Use the project drawer to open the file called _sec_environments.asc_, as shown in <<textmate-fig>>.
+
+[[textmate-fig]]
+.Using TextMate and the AsciiDoc Bundle
+image:images/textmate_editor.png[scaledwidth="90%"]
+
+If you've done any wiki markup, this should look pretty familiar.  Also, note how the various AsciiDoc elements are all nicely color coded -- this is thanks to the AsciiDoc bundle we installed earlier.
+
+
+[WARNING]
+.Enable command line usage
+====
+To run Textmate from the command line you must configure your system so that it "knows" where Textmate is installed.  The simplest way to do this is to use the "Terminal Usage" feature right in Textmate's control bar.  All you have to do is click "Help -> Terminal Usage..." and then click "Create Link".  <<enable-cmd-line>> shows how this works.
+
+[[enable-cmd-line]]
+image:images/textmate_cmd_line.png[scaledwidth="90%"]
 
 ====
- The code examples in the following chapters are available for download at GitHub at 
- https://github.com/<username>/<booktitle>/ -- the official code repository for this 
- book. You are encouraged to  monitor this repository for the latest bug-fixed code as 
- well as extended examples by the author and the rest of 
- the social coding community."
+
+=== I've edited my files. Now what?
+
+Once you've made your edits, you use two commands to add any new files and commit your changes:
+
+* Add any new files so that git can start tracking them.  Use "git add <filename>" to add an individual file.  Use "git add ." to add all files in the current directory and all subdirectories.
+*  Commit the changes using "git commit -a -m'_commit message_'".   Try to use the commit message to leave yourself a note about what you were doing.  For example, if you were just adding a big section on the _foo_ method, you'd use a message like "Added section covering foo"
+*  Push the changes back up to Atlas using "git push origin master"
+
+Here's an example:
+
+----
+$ git add .
+$ git commit -a -m"Made some changes while on the plane"
+$ git push origin master
+----
+
+=== I made some changes and am trying to push them to Atlas, but it keeps saying everything is up to date.  What's up?
+
+You probably forgot to either add any new files, or you forgot to commit your changes.  (Or both!)  You can also check if you have any changes using "git status", like this:
+
+----
+$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_quick_start.asciidoc
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+----
+
+When you commit the changes, you'll get something like this:
+
+----
+$ git commit -a -m"Minor edits"
+[master 955189b] Minor edits
+ 1 files changed, 47 insertions(+), 6 deletions(-)
+new-host:1230000000197 odewahn$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+nothing to commit (working directory clean)
+new-host:1230000000197 odewahn$ 
+----
+
+=== Hey, my push to Atlas keeps getting rejected.  What's up with that?
+
+If you're getting a message that your changes are being rejected, it's most likely because someone has changed the files on Atlas since you started working locally.  To fix this, you'll need to commit your current changes and then use "git pull origin master" to pull in the changes from Atlas.  Once you've synced the changes, you'll be able to push your work back up.
+
+----
+$ git push origin master
+Password: 
+To https://odewahn%40oreilly.com@atlas-admin.oreilly.com/git/1230000000197.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://odewahn%40oreilly.com@atlas-admin.oreilly.com/git/1230000000197.git'
+To prevent you from losing history, non-fast-forward updates were rejected
+Merge the remote changes (e.g. 'git pull') before pushing again.  See the
+'Note about fast-forwards' section of 'git push --help' for details.
+----
+
+To fix this, you need to pull in the new changes, like so:
+
+----
+$ git pull origin master
+Password: 
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From https://atlas-admin.oreilly.com/git/1230000000197
+ * branch            master     -> FETCH_HEAD
+Updating e26e9b6..fd7c13d
+Fast-forward
+ book.asciidoc |    2 --
+ 1 files changed, 0 insertions(+), 2 deletions(-)
+----
+
+=== How do I put my repo up on GitHub?
+
+If you're totally new to GitHub, the best place to start is the http://help.github.com/[GitHub help pages].  They'll walk you through what you need to know to set up an account, create a repo, set up your security credentials, and all that sort of stuff.  Once you've got an account and have successfully completed the steps on http://help.github.com/mac-set-up-git/[setting up git], it's pretty simple to move stuff back and forth between Atlas and GitHub.  
+
+To put your code on GitHub, the first thing you need to do is create a new repository. You'll be prompted to enter a name, a description, and whether you want to make the repo public or private (available only if you have a paid account).  It will look very similar to <<github_new_project>>
+
+[[github_new_project]]
+.Create a new repository on GitHub
+image::images/github_new_project.png[scaledwidth="90%"]
+
+Once you create a project, you'll see a screen that lists some helpful commands for what you'll do next.  Locate the "Existing Git Repo?" section and then find the line that looks like this:
+
+----
+git remote add origin git@github.com:MakerPress/new_project.git
+----
+
+It will look something like <<github_new_repo_url>>
+
+[[github_new_repo_url]]
+.The new repo's URL appears in the "Existing Git Repo?" section.
+image::images/github_new_repo_url.png[scaledwidth="90%"]
+
+Once you've got the line, copy the repo's url (in our example, it's "git@github.com:MakerPress/new_project.git") and enter the following command in the direcory where your local Atlas repo is stored.  (Note that the word "origin" is the only thing we're changing from the original command.):
+
+----
+$ git remote add github git@github.com:MakerPress/new_project.git
+----
+
+Once you've set up the new remote, you can push to it with this command:
+
+----
+$ git push github master
+----
+
+You can then take full advantage of all the amazing features and community available on GitHub.
+
+Conversely, if you already have a repo on GitHub that you'd like to pull into Atlas, all you have to do is clone it down and add a new remote to an Atlas repo, like this:
+
+----
+$ git clone git@github.com:MakerPress/new_project.git
+Cloning into new_project...
+warning: You appear to have cloned an empty repository.
+admins-MacBook-Air-2:Desktop odewahn$ cd new_project/
+admins-MacBook-Air-2:new_project odewahn$ git remote add atlas https://odewahn%40oreilly.com@atlas-admin.oreilly.com/git/1230000000197.git
+admins-MacBook-Air-2:new_project odewahn$ git push atlas master
+...
+----
+
+As we continue to improve Atlas, we'll add features to allow you to easily move projects back and forth from within the UI.
+
+
+[NOTE]
 ====
+GitHub wiki's are really cool, since they store all your data as a git repo that you can clone, just like any other.  If you wanted, you could write your entire book on a GitHub wiki using either AsciiDoc or Markdown (if you don't need relly complex markup) and then pull it straight into Atlas to build the project.  
 
-=== Link out to your examples in the text
+To clone a github wiki, click the "Git Access" tab and then clone the 
 
-For every code listing that's in both GitHub and the book, add a hyperlink in the book to the corresponding code in GitHub. If the code is in a formal example, we recommend putting the link in the Example title (otherwise, you may want to add the link to the preceding body text). Here's an example of the AsciiDoc markup you can use (note the backslash after "microformats" in the URL, which is necessary to escape the double underscore so it is properly translated to PDF):
+image::images/github_wiki.png[scaledwidth="90%"]
 
+Once you have the wiki's URL, you can clone it to your local system and add a remote back to Atlas so that you can move data basck and forth with ease:
+
+----
+$ git clone git@github.com:MakerPress/new_project.wiki.git
+Cloning into new_project.wiki...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (3/3), done.
+
+$ cd cd new_project.wiki/
+
+$ git remote add atlas https://odewahn%40oreilly.com@atlas-admin.oreilly.com/git/1230000000197.git
+$ git push atlas master
+----
+
+Note that you'd need to pull in any changes from the Wiki into Atlas.
 ====
- [[EXTEST]]
- .Scraping XFN content from a web page
-  (https://github.com/ptwobrussell/Mining-the-Social-Web/blob/master/python_code/microformats\__xfn_scrape.py[microformats__xfn_scrape.py])
- ====
- ----
- import sys
- import urllib2
- import HTMLParser
- ...
- ----
- ====
-====
-
-Note that for the hyperlink node text, we've used just the filename of the code, so that the full URL isn't displayed in the Web PDF. The elemnts will appear as in .
-
-[[code-on-github]]
-.Here's how references to your code on GitHub will appear in text
