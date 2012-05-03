@@ -164,6 +164,7 @@ image::images/git_repo_url.png[]
 Now that you have the URL, you can use git to clone it to your computer. When
 you clone the repo, you can optionally add the name of the directory, like so:
 
+[source,bash]
 ----
 $ git clone https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git getting_started_with_atlas/
 Cloning into getting_started_with_atlas...
