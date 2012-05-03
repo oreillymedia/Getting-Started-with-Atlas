@@ -273,7 +273,7 @@ When you use `git merge` or `git pull`, git will attempt to combine all
 changes into one document. Sometimes, however, git will fail to combine the
 text and your AsciiDoc file will have a conflict. This situation may arise if,
 for example, two authors try to `push` changes to the same line of text.
-Describing conflict resolution is beyond the scope of this document, but the
-Git manual has an
+Conflict resolution is beyond the scope of this document, but the
+Git User’s Manual has an
 http://schacon.github.com/git/user-manual.html#resolving-a-merge[excellent
 overview] of git conflicts and how to resolve them.
