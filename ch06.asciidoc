@@ -1,3 +1,4 @@
+[[cloning_to_github]]
 == Using Atlas with Git and GitHub
 
 While Atlas hides a lot of the complexity of using git, there are still times when you may want to use it, such as:
