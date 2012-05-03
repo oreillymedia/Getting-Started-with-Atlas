@@ -1,7 +1,7 @@
 [[building_and_debugging]]
 == Building and Debugging
 
-You can use Atlas to build your book in three formats--PDF, EPUB, and Mobi--whenever you like. To kick off a build, click on the Build tab.
+You can use Atlas to build your book in three formats--PDF, EPUB, and Mobi--whenever you like.
 
 .Three Major Ebook Formats
 ****
@@ -12,12 +12,22 @@ You may be wondering about the three book formats that Altas produces. An overvi
 * The http://en.wikipedia.org/wiki/Mobipocket[Mobipocket] format is also a fluid format and is used by Amazon's Kindle platform. You can copy the Mobi that Atlas outputs to your Kindle, or you can preview it with the http://www.amazon.com/gp/feature.html?docId=1000729511[Kindle Previewer].
 ****
 
-Click the New Build button, and you will be presented with a list of the files that you've created so far. Drag or click the files that you'd like to include in the build, as shown in <<files_to_build>>.
+=== Building Books
+
+To kick off a build, click on the Build tab. Click the New Build button, and you will be presented with a list of the files that you've created so far. Drag or click the files that you'd like to include in the build, as shown in <<files_to_build>>.
 
 [[files_to_build]]
 .You can drag or click on the files to move them to and from the Files to Build box
 image::images/files_to_build.png[]
 
+The builds will change to a status of pending. Wait a few minutes, and then refresh the page. Assuming the builds were successful, you can download your files right from Atlas. If you run into an error, see <<debugging_errors>>.
+
+[NOTE]
+====
+Build times vary based on the length of your book, but most builds finish within a few minutes. EPUB files build the fastest, PDF files the slowest, and Mobi files somewhere in between. 
+====
+
+[[debugging_errors]]
 === Debugging Errors
 
 * Why debugging / we need valid DocBook
