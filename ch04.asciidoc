@@ -71,7 +71,7 @@ user-supplied values or by values determined by context.
 
 [WARNING]
 ====
-Please do not use AsciiDoc's mechanisms for forcing linebreaks,
+Please do not use AsciiDoc's mechanisms for forcing line breaks,
 page breaks, or "ruler" lines, as these don't mesh with Atlas's book building
 tools.
 ====
