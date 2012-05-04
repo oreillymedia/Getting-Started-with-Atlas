@@ -6,14 +6,14 @@ This is another chapter, with some more esoteric/experimental things...
 [[passthroughs]]
 === Passthroughs
 
-<<asciidoc_101>> makes several references to ``passthroughs.'' You can use a DocBook passthrough when you've got an especially complex piece of markup or you're trying to do something that AsciiDoc doesn't support. AsciiDoc supports two types of passthroughs:
+<<intro_to_asc>> makes several references to ``passthroughs.'' You can use a DocBook passthrough when you've got an especially complex piece of markup or you're trying to do something that AsciiDoc doesn't support. AsciiDoc supports two types of passthroughs:
 
 Inline passthroughs::
   For inlines, you can indicate a passthrough at any time by like this:
   ++pass:[passthrough goes here]++. See <<challenging_inlines>> for examples
   of inline passthroughs.
 Block passthroughs::
-  You can also pass though a block of DocBook XML. Here's the image markup that we used in <<asciidoc_101>>, passed through as DocBook: 
+  You can also pass though a block of DocBook XML. Here's the image markup that we used in <<intro_to_asc>>, passed through as DocBook: 
 
 ....
 ----
@@ -229,48 +229,7 @@ Use an inline passthrough to prevent a line break:
 pass:[<phrase role='keep-together'>Don'tBreakMe</phrase>]
 ----
 
-=== Experiments
-
-==== Literal Blocks (asciidoc terminology)
-Following the general AsciiDoc cheatsheat/samples; some of these don't
-behave under the AsciiDoc build system, so you may want to check with your editor if you need on of them.
-
-// ORMTODO: "literal" becomes <literallayout class="monospaced">
-
-[literal]
-Consul *necessitatibus* per id,
-consetetur, eu pro everti postulant
-homero verear ea mea, qui.
-
-// ORMTODO: "verse" becomes <literallayout>, with inline markup
-
-[verse]
-Consul *necessitatibus* per id,
-consetetur, eu pro everti postulant
-homero verear ea mea, qui.
-
-// ORMTODO: indented block becomes <literallayout class="monospaced">
-
-  Consul *necessitatibus* per id,
-  consetetur, eu pro everti postulant
-  homero verear ea mea, qui.
-
-// ORMTODO: dotted-delimited becomes <literallayout class="monospaced">
-...................................
-Consul *necessitatibus* per id,
-consetetur, eu pro everti postulant
-homero verear ea mea, qui.
-...................................
-
-// ORMTODO: "verse" plus underscore-delimited becomes <blockquote><literallayout>
-
-[verse, William Blake, from Auguries of Innocence]
-__________________________________________________
-To see a world in a grain of sand,
-And a heaven in a wild flower,
-Hold infinity in the palm of your hand,
-And eternity in an hour.
-__________________________________________________
+=== Everything Else
 
 Finally, keep in mind that there may be situations where it's hard to
 get AsciiDoc to format something the way you want. Sometimes there's a

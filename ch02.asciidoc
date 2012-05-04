@@ -56,7 +56,7 @@ Once you've created the file, you're ready to start writing!
 When you're working in the Atlas wiki interface, you will need to write in
 AsciiDoc.footnote:[Atlas supports Markdown for less technically complex text.
 Ask your editor if Markdown is a good fit for your project.] See
-<<asciidoc_101>> for an introduction to AsciiDoc markup.
+<<intro_to_asc>> for an introduction to AsciiDoc markup.
 
 The Atlas wiki editor works just as you'd expect. Use the buttons to insert
 simple AsciiDoc markup. For example, <<atlas_editor>> shows what happens when
@@ -119,7 +119,7 @@ image::images/insert_image_asciidoc.png[]
 ----
 
 Read more about figure and image markup in <<figures_and_other_images>> in
-<<asciidoc_101>>.
+<<intro_to_asc>>.
 
 === Tracking Changes in Atlas
 
@@ -191,7 +191,7 @@ Windows, OS X, and Linux.
 ==== Committing and Pushing
 
 Now that you've got a local checkout of your project, you can open the
-_.asciidoc_ file and make some edits. As explained in <<asciidoc_101>>,
+_.asciidoc_ file and make some edits. As explained in <<intro_to_asc>>,
 AsciiDoc is a text-based markup language. You can use any text editor to edit
 the files. <<editing_in_textmate>> shows edits being made to this chapter in
 TextMate, a text editor for the Mac.

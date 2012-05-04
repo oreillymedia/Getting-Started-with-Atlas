@@ -1,4 +1,4 @@
-[[asciidoc_101]]
+[[intro_to_asc]]
 == AsciiDoc 101
 
 http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document

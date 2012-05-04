@@ -40,7 +40,7 @@ book.xml:291: element xref: validity error : IDREF attribute linkend references 
 
 In this case, the problem is that there is a cross-reference referring to an
 ID that does not exist. You can fix it by adding an ID to the appropriate
-block, as explained in [[asciidoc_101]].
+block, as explained in <<intro_to_asc>>.
 
 We realize that build failures can be tricky to troubleshoot, so we're working
 on improving the error messaging. Also, we've configured Atlas to be
