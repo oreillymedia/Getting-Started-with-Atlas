@@ -164,8 +164,8 @@ you clone the repo, you can optionally add the name of the directory, like so:
 
 [source,console]
 ----
-$ git clone https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git
-  getting_started_with_atlas/
+$ git clone https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git   getting_started_with_atlas/
+
 Cloning into getting_started_with_atlas...
 remote: Counting objects: 338, done.
 remote: Compressing objects: 100% (337/337), done.
