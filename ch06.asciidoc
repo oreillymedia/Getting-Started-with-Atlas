@@ -151,7 +151,7 @@ image::images/textmate_cmd_line.png[]
 Once you've made your edits, you use two commands to add any new files and commit your changes:
 
 * Add any new files so that git can start tracking them. Use `git add _<filename>_` to add an individual file. Use `git add .` to add all files in the current directory and all subdirectories.
-*  Commit the changes using `git commit -a -m'_commit message_'`. Try to use the commit message to leave yourself a note about what you were doing. For example, if you were just adding a big section on the _foo_ method, you'd use a message like "Added section covering foo."
+*  Commit the changes using `git commit -a -m'_commit message_'`. Try to use the commit message to leave yourself a note about what you were doing. For example, if you were just adding a big section on the _foo_ method, you'd use a message like ``Added section covering foo.''
 *  Push the changes back up to Atlas using `git push origin master`.
 
 Here's an example:
@@ -282,15 +282,15 @@ admins-MacBook-Air-2:new_project odewahn$ git push atlas master
 
 As we continue to improve Atlas, we'll add features to allow you to easily move projects back and forth from within the UI.
 
-++++
-<?hard-pagebreak?>
-++++
-
 .Using GitHub Wikis
 ****
-GitHub wikis are really cool, since they store all your data as a git repo that you can clone, just like any other. If you wanted, you could write your entire book on a GitHub wiki using either AsciiDoc or Markdown (if you don't need really complex markup) and then pull it straight into Atlas to build the project. 
+GitHub wikis are really cool, since they store all your data as a git repo
+that you can clone, just like any other. If you wanted, you could write your
+entire book on a GitHub wiki using either AsciiDoc or Markdown (if you don't
+need really complex markup) and then pull it straight into Atlas to build the
+project.
 
-To clone a github wiki, first find the URL for the wiki's git repo, which appears on the "Git Access" tab:
+To clone a github wiki, first find the URL for the wiki's git repo, which appears on the ``Git Access'' tab:
 
 image::images/github_wiki.png[]
 
