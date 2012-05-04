@@ -9,6 +9,7 @@ web interface or using git to `push` and `pull` from your local machine,
 you'll always be in sync.
 
 [NOTE]
+.Get Your Gravatar
 ====
 You may notice that some users have personal icons in the Changes and Collaborators sections of Atlas. Those icons are pulled in from http://en.gravatar.com/[Gravatar], based on the user's email address. Set up your Gravatar to get a more personalized icon.
 ====
@@ -273,11 +274,7 @@ Fast-forward
  1 files changed, 25 insertions(+), 0 deletions(-)
 ----
 
-==== Adding New Files
-
-Using git is a great way to add files, especially when you have a lot of files to add at once. For example, you might have a number of images, and you don't want to have to add them one by one via the wiki interface, as described in <<adding_images>>.
-
-Using `push`, `pull`, and `add` to interface with your Atlas repo is the just
+Using `push` and `pull` to interface with your Atlas repo is the just
 the beginning of what you can do with git. Check out http://gitref.org/[Git
 Reference] and <<cloning_to_github>> to learn what else is possible.
 
