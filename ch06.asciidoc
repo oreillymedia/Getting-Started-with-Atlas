@@ -21,8 +21,6 @@ Here are some of the key terms you'll need to understand to use git:
 
 Local Repository::
    A git repository that is on your local drive.  You can make any changes you want to this copy without affecting other files.
-Branch::
-   A named version set of files within a git repository.  The default name is "master."  We won't be doing much with branches, but they're a very handy tool that you can lean more in the http://book.git-scm.com/3_basic_branching_and_merging.html[Basic Branching and Merging] chapter of the http://book.git-scm.com/[git community book].
 Remote Repository::
    A named link to a git repository on another machine.  You can have as many remote repositories as you want.  "Origin" is the default name, but you can choose any name you like when you add new "remotes" (links to other repositories on different servers).    
 Push and Pull::
@@ -32,7 +30,16 @@ Cloning::
 Forking::
    GitHub lingo for cloning a repo from someone else's GitHub account into your own so that you can modify and change without touching the original copy.  Forking a repo is often the first thing people toto start playing around with a project.
 Commit::
-   TBD   
+   A commit saves all your changes under version control.   
+Branch::
+   A named version set of files within a git repository.  The default name is "master."  We won't be doing much with branches, but they're a very handy tool that you can lean more in the http://book.git-scm.com/3_basic_branching_and_merging.html[Basic Branching and Merging] chapter of the http://book.git-scm.com/[git community book].
+
+[WARNING]
+====
+One major difference between editing in the Atlas wiki and  editing locally is that in the wiki, all changes are committed for you automatically.  This is *not* the case when you're editing locally: you can make and save changes, but until you commit, you cannot push changes to Atlas.  Why? The reason is a reflection of git's history as a software development tools.  
+
+Git was designed to allow developers to experiment with their code by changing lots of files.  Assuming everything worked, the programmer could then commit the changes into the master branch of the code.  If the changes didn't work, he or she could simple roll back the changes to the last version that worked and start over.  So, a commit is an affirmative statement that the changes are acceptable.
+====
 
 The following table summarizes some commonly used commands:
  
@@ -253,11 +260,13 @@ As we continue to improve Atlas, we'll add features to allow you to easily move 
 ====
 GitHub wiki's are really cool, since they store all your data as a git repo that you can clone, just like any other.  If you wanted, you could write your entire book on a GitHub wiki using either AsciiDoc or Markdown (if you don't need relly complex markup) and then pull it straight into Atlas to build the project.  
 
-To clone a github wiki, click the "Git Access" tab and then clone the 
+To clone a github wiki, first find the URL for the wiki's git repo, which appears on the "Git Access" tab, as shown in <<github_wiki_url>>.
 
+[[github_wiki_url]]
+.GitHub wikis are stored as git repositories.  You can find the URL for your wiki by clicking on the "Git Access" tab in GitHub.
 image::images/github_wiki.png[scaledwidth="90%"]
 
-Once you have the wiki's URL, you can clone it to your local system and add a remote back to Atlas so that you can move data basck and forth with ease:
+Once you have the wiki's URL, you can clone it to your local system and add a remote back to Atlas so that you can move data back and forth with ease:
 
 ----
 $ git clone git@github.com:MakerPress/new_project.wiki.git
