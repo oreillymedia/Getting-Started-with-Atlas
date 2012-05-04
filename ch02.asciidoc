@@ -95,7 +95,7 @@ that image, which you can see at any time by bringing up the Image manager.
 
 [NOTE]
 =========
-At this time, if you upload an image via git, the image will note have a thumbnail preview within the Image manager.
+At this time, if you upload an image via git, the image will not have a thumbnail preview within the Image manager.
 =========
 
 You can also use the Image manager to insert the AsciiDoc reference to that
