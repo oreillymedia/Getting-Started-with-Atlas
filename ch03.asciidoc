@@ -47,5 +47,3 @@ on improving the error messaging. Also, we've configured Atlas to be
 permissive enough so that it doesn't fail on minor errors. Please let us know
 about your experiences with troubleshooting build failures, and how Atlas can
 be improved to make the experience better.
-
-If you get really stuck, just let your editor know, and we'll jump in and assess what's happening.

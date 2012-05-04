@@ -13,8 +13,7 @@ Inline passthroughs::
   ++pass:[passthrough goes here]++. See <<challenging_inlines>> for examples
   of inline passthroughs.
 Block passthroughs::
-  You can also pass though a block of DocBook XML. For example, if I wanted an
-  image not to float, I could use a passthrough to prevent the float, like so:
+  You can also pass though a block of DocBook XML. Here's the image markup that we used in <<asciidoc_101>>, passed through as DocBook: 
 
 ....
 ----
@@ -31,7 +30,7 @@ Block passthroughs::
 
 [NOTE]
 =========
-Using the block passthrough method described above, you could potentially passthrough an entire chapter of DocBook. 
+Using the block passthrough method described above, you could potentially pass through an entire chapter of DocBook. 
 =========
 
 === Underlined vs. Delimited
