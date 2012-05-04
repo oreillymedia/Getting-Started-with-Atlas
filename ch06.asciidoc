@@ -260,10 +260,8 @@ As we continue to improve Atlas, we'll add features to allow you to easily move 
 ====
 GitHub wiki's are really cool, since they store all your data as a git repo that you can clone, just like any other.  If you wanted, you could write your entire book on a GitHub wiki using either AsciiDoc or Markdown (if you don't need relly complex markup) and then pull it straight into Atlas to build the project.  
 
-To clone a github wiki, first find the URL for the wiki's git repo, which appears on the "Git Access" tab, as shown in <<github_wiki_url>>.
+To clone a github wiki, first find the URL for the wiki's git repo, which appears on the "Git Access" tab:
 
-[[github_wiki_url]]
-.GitHub wikis are stored as git repositories.  You can find the URL for your wiki by clicking on the "Git Access" tab in GitHub.
 image::images/github_wiki.png[scaledwidth="90%"]
 
 Once you have the wiki's URL, you can clone it to your local system and add a remote back to Atlas so that you can move data back and forth with ease:
