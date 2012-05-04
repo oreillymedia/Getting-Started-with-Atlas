@@ -30,7 +30,12 @@ Build times vary based on the length of your book, but most builds finish within
 [[debugging_errors]]
 === Debugging Errors
 
-* Why debugging / we need valid DocBook
-* Log helps you identify problems
-* Common errors and their solution
-* If all else fails
+Book builds will sometimes fail. The most likely cause of a failure is that your AsciiDoc isn't structured in a syntactically valid way. When you trigger a build, Atlas transforms your AsciiDoc into DocBook XML 4.5, and all book formats are built from that DocBook source. If your job fails, Atlas will report the error, which should help you to fix it. 
+
+For example, here is an Atlas error log for a PDF build that failed:
+
+----
+book.xml:291: element xref: validity error : IDREF attribute linkend references an unknown ID "cloning_to_github"
+----
+
+In this case, the problem is that there is a cross-reference referring to an ID that does not exist. You can fix it by adding an ID to the appropriate block, as explained in [[asciidoc_101]].

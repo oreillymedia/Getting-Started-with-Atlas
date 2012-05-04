@@ -126,22 +126,21 @@ mate .
 
 This will open the editor and display the _project drawer_, which is a navigation tree that you can use to move between files. Use the project drawer to open the file called _sec_environments.asc_, as shown in <<textmate-fig>>.
 
-If you've worked in a wiki before, this markup should look pretty familiar. Also, note how the various AsciiDoc elements are all nicely color coded because of the AsciiDoc bundle that you installed earlier.
-
 [[textmate-fig]]
 .Using TextMate and the AsciiDoc Bundle
-image::images/textmate_editor.png[float="none"]
+image::images/textmate_editor.png[]
 
-.Enable Command Line Usage
-****
-To run TextMate from the command line you must configure your system so that
+If you've worked in a wiki before, this markup should look pretty familiar. Also, note how the various AsciiDoc elements are all nicely color coded because of the AsciiDoc bundle that you installed earlier.
+
+To run TextMate from the command line, you must configure your system so that
 it ``knows'' where TextMate is installed. The simplest way to do this is to
 use the ``Terminal Usage'' feature right in TextMate's control bar. Just click
-``Help -> Terminal Usage...'' and then click ``Create Link.'' The image below
-shows how this works.
+``Help -> Terminal Usage...'' and then click ``Create Link.''
+<<>textmate_cmd_line> shows how this works.
 
+[[textmate_cmd_line]]
+.Setting Up TextMate for the Command Line
 image::images/textmate_cmd_line.png[]
-****
 
 ==== I've Edited My Files. Now What?
 

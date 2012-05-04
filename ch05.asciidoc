@@ -224,14 +224,17 @@ Please note that adding this page break processing instruction will have no effe
 
 === Controlling Line Breaks
 
-TK
+Use an inline passthrough to prevent a line break:
+
+----
+pass:[<phrase role='keep-together'>Don'tBreakMe</phrase>]
+----
 
 === Experiments
 
 ==== Literal Blocks (asciidoc terminology)
-Following the general asciidoc cheatsheat/samples; many of these don't
-behave under our toolchain (or relative to house style), so please
-ask before using anything here...
+Following the general AsciiDoc cheatsheat/samples; some of these don't
+behave under the AsciiDoc build system, so you may want to check with your editor if you need on of them.
 
 // ORMTODO: "literal" becomes <literallayout class="monospaced">
 

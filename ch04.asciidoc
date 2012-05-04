@@ -192,11 +192,13 @@ Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike
 other block elements, figures "float" by default. While AsciiDoc permits you
 to specify http://www.methods.co.nz/asciidoc/userguide.html#X9[various
 image-related attributes] for scaling/alignment/etc., generally these sorts of
-adjustments are not necessary.
+adjustments are not necessary. You can, however, prevent a float by adding `float="none"` like so:
 
-++++
-<?hard-pagebreak?>
-++++
+----
+[[FIG1]]
+.A Figure
+image::images/tiger.png[float]
+----
 
 [[FIG1]]
 .A Figure
