@@ -140,7 +140,7 @@ To run TextMate from the command line, you must configure your system so that
 it ``knows'' where TextMate is installed. The simplest way to do this is to
 use the ``Terminal Usage'' feature right in TextMate's control bar. Just click
 ``Help -> Terminal Usage...'' and then click ``Create Link.''
-<<>textmate_cmd_line> shows how this works.
+<<textmate_cmd_line>> shows how this works.
 
 [[textmate_cmd_line]]
 .Setting Up TextMate for the Command Line
@@ -281,6 +281,10 @@ admins-MacBook-Air-2:new_project odewahn$ git push atlas master
 ----
 
 As we continue to improve Atlas, we'll add features to allow you to easily move projects back and forth from within the UI.
+
+++++
+<?hard-pagebreak?>
+++++
 
 .Using GitHub Wikis
 ****
