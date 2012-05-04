@@ -128,7 +128,7 @@ This will open the editor and display the _project drawer_, which is a navigatio
 
 [[textmate-fig]]
 .Using TextMate and the AsciiDoc Bundle
-image::images/textmate_editor.png[]
+image::images/textmate_editor.png[float="none"]
 
 If you've worked in a wiki before, this markup should look pretty familiar. Also, note how the various AsciiDoc elements are all nicely color coded because of the AsciiDoc bundle that you installed earlier.
 
