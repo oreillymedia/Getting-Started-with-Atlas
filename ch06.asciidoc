@@ -11,7 +11,7 @@ If this sounds like you, then using git directly may be an attractive option. Th
 
 * http://help.github.com/git-cheat-sheets/[Git Cheat Sheet (GitHub)]. A great reference to the key commands.
 * http://hoth.entp.com/output/git_for_designers.html[Git for Designers]. A nice introduction to git for non-programmers. 
-* http://progit.org/book/[Pro Git]. The online version of Scott Chacon's excellent book, _Pro git_.
+* http://progit.org/book/[Pro Git]. The online version of Scott Chacon's excellent book, _Pro Git_.
 * http://www.youtube.com/watch?v=OFkgSjRnay4[O'Reilly Webcast: Git in One Hour]. A nice video from Scott Chacon that introduces all the key parts of using git.
 
 === Git Terminology and Command Reference
@@ -21,9 +21,12 @@ Here are some of the key terms you'll need to understand to use git:
 Local repository::
    A git repository that is on your local drive. You can make any changes you want to this copy without affecting other files.
 Branch::
-   A named version set of files within a git repository. The default name is "master." We won't be doing much with branches, but they're a very handy tool that you can lean more in the http://book.git-scm.com/3_basic_branching_and_merging.html[Basic Branching and Merging] chapter of the http://book.git-scm.com/[git community book].
+   A named version set of files within a git repository. The default name is ``master.'' We won't be doing much with branches, but they're a very handy tool that you can lean more in the http://book.git-scm.com/3_basic_branching_and_merging.html[Basic Branching and Merging] chapter of the http://book.git-scm.com/[git community book].
 Remote repository::
-   A named link to a git repository on another machine. You can have as many remote repositories as you want. "Origin" is the default name, but you can choose any name you like when you add new "remotes" (links to other repositories on different servers).   
+   A named link to a git repository on another machine. You can have as many
+remote repositories as you want. ``Origin'' is the default name, but you can
+choose any name you like when you add new ``remotes'' (links to other
+repositories on different servers). 
 Push and pull::
    git lingo for sending the changes made in a local repository to a remote repository, or vice versa.
 Cloning::
@@ -32,19 +35,17 @@ Forking::
    GitHub lingo for cloning a repo from someone else's GitHub account into your own so that you can modify and change without touching the original copy. Forking a repo is often the first step when you want to start working on a project.
 Commit::
    A commit saves all your changes under version control.   
-Branch::
-   A named version set of files within a git repository.  The default name is "master."  We won't be doing much with branches, but they're a very handy tool that you can lean more in the http://book.git-scm.com/3_basic_branching_and_merging.html[Basic Branching and Merging] chapter of the http://book.git-scm.com/[git community book].
 
 [WARNING]
 ====
-One major difference between editing in the Atlas wiki and  editing
+One major difference between editing in the Atlas wiki and editing
 locally is that in the wiki, all changes are committed for you
-automatically. This is *not* the case when you're editing locally: you
+automatically. This is _not_ the case when you're editing locally: you
 can make and save changes, but until you commit, you cannot push changes
-to Atlas.  Why? The reason is a reflection of git's history as a
+to Atlas. Why? The reason is a reflection of git's history as a
 software development tools.
 
-Git was designed to allow developers to experiment with their code by changing lots of files.  Assuming everything worked, the programmer could then commit the changes into the master branch of the code.  If the changes didn't work, he or she could simple roll back the changes to the last version that worked and start over.  So, a commit is an affirmative statement that the changes are acceptable.
+Git was designed to allow developers to experiment with their code by changing lots of files. Assuming everything works, the programmer can then commit the changes into the master branch of the code. If the changes don't work, he or she can simply roll back the changes to the last version that worked and start over. So a commit is an affirmative statement that the changes are acceptable.
 ====
 
 <<command_reference>> summarizes some commonly used commands.
@@ -103,7 +104,6 @@ More details on the bundle and configuring AsciiDoc for the command line follows
 
 Once you've installed TextMate, go grab the https://github.com/zuckschwerdt/asciidoc.tmbundle[AsciiDoc bundle] to make it much easier to work with AsciiDoc. It will give you features like automatic previews, source highlighting, and so forth. Here's what you do for this:
 
-[source,console]
 ----
 mkdir -p /Library/Application\ Support/TextMate/Bundles   
 cd ~/"Library/Application Support/TextMate/Bundles/"
@@ -126,16 +126,19 @@ mate .
 
 This will open the editor and display the _project drawer_, which is a navigation tree that you can use to move between files. Use the project drawer to open the file called _sec_environments.asc_, as shown in <<textmate-fig>>.
 
+If you've worked in a wiki before, this markup should look pretty familiar. Also, note how the various AsciiDoc elements are all nicely color coded because of the AsciiDoc bundle that you installed earlier.
+
 [[textmate-fig]]
 .Using TextMate and the AsciiDoc Bundle
 image::images/textmate_editor.png[float="none"]
 
-If you've worked in a wiki before, this markup should look pretty familiar. Also, note how the various AsciiDoc elements are all nicely color coded because of the AsciiDoc bundle that you installed earlier.
-
-
 .Enable Command Line Usage
 ****
-To run TextMate from the command line you must configure your system so that it "knows" where TextMate is installed. The simplest way to do this is to use the "Terminal Usage" feature right in TextMate's control bar. Just click "Help -> Terminal Usage..." and then click "Create Link". The image below shows how this works.
+To run TextMate from the command line you must configure your system so that
+it ``knows'' where TextMate is installed. The simplest way to do this is to
+use the ``Terminal Usage'' feature right in TextMate's control bar. Just click
+``Help -> Terminal Usage...'' and then click ``Create Link.'' The image below
+shows how this works.
 
 image::images/textmate_cmd_line.png[]
 ****
@@ -235,7 +238,7 @@ To put your code on GitHub, first, create a new repository. You'll be prompted t
 .Create a new repository on GitHub
 image::images/github_new_project.png[]
 
-Once you create a project, you'll see a screen that lists some helpful commands for what you'll do next. Locate the "Existing Git Repo?" section and then find the line that looks like this:
+Once you create a project, you'll see a screen that lists some helpful commands for what you'll do next. Locate the ``Existing Git Repo?'' section and then find the line that looks like this:
 
 ----
 git remote add origin git@github.com:MakerPress/new_project.git
@@ -244,7 +247,7 @@ git remote add origin git@github.com:MakerPress/new_project.git
 It will look something like <<github_new_repo_url>>.
 
 [[github_new_repo_url]]
-.The new repo's URL appears in the "Existing Git Repo?" section.
+.The new repo's URL appears in the ``Existing Git Repo?'' section.
 image::images/github_new_repo_url.png[]
 
 Once you've got the line, copy the repo's url (in our example, it's _git@github.com:MakerPress/new_project.git_) and enter the following command in the directory where your local Atlas repo is stored. (Note that the word "origin" is the only thing we're changing from the original command.):
