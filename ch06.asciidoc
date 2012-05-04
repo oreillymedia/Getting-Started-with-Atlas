@@ -34,7 +34,7 @@ Forking::
 Commit::
    TBD   
 
-The following table summarizes a few of the commands we'll use in this case.
+The following table summarizes some commonly used commands:
  
 
 .Command quick reference
