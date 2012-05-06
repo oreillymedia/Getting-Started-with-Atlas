@@ -29,13 +29,8 @@ technical documentation.
 If you're viewing this document as a PDF, EPUB, or Mobi, you're seeing the
 _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself.
 Since this chapter is intended as an introduction to the markup, you should
-view the source, available on GitHub.
+view the source, available on GitHub at https://github.com/oreillymedia/Getting-Started-with-Atlas[https://github.com/oreillymedia/Getting-Started-with-Atlas].
 ====
-
-++++
-<remark>Need to figure out where to put the source. On Github? Somewhere
-else? Okay to make it available to the public?</remark>
-++++
 
 [[SECTION_ID]]
 === Top-Level Section
@@ -72,7 +67,7 @@ user-supplied values or by values determined by context.
 [WARNING]
 ====
 Please do not use AsciiDoc's mechanisms for forcing line breaks,
-page breaks, or "ruler" lines, as these don't mesh with Atlas's book building
+page breaks, or ``ruler'' lines, as these don't mesh with Atlas's book building
 tools.
 ====
 
@@ -189,7 +184,7 @@ This one is a +<caution>+.
 ==== Figures and Other Images
 
 Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike
-other block elements, figures "float" by default. While AsciiDoc permits you
+other block elements, figures ``float'' by default. While AsciiDoc permits you
 to specify http://www.methods.co.nz/asciidoc/userguide.html#X9[various
 image-related attributes] for scaling/alignment/etc., generally these sorts of
 adjustments are not necessary. You can, however, prevent a float by adding `float="none"` like so:
@@ -253,8 +248,8 @@ as shown in <<STD_TABLE>>, please consult with your editor.
 
 ==== Code
 
-The AsciiDoc documentation refers to code blocks as "listing" blocks. Here's
-one:
+The http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation]
+refers to code blocks as ``listing'' blocks. Here's one:
 
 ----
 Hello world!
@@ -284,7 +279,8 @@ In AsciiDoc, there is no built-in mechanism for inline formatting within code.
 If you want to use inline formatting--in particular, for standard O'Reilly
 font conventions such as *+<userinput> (CW+bold)+* and _++<replaceable>
 (CW+italic)++_ or if you want to include line annotations--you can do so by
-using a passthrough block (see <<passthroughs>> for an explanation of passthroughs), like so:
+using a passthrough block (see <<passthroughs>> for an explanation of
+passthroughs), like so:
 
 ++++
 <screen>
@@ -306,7 +302,7 @@ with open("<replaceable>hello.txt</replaceable>") as f:
 
 ===== Syntax Highlighting
 
-The Atlas book-building toolchain now supports syntax highlighting via
+The Atlas book-building toolchain supports syntax highlighting via
 http://pygments.org/[Pygments]. You need only add +[source]+ above each code
 block that you want to be syntax-highlighted, and specify the language of the
 code. For example, the following code:
@@ -336,9 +332,9 @@ int direction = 1;
 ----
 
 Pygments supports a wide variety of languages that can be used in +[source]+;
-see the full list at http://pygments.org/docs/lexers/. Ebook readers that do
-not have color screens will still display the highlighting, but in more subtle
-shades of gray.
+see the full list avaliable on the http://pygments.org/docs/lexers/[the
+Pygments website]. Ebook readers that do not have color screens will still
+display the highlighting, but in more subtle shades of gray.
 
 Please note the following caveats:
 
@@ -362,7 +358,7 @@ include::code/HelloWorld.java[]
 
 To include an external file that contains inline markup (e.g., for callouts,
 line annotations, or inline font formatting), skip the code block delimiters
-around the +include::+ macro, and instead place passthrough delimiters within
+around the +include::+ macro and instead place passthrough delimiters within
 the included file, like so:
 
 include::code/inline_markup.txt[]

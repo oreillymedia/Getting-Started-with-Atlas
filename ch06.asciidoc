@@ -1,18 +1,27 @@
 [[using_git_with_atlas]]
 == Using Git and GitHub with Atlas
 
-While Atlas hides a lot of the complexity of using git, there are still times when you may want to use it, such as:
+While Atlas hides a lot of the complexity of using git, there are still times
+when you may want to use it, such as:
 
-* You hate editing in a web browser and would prefer a text editor, such as TextMate, emacs, or BBEdit.
+* You hate editing in a web browser and would prefer a text editor, such as
+  TextMate, emacs, or BBEdit.
 * You want to write when you're offline--during a flight, for example.
 * You've got a bunch of images to upload in bulk.
 
-If this sounds like you, then using git directly may be an attractive option. This is a quick introduction to using git with Atlas. If you want to know more about git and all the things you can do with it, check out these resources:
+If this sounds like you, then using git directly may be an attractive option.
+This is a quick introduction to using git with Atlas. If you want to know more
+about git and all the things you can do with it, check out these resources:
 
-* http://help.github.com/git-cheat-sheets/[Git Cheat Sheet (GitHub)]. A great reference to the key commands.
-* http://hoth.entp.com/output/git_for_designers.html[Git for Designers]. A nice introduction to git for non-programmers. 
-* http://progit.org/book/[Pro Git]. The online version of Scott Chacon's excellent book, _Pro Git_.
-* http://www.youtube.com/watch?v=OFkgSjRnay4[O'Reilly Webcast: Git in One Hour]. A nice video from Scott Chacon that introduces all the key parts of using git.
+* http://help.github.com/git-cheat-sheets/[Git Cheat Sheet (GitHub)]. A great
+  reference to the key commands.
+* http://hoth.entp.com/output/git_for_designers.html[Git for Designers]. A
+  nice introduction to git for non-programmers.
+* http://progit.org/book/[Pro Git]. The online version of Scott Chacon's
+  excellent book, _Pro Git_.
+* http://www.youtube.com/watch?v=OFkgSjRnay4[O'Reilly Webcast: Git in One
+  Hour]. A nice video from Scott Chacon that introduces all the key parts of
+  using git.
 
 === Git Terminology and Command Reference
 
@@ -134,7 +143,9 @@ This will open the editor and display the _project drawer_, which is a navigatio
 .Using TextMate and the AsciiDoc Bundle
 image::images/textmate_editor.png[]
 
-If you've worked in a wiki before, this markup should look pretty familiar. Also, note how the various AsciiDoc elements are all nicely color coded because of the AsciiDoc bundle that you installed earlier.
+If you've worked in a wiki before, this markup should look pretty familiar.
+Also, note how the various AsciiDoc elements are all nicely color coded
+because of the AsciiDoc bundle that you installed earlier.
 
 To run TextMate from the command line, you must configure your system so that
 it ``knows'' where TextMate is installed. The simplest way to do this is to
@@ -233,15 +244,25 @@ Fast-forward
 
 === Putting Your Project on GitHub?
 
-If you're totally new to GitHub, the best place to start is the http://help.github.com/[GitHub help pages]. They'll walk you through what you need to know to set up an account, create a repo, set up your security credentials, and so on. Once you've got an account and have successfully completed the steps on http://help.github.com/mac-set-up-git/[setting up git], it's pretty simple to move stuff back and forth between Atlas and GitHub. 
+If you're totally new to GitHub, the best place to start is the
+http://help.github.com/[GitHub help pages]. They'll walk you through what you
+need to know to set up an account, create a repo, set up your security
+credentials, and so on. Once you've got an account and have successfully
+completed the steps on http://help.github.com/mac-set-up-git/[setting up git],
+it's pretty simple to move stuff back and forth between Atlas and GitHub.
 
-To put your code on GitHub, first, create a new repository. You'll be prompted to enter a name, a description, and whether you want to make the repo public or private (available only if you have a paid account). It will look very similar to <<github_new_project>>.
+To put your code on GitHub, first, create a new repository. You'll be prompted
+to enter a name, a description, and whether you want to make the repo public
+or private (available only if you have a paid account). It will look very
+similar to <<github_new_project>>.
 
 [[github_new_project]]
 .Create a new repository on GitHub
 image::images/github_new_project.png[]
 
-Once you create a project, you'll see a screen that lists some helpful commands for what you'll do next. Locate the ``Existing Git Repo?'' section and then find the line that looks like this:
+Once you create a project, you'll see a screen that lists some helpful
+commands for what you'll do next. Locate the ``Existing Git Repo?'' section
+and then find the line that looks like this:
 
 ----
 git remote add origin git@github.com:MakerPress/new_project.git
@@ -253,7 +274,10 @@ It will look something like <<github_new_repo_url>>.
 .The new repo's URL appears in the ``Existing Git Repo?'' section.
 image::images/github_new_repo_url.png[]
 
-Once you've got the line, copy the repo's url (in our example, it's _git@github.com:MakerPress/new_project.git_) and enter the following command in the directory where your local Atlas repo is stored. (Note that the word "origin" is the only thing we're changing from the original command.):
+Once you've got the line, copy the repo's url (in our example, it's
+_git@github.com:MakerPress/new_project.git_) and enter the following command
+in the directory where your local Atlas repo is stored. (Note that the word
+"origin" is the only thing we're changing from the original command.):
 
 ----
 $ git remote add github git@github.com:MakerPress/new_project.git
@@ -267,7 +291,9 @@ $ git push github master
 
 You can then take full advantage of all the amazing features and community available on GitHub.
 
-Conversely, if you already have a repo on GitHub that you'd like to pull into Atlas, all you have to do is clone it down and add a new remote to an Atlas repo, like this:
+Conversely, if you already have a repo on GitHub that you'd like to pull into
+Atlas, all you have to do is clone it down and add a new remote to an Atlas
+repo, like this:
 
 [source,console]
 ----
@@ -280,7 +306,8 @@ admins-MacBook-Air-2:new_project odewahn$ git push atlas master
 ...
 ----
 
-As we continue to improve Atlas, we'll add features to allow you to easily move projects back and forth from within the UI.
+As we continue to improve Atlas, we'll add features to allow you to easily
+move projects back and forth from within the UI.
 
 .Using GitHub Wikis
 ****
@@ -290,7 +317,7 @@ entire book on a GitHub wiki using either AsciiDoc or Markdown (if you don't
 need really complex markup) and then pull it straight into Atlas to build the
 project.
 
-To clone a github wiki, first find the URL for the wiki's git repo, which appears on the ``Git Access'' tab:
+To clone a GitHub wiki, first find the URL for the wiki's git repo, which appears on the ``Git Access'' tab:
 
 image::images/github_wiki.png[]
 

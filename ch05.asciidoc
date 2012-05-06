@@ -80,7 +80,7 @@ Element emphasis is not declared in literal list of possible children
 
 For generic emphasis, you can also surround a string with single, straight
 quotation marks (apostrophes): i.e., 'this' is equivalent to _that_. As an
-enhancement for finer-tuned semantic distinctions downstream, the O'Reilly
+enhancement for finer-tuned semantic distinctions downstream, the Atlas
 configuration file supports the following variants, via `@role` attributes:
 
 * to indicate a filename or path, use [role="filename"]'/path/to/file.ext' or
