@@ -23,8 +23,6 @@ too. The important thing is that you use the AsciiDoc markup.
 This chapter illustrates some of the most common elements used in writing
 technical documentation.
 
-git is being weird
-
 .Use the Source, Luke
 [WARNING]
 ====
