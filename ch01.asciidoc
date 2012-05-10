@@ -1,10 +1,6 @@
 [[chapid_1]]
 == Join the Publishing Revolution
 
-Make a change!
-
-Made another!
-
 Thank you for your interest in Atlas! Atlas is a wiki-like, git-managed
 authoring platform for creating books easily. Some of the features of Atlas
 are as follows:
