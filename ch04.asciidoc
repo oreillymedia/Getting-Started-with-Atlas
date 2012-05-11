@@ -29,7 +29,7 @@ technical documentation.
 If you're viewing this document as a PDF, EPUB, or Mobi, you're seeing the
 _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself.
 Since this chapter is intended as an introduction to the markup, you should
-view the source, available at cdn.oreilly.com/atlas_docs.zip[http://cdn.oreilly.com/atlas_docs.zip].
+view the source, available at http://cdn.oreilly.com/atlas_docs.zip[cdn.oreilly.com/atlas_docs.zip].
 ====
 
 [[SECTION_ID]]
