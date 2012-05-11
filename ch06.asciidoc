@@ -59,10 +59,6 @@ Git was designed to allow developers to experiment with their code by changing l
 
 <<command_reference>> summarizes some commonly used commands.
  
-++++
-<?hard-pagebreak?>
-++++
-
 [[command_reference]]
 .Command quick reference
 |===================================================

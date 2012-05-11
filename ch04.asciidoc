@@ -29,7 +29,7 @@ technical documentation.
 If you're viewing this document as a PDF, EPUB, or Mobi, you're seeing the
 _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself.
 Since this chapter is intended as an introduction to the markup, you should
-view the source, available on GitHub at https://github.com/oreillymedia/Getting-Started-with-Atlas[https://github.com/oreillymedia/Getting-Started-with-Atlas].
+view the source, available at cdn.oreilly.com/atlas_docs.zip[http://cdn.oreilly.com/atlas_docs.zip].
 ====
 
 [[SECTION_ID]]
@@ -131,10 +131,6 @@ anchors and xrefs, as these interfere with standard generated xref formats.
 ==== Sidebars
 
 Here's a +<sidebar>+:
-
-++++
-<?hard-pagebreak?>
-++++
 
 .What's Going On, Anyway?
 ****
@@ -316,10 +312,6 @@ float speed = 0.5;
 int direction = 1;
 ----
 ....
-
-++++
-<?hard-pagebreak?>
-++++
 
 will render in the EPUB, PDF, and Mobi (Kindle Fire only) as follows:
 
