@@ -1,4 +1,4 @@
-:bookseries: maker4c
+:bookseries: animal
 
 [[chapid_1]]
 == Join the Publishing Revolution
