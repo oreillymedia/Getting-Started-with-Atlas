@@ -1,3 +1,5 @@
+:bookseries: maker4c
+
 [[chapid_1]]
 == Join the Publishing Revolution
 
