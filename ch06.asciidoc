@@ -352,7 +352,7 @@ From https://atlas-admin.oreilly.com/git/1230000000065
    92d4f99..e9fbbe2  master     -> origin/master
 ----
 
-This fetches the changes into a local branch, but does not merge them in automatically, which is what pull does.  (In fact, some people this this is the ideal workflow, since you shouldn't merge in stuff if you don't know what's coming.)
+This fetches the changes into a local branch, but does not merge them in automatically, which is what pull does.  (In fact, as Mark Longair argues in link:http://longair.net/blog/2009/04/16/git-fetch-and-merge/[git: fetch and merge, don’t pull], this is a much better workflow than just blindly pulling in remote changes without review.)
 
 Once you've fetched, you can use this command to see the files that have changed between your local copy and the remote copy:
 
