@@ -1,3 +1,4 @@
+[[working_with_github]]
 == Working with GitHub in Atlas
 
 If you're totally new to link:http://www.github.com[GitHub], the best place to start is the
