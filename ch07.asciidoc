@@ -15,12 +15,13 @@ similar to <<github_new_project>>.
 
 [[github_new_project]]
 .Create a new repository on GitHub
-image::images/github_new_project.png[]
+image::images/github_new_project.png[float="none"]
 
 Once you create a project, you'll see a screen that lists some helpful
 commands for what you'll do next. Locate the ``Existing Git Repo?'' section
 and then find the line that looks like this:
 
+[source,console]
 ----
 git remote add origin git@github.com:MakerPress/new_project.git
 ----
@@ -36,12 +37,14 @@ _git@github.com:MakerPress/new_project.git_) and enter the following command
 in the directory where your local Atlas repo is stored. (Note that the word
 "origin" is the only thing we're changing from the original command.):
 
+[source,console]
 ----
 $ git remote add github git@github.com:MakerPress/new_project.git
 ----
 
 Once you've set up the new remote, you can push to it with this command:
 
+[source,console]
 ----
 $ git push github master
 ----

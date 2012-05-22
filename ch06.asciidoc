@@ -124,7 +124,7 @@ Now the the bundle is installed, your AsciiDoc markup will have all the color-co
 
 [NOTE]
 ====
-You have to give the files an extension of _.asc_ or _.asciidoc_ for the color coding to happen. 
+You have to give the files an extension of _.asciidoc_ for the color coding to happen. 
 ====
 
 Change into the directory where you installed the sample repository and type the following command:
@@ -133,7 +133,9 @@ Change into the directory where you installed the sample repository and type the
 mate .
 ----
 
-This will open the editor and display the _project drawer_, which is a navigation tree that you can use to move between files. Use the project drawer to open the file called _sec_environments.asc_, as shown in <<textmate-fig>>.
+This command will open the editor and display the _project drawer_, which is a
+navigation tree that you can use to move between files. Use the project drawer
+to open the file called _sec_environments.asc_, as shown in <<textmate-fig>>.
 
 [[textmate-fig]]
 .Using TextMate and the AsciiDoc Bundle
@@ -170,7 +172,7 @@ $ git commit -a -m"Made some changes while on the plane"
 $ git push origin master
 ----
 
-==== I Am Trying to Push Some Changes to Atlas, but It Keeps Reporting That Everything Is Up to Date. What's up?
+==== I Am Trying to Push Some Changes to Atlas, but It Keeps Reporting That Everything Is Up to Date. What's Up?
 
 You probably forgot to either add any new files, or you forgot to commit your changes. (Or both!) You can check if you have any changes using `git status`, like this:
 
@@ -204,7 +206,11 @@ new-host:1230000000197 odewahn$
 
 ==== Hey, My Push to Atlas Keeps Getting Rejected. What's Up with That?
 
-If you're getting a message that your changes are rejected, it's most likely because someone has changed the files on Atlas since you started working locally. To fix this, you'll need to commit your current changes and then use `git pull origin master` to pull in the changes from Atlas. Once you've synced the changes, you'll be able to push your work back up.
+If you're getting a message that your changes are rejected, it's most likely
+because someone has changed the files on Atlas since you started working
+locally. To fix this, you'll need to commit your current changes and then use
+`git pull origin master` to pull in the changes from Atlas. Once you've synced
+the changes, you'll be able to push your work back up.
 
 Here's the rejection notice:
 
@@ -238,10 +244,9 @@ Fast-forward
  1 files changed, 0 insertions(+), 2 deletions(-)
 ----
 
+==== How Do I Get a diff Between the Files I Have Locally and the Files That Are on Atlas (Regardless of the Number of Commits)?
 
-==== How do I get a diff between the files I have locally and the files that are on Atlas (regardless of the number of commits)?
-
-Rather than using "git pull", use "git fetch", like this:
+Rather than using `git pull`, use `git fetch`, like this:
 
 [source,console]
 ----
@@ -255,15 +260,24 @@ From https://atlas-admin.oreilly.com/git/1230000000065
    92d4f99..e9fbbe2  master     -> origin/master
 ----
 
-This fetches the changes into a local branch, but does not merge them in automatically, which is what pull does.  (In fact, as Mark Longair argues in link:http://longair.net/blog/2009/04/16/git-fetch-and-merge/[git: fetch and merge, don't pull], this is a much better workflow than just blindly pulling in remote changes without review.)
+This fetches the changes into a local branch, but does not merge them in
+automatically, which is what `pull` does. (In fact, as Mark Longair argues in
+link:http://longair.net/blog/2009/04/16/git-fetch-and-merge/[git: fetch and
+merge, don't pull], this workflow is much better than just blindly pulling in
+remote changes without review.)
 
-Once you've fetched, you can use this command to see the files that have changed between your local copy and the remote copy:
+Once you've fetched, you can use this command to see the files that have
+changed between your local copy and the remote copy:
 
+[source,console]
 ----
 git diff --name-only master..origin/master
 ----
 
-This will just give you the list of files.  (If you want to see the actual differences, just leave off the "--name-only" flag).  Once you're satisfied that nothing nefarious is in there, you can then merge in the changes you just fetched using the command "git merge origin/master", like this:
+This command will just give you the list of files. (If you want to see the
+actual differences, just leave off the "--name-only" flag). Once you're
+satisfied that nothing nefarious is in there, you can then merge in the changes
+you just fetched using the command `git merge origin/master`, like this:
 
 [source,console]
 ----

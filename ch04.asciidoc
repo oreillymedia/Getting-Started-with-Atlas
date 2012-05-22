@@ -188,7 +188,7 @@ adjustments are not necessary. You can, however, prevent a float by adding `floa
 ----
 [[FIG1]]
 .A Figure
-image::images/tiger.png[float]
+image::images/tiger.png[float="none"]
 ----
 
 [[FIG1]]
