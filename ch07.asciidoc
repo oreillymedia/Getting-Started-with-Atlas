@@ -23,7 +23,7 @@ and then find the line that looks like this:
 
 [source,console]
 ----
-git remote add origin git@github.com:MakerPress/new_project.git
+$ git remote add origin git@github.com:MakerPress/new_project.git
 ----
 
 It will look something like <<github_new_repo_url>>.

@@ -113,11 +113,12 @@ More details on the bundle and configuring AsciiDoc for the command line follows
 
 Once you've installed TextMate, go grab the https://github.com/zuckschwerdt/asciidoc.tmbundle[AsciiDoc bundle] to make it much easier to work with AsciiDoc. It will give you features like automatic previews, source highlighting, and so forth. Here's what you do for this:
 
+[source,console]
 ----
-mkdir -p /Library/Application\ Support/TextMate/Bundles   
-cd ~/"Library/Application Support/TextMate/Bundles/"
-git clone git://github.com/zuckschwerdt/asciidoc.tmbundle.git "AsciiDoc.tmbundle"
-osascript -e 'tell app "TextMate" to reload bundles'
+$ mkdir -p /Library/Application\ Support/TextMate/Bundles   
+$ cd ~/"Library/Application Support/TextMate/Bundles/"
+$ git clone git://github.com/zuckschwerdt/asciidoc.tmbundle.git "AsciiDoc.tmbundle"
+$ osascript -e 'tell app "TextMate" to reload bundles'
 ----
 
 Now the the bundle is installed, your AsciiDoc markup will have all the color-coded goodness you've come to expect in a text editors.
@@ -130,7 +131,7 @@ You have to give the files an extension of _.asciidoc_ for the color coding to h
 Change into the directory where you installed the sample repository and type the following command:
 
 ----
-mate .
+$ mate .
 ----
 
 This command will open the editor and display the _project drawer_, which is a
@@ -271,7 +272,7 @@ changed between your local copy and the remote copy:
 
 [source,console]
 ----
-git diff --name-only master..origin/master
+$ git diff --name-only master..origin/master
 ----
 
 This command will just give you the list of files. (If you want to see the
