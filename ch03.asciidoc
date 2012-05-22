@@ -49,6 +49,7 @@ optionally fill them in by adding a file called _book-docinfo.xml_ to your
 project, and then adding the appropriate metadata using XML tags. Here is an
 example showing the metadata that you might like to include:
 
+[source,xml]
 ----
 <title>BOOK TITLE</title>    
 
