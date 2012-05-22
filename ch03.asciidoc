@@ -23,6 +23,15 @@ click the files that you'd like to include in the build, as shown in
 .You can drag or click on the files to move them to and from the Files to Build box
 image::images/files_to_build.png[]
 
+[WARNING]
+====
+A few things to keep in mind when building books in Atlas:
+
+* Atlas expects a file extension of _.asciidoc_, so please use that instead of _.asc_.
+* When you trigger a build, Atlas automatically creates a _book.asciidoc_ file that references the files that you choose to include in the build, so there is no need to add one.
+* Do not include _book-docinfo.xml_ file in the build. This metadata-only file is described in <<adding_metadata>>.
+====
+
 The builds will change to a status of pending. Wait a few minutes, and then
 refresh the page. Assuming the builds were successful, you can download your
 files right from Atlas. If you run into an error, see <<debugging_errors>>.
@@ -31,6 +40,74 @@ files right from Atlas. If you run into an error, see <<debugging_errors>>.
 ====
 Build times vary based on the length of your book, but most builds finish within a few minutes. EPUB files build the fastest, PDF files the slowest, and Mobi files somewhere in between. 
 ====
+
+[[adding_metadata]]
+=== Adding Metadata
+
+If the title and copyright pages in your book builds are looking bare, you can
+optionally fill them in by adding a file called _book-docinfo.xml_ to your
+project, and then adding the appropriate metadata using XML tags. Here is an
+example showing the metadata that you might like to include:
+
+----
+<title>BOOK TITLE</title>    
+
+<author> <!-- feel free to add multiple authors-->
+  <firstname></firstname>
+  <surname></surname>  
+</author>
+
+<editor>
+  <firstname></firstname>
+  <surname></surname>
+</editor>
+
+<copyright>
+  <year>2012</year>
+  <holder></holder>
+</copyright>
+
+<othercredit role="proofreader">
+  <firstname></firstname>
+  <surname></surname>
+</othercredit>
+
+<!-- All rights reserved. -->
+
+<publisher>
+  <publishername>O’Reilly Media, Inc.</publishername>
+  <address format="linespecific">
+    <street>1005 Gravenstein Highway North</street>
+    <city>Sebastopol</city>
+    <state>CA</state>
+    <postcode>95472</postcode>
+  </address>
+</publisher>
+
+<isbn></isbn>
+
+<edition></edition>
+
+<revhistory>
+  <revision>
+    <date>2012-02-10</date>
+     <revremark>First release</revremark>
+  </revision>
+  <revision>
+    <date>2012-02-27</date>
+    <revremark>Second release</revremark>
+  </revision>
+  <revision>
+    <date>2012-04-27</date>
+    <revremark>Third release</revremark>
+  </revision>
+</revhistory>
+----
+
+When you create a new build, the metadata will be added to the title and
+copyright pages of your PDF. Note that you do not need to include the
+_book-docinfo.xml_ file iself in the build. Atlas sees and picks up the
+metadata information automatically. 
 
 [[debugging_errors]]
 === Debugging Errors
