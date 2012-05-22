@@ -2,11 +2,6 @@
 <author>
 <firstname>O’Reilly Media</firstname>
 </author>
-    <othercredit role="interiordesigner">
-      <firstname>David</firstname>
-
-      <surname>Futato</surname>
-    </othercredit>
     <publisher>
       <publishername>O’Reilly Media, Inc.</publishername>
 
@@ -76,6 +71,13 @@
         <date>2012-05-01</date>
 
         <revremark>First release</revremark>
+      </revision>
+    
+    <revhistory>
+      <revision>
+        <date>2012-05-22</date>
+
+        <revremark>Second release</revremark>
       </revision>
 
    </revhistory>
