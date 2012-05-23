@@ -3,7 +3,7 @@
 
 I made a change!
 
-Another change!
+This is another change!
 
 When you are using Altas to write your book, you have the option of writing in
 the wiki interface or locally on your own computer. This chapter covers each
