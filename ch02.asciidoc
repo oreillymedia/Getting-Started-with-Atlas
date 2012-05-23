@@ -1,6 +1,8 @@
 [[write_how_you_want]]
 == Write How You Want
 
+This is a change!
+
 When you are using Altas to write your book, you have the option of writing in
 the wiki interface or locally on your own computer. This chapter covers each
 of those scenarios. As you write your book, you can jump back and
