@@ -7,6 +7,8 @@ Thank you for your interest in Atlas! Atlas is a wiki-like, git-managed
 authoring platform for creating books easily. Some of the features of Atlas
 are as follows:
 
+Add a paragraph!
+
 Simple markup::
   Atlas supports http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] and,
   for simpler projects,
