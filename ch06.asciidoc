@@ -245,6 +245,36 @@ Fast-forward
  1 files changed, 0 insertions(+), 2 deletions(-)
 ----
 
+.HTTP error when pushing to Atlas
+**** 
+When pushing large batches of files to Atlas (e.g., a set of figure images), you may encounter an error like the following:
+
+[source,console]
+----
+$ git push origin master
+Password for 'atlas-admin.oreilly.com': 
+Counting objects: 39, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (35/35), done.
+Writing objects: 100% (35/35), 83.19 MiB | 604 KiB/s, done.
+Total 35 (delta 2), reused 0 (delta 0)
+error: RPC failed; result=22, HTTP code = 502
+fatal: The remote end hung up unexpectedly
+fatal: The remote end hung up unexpectedly
+----
+
+This usually indicates that your HTTP POST buffer is too small to handle the files being posted. Try increasing the buffer size by running the following command:
+
+[source,console]
+----
+$ git config http.postBuffer 524288000
+----
+
+And then try your +git push+ again.
+
+For more details/context on Git and the HTTP post buffer, see http://stackoverflow.com/questions/2702731/git-fails-when-pushing-commit-to-github[this Stack Overflow post].
+****
+
 ==== How Do I Get a diff Between the Files I Have Locally and the Files That Are on Atlas (Regardless of the Number of Commits)?
 
 Rather than using `git pull`, use `git fetch`, like this:
