@@ -43,6 +43,9 @@ can have the delimiter on both sides as in this one.
 ===== Third-Level Section (Delimited Style)
 This one designates AsciiDoc level 4 (DocBook +<sect3>+).
 
+====== Fourth-Level Section (Delimited Style)
+This one is testing a sect4.
+
 [[INLINES]]
 === Inline Elements
 
