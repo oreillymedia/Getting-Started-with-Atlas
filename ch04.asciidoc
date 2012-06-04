@@ -43,9 +43,6 @@ can have the delimiter on both sides as in this one.
 ===== Third-Level Section (Delimited Style)
 This one designates AsciiDoc level 4 (DocBook +<sect3>+).
 
-====== Fourth-Level Section (Delimited Style) ======
-This one is testing a sect4.
-
 [[INLINES]]
 === Inline Elements
 
@@ -196,7 +193,7 @@ image::images/tiger.png[float="none"]
 
 [[FIG1]]
 .A Figure
-image::images/tiger.png[]
+image::images/tiger.png[float="none"]
 
 Or you may prefer an image with no caption, like so:
 

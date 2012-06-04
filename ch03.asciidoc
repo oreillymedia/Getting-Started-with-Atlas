@@ -19,10 +19,6 @@ will be presented with a list of the files that you've created so far. Drag or
 click the files that you'd like to include in the build, as shown in
 <<files_to_build>>.
 
-[[files_to_build]]
-.You can drag or click on the files to move them to and from the Files to Build box
-image::images/files_to_build.png[]
-
 [WARNING]
 ====
 A few things to keep in mind when building books in Atlas:
@@ -31,6 +27,10 @@ A few things to keep in mind when building books in Atlas:
 * When you trigger a build, Atlas automatically creates a _book.asciidoc_ file that references the files that you choose to include in the build, so there is no need to add one.
 * Do not include _book-docinfo.xml_ file in the build. This metadata-only file is described in <<adding_metadata>>.
 ====
+
+[[files_to_build]]
+.You can drag or click on the files to move them to and from the Files to Build box
+image::images/files_to_build.png[float="none"]
 
 The builds will change to a status of pending. Wait a few minutes, and then
 refresh the page. Assuming the builds were successful, you can download your
@@ -48,6 +48,10 @@ If the title and copyright pages in your book builds are looking bare, you can
 optionally fill them in by adding a file called _book-docinfo.xml_ to your
 project, and then adding the appropriate metadata using XML tags. Here is an
 example showing the metadata that you might like to include:
+
+++++
+<?hard-pagebreak?>
+++++
 
 [source,xml]
 ----

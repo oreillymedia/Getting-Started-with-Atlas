@@ -245,7 +245,7 @@ Fast-forward
  1 files changed, 0 insertions(+), 2 deletions(-)
 ----
 
-.HTTP error when pushing to Atlas
+.HTTP Error When Pushing to Atlas
 **** 
 When pushing large batches of files to Atlas (e.g., a set of figure images), you may encounter an error like the following:
 
