@@ -6,7 +6,7 @@ This is another chapter, with some more esoteric/experimental things...
 [[interactive]]
 === Interactive Data Display
 
-Atlas uses D3[http://d3js.org/] to support interactive presentation of data in the HTML version of the book. To present your data, you need only add a reference to a CSV file, like so:
+Atlas uses http://d3js.org/[D3] to support interactive presentation of data in the HTML version of the book. To present your data, you need only add a reference to a CSV file, like so:
 
 ....
 [type="graph"]
