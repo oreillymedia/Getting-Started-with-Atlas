@@ -14,6 +14,7 @@ you'll always be in sync.
 You may notice that some users have personal icons in the Changes and Collaborators sections of Atlas. Those image icons are pulled in from http://en.gravatar.com/[Gravatar], based on the user's email address. Set up your Gravatar to get a more personalized icon.
 =======
 
+[[workingintheatlaswiki]]
 === Working in the Atlas Wiki
 
 If you've used a wiki before, you will find the Atlas interface to be very
@@ -32,6 +33,7 @@ wiki interface and the git repository.
 You can also remove collaborators using the same Collaborators tab.
 ****
 
+[[creatingnewfiles]]
 ==== Creating New Files
 
 When you create your book in Atlas, it will have no files, as shown in <<blank_slate>>.
@@ -120,6 +122,7 @@ image::images/insert_image_asciidoc.png[]
 Read more about figure and image markup in <<figures_and_other_images>> in
 <<intro_to_asc>>.
 
+[[tracking_changes_in_atlas]]
 === Tracking Changes in Atlas
 
 Each time you save a change in the wiki interface or use git to push a change
@@ -147,6 +150,7 @@ changes locally, and then push them back up when your connected to the
 internet again. Or perhaps you'd rather skip the wiki interface entirely and
 work on your local machine exclusively. That's fine too.
 
+[[cloning_your_book]]
 ==== Cloning Your Book
 
 In order to work locally, you will need to have http://git-scm.com/[git]
@@ -227,6 +231,7 @@ To https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git
 Now if you look in the Altas web interface, you will see the changes that you
 made locally reflected in the wiki interface.
 
+[[fetching_and_pulling]]
 ==== Fetching and Pulling 
 
 You can also use git to pull down changes that were made in the wiki
@@ -278,6 +283,7 @@ Using `push` and `pull` to interface with your Atlas repo is the just
 the beginning of what you can do with git. Check out http://gitref.org/[Git
 Reference] and <<using_git_with_atlas>> to learn what else is possible.
 
+[[resolving_conflicts]]
 ==== Resolving Conflicts
 
 When you use `git merge` or `git pull`, git will attempt to combine all

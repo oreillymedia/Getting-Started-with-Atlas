@@ -25,6 +25,7 @@ An invitation system::
   writing in a web browser is not for you, no problem. Just use git to clone
   your book to a local machine and write in the text editor of your choice.
 
+[[howitworks]]
 === How It Works
 
 . Receive an invite from an O'Reilly editor or another author and create an
@@ -39,6 +40,7 @@ The ebook files look just like those for sale on O'Reilly.com.
 Why bother with this, you ask? We're trying to create an appealing authoring
 process that will get you writing as quickly as possible.
 
+[[startwritingtoday]]
 === Start Writing Today
 
 Atlas is still in its early development stages, and you can play a role in

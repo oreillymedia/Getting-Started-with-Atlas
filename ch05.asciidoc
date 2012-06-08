@@ -52,6 +52,7 @@ Block passthroughs::
 Using the block passthrough method described above, you could potentially pass through an entire chapter of DocBook. 
 =========
 
+[[underlined_delimited]]
 === Underlined vs. Delimited
 
 Section titles can be in either of two formats: ``underlined'' or delimited.
@@ -228,6 +229,7 @@ alignment for side-by-side icons.
 ++++
 ====
 
+[[page_breaking]]
 === Page Breaking
 
 If you want to insert a hard page break into your PDF builds, you can do so with this passthrough:
@@ -240,6 +242,7 @@ If you want to insert a hard page break into your PDF builds, you can do so with
 
 Please note that adding this page break processing instruction will have no effect on the EPUB and Mobi files.
 
+[[controlling_line_breaks]]
 === Controlling Line Breaks
 
 Use an inline passthrough to prevent a line break:
@@ -248,6 +251,7 @@ Use an inline passthrough to prevent a line break:
 pass:[<phrase role='keep-together'>Don'tBreakMe</phrase>]
 ----
 
+[[everything_else]]
 === Everything Else
 
 Finally, keep in mind that there may be situations where it's hard to
