@@ -11,7 +11,7 @@ Atlas uses D3[http://d3js.org/] to support interactive presentation of data in t
 ....
 [type="graph"]
 %%%%
-sample_file.csv
+sample-data.csv
 %%%%
 ....
 
@@ -19,7 +19,7 @@ Check out the HTML build of your book to see the graph in action.
 
 [type="graph"]
 %%%%
-sample_file.csv
+sample-data.csv
 %%%%
 
 [[passthroughs]]
