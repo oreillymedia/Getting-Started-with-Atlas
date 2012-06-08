@@ -12,6 +12,7 @@ You may be wondering about the three book formats that Altas produces. An overvi
 * The http://en.wikipedia.org/wiki/Mobipocket[Mobipocket] format is also a fluid format and is used by Amazon's Kindle platform. You can copy the Mobi that Atlas outputs to your Kindle, or you can preview it with the http://www.amazon.com/gp/feature.html?docId=1000729511[Kindle Previewer].
 ****
 
+[[building_books]]
 === Building Books
 
 To kick off a build, click on the Build tab. Then, select New Build, and you

@@ -128,6 +128,7 @@ anchors and xrefs, as these interfere with standard generated xref formats.
 [[BLOCKS]]
 === Block Elements
 
+[[SIDEBARS]]
 ==== Sidebars
 
 Here's a +<sidebar>+:
@@ -148,6 +149,7 @@ Atlas provides error message logs to help you troubleshoot and fix syntax
 errors. Read more about building and debugging in <<building_and_debugging>>.
 **** 
 
+[[Admonitions]]
 ==== Admonitions (Notes and Warnings)
 
 Here are some admonitions:
@@ -199,8 +201,10 @@ Or you may prefer an image with no caption, like so:
 
 image::images/screenshot.png[]
 
+[[Lists]]
 ==== Lists
 
+[[Labeled]]
 ===== Labeled (aka Variable or Term-Definition) Lists
 
 Term 1::
@@ -208,6 +212,7 @@ Term 1::
 Term 2::
   Something else
 
+[[Bulleted]]
 ===== Bulleted (aka Itemized) Lists
 
 * lions
@@ -216,6 +221,7 @@ Term 2::
 ** teapotted
 * bears
 
+[[Ordered]]
 ===== Ordered (aka Numbered) Lists
 
 . Preparation
@@ -225,6 +231,7 @@ Term 2::
 .. Bake
 . Applause
 
+[[tables_desc]]
 ==== Tables
 
 Atlas table styles vary slightly between series are supplied by the template
@@ -242,6 +249,7 @@ as shown in <<STD_TABLE>>, please consult with your editor.
 |F|F|F
 |=======
 
+[[code_explanation]]
 ==== Code
 
 The http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation]
@@ -296,6 +304,7 @@ with open("<replaceable>hello.txt</replaceable>") as f:
         print line</programlisting>
 ++++
 
+[[syntax_highlighting]]
 ===== Syntax Highlighting
 
 The Atlas book-building toolchain supports syntax highlighting via
@@ -338,6 +347,7 @@ code block.
 
 * The PDF used for print will contain no highlighting.
 
+[[external_code_files]]
 ===== External Code Files
 
 To include an external code file that is text-only (no markup), use the
@@ -355,6 +365,7 @@ the included file, like so:
 
 include::code/inline_markup.txt[]
 
+[[code_callouts]]
 ===== Code Callouts
 
 http://www.sagehill.net/docbookxsl/AnnotateListing.html#Callouts[Code
@@ -413,6 +424,7 @@ If using passthroughs for callouts, please use the paired markup as shown
 above (not +<areaspec>+).
 ===============================
 
+[[other_block_elements]]
 ==== Other Block Elements
 
 ++++

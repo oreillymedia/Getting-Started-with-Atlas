@@ -23,6 +23,7 @@ about git and all the things you can do with it, check out these resources:
   Hour]. A nice video from Scott Chacon that introduces all the key parts of
   using git.
 
+[[git_terminology]]
 === Git Terminology and Command Reference
 
 Here are some of the key terms you'll need to understand to use git:
@@ -71,12 +72,15 @@ Git was designed to allow developers to experiment with their code by changing l
 | git push _remote_name_ _branch_name_ | Pushes changes from the specified local branch specified to a remote repo.  We'll mostly use "git push origin master"
 |===================================================
 
+[[faqs_git_atlas]]
 === Frequently Asked Questions About Using Git with Atlas
 
+[[where_get_git]]
 ==== Where Do I Get Git?
 
 You can download git from http://git-scm.com/[the git-scm site]. Just follow the instructions for your platform.
 
+[[how_clone_atlas]]
 ==== How Do I Clone My Project from Atlas?
 
 To pull down your project from Atlas:
@@ -100,6 +104,7 @@ Unpacking objects: 100% (68/68), done.
 $ cd 1230000000189
 ----
 
+[[how_write_locally]]
 ==== How Do I Write Locally Using TextMate?
 
 You can use any text editor you want to edit Atlas projects. If you're on a Mac, here's how you'd use the popular TextMate editor, 
@@ -156,6 +161,7 @@ use the ``Terminal Usage'' feature right in TextMate's control bar. Just click
 .Setting Up TextMate for the Command Line
 image::images/textmate_cmd_line.png[]
 
+[[edited_now_what]]
 ==== I've Edited My Files. Now What?
 
 Once you've made your edits, you use two commands to add any new files and commit your changes:
@@ -173,6 +179,7 @@ $ git commit -a -m"Made some changes while on the plane"
 $ git push origin master
 ----
 
+[[push_some_changes]]
 ==== I Am Trying to Push Some Changes to Atlas, but It Keeps Reporting That Everything Is Up to Date. What's Up?
 
 You probably forgot to either add any new files, or you forgot to commit your changes. (Or both!) You can check if you have any changes using `git status`, like this:
@@ -205,6 +212,7 @@ nothing to commit (working directory clean)
 new-host:1230000000197 odewahn$ 
 ----
 
+[[push_rejected]]
 ==== Hey, My Push to Atlas Keeps Getting Rejected. What's Up with That?
 
 If you're getting a message that your changes are rejected, it's most likely
@@ -275,6 +283,7 @@ And then try your +git push+ again.
 For more details/context on Git and the HTTP post buffer, see http://stackoverflow.com/questions/2702731/git-fails-when-pushing-commit-to-github[this Stack Overflow post].
 ****
 
+[[get_a_diff]]
 ==== How Do I Get a diff Between the Files I Have Locally and the Files That Are on Atlas (Regardless of the Number of Commits)?
 
 Rather than using `git pull`, use `git fetch`, like this:
