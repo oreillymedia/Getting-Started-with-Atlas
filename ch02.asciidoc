@@ -40,7 +40,7 @@ When you create your book in Atlas, it will have no files, as shown in <<blank_s
 
 [[blank_slate]]
 .When you create a new book in Atlas, you start off with a blank slate
-image::images/blank_slate.png[]
+image::images/blank_slate.png["A screenshot of the Atlas dashboard for a new project"]
 
 You can create your first file by clicking on Open Editor. Atlas will
 recognize that your book has no files, and you will be prompted to create one.
