@@ -1,0 +1,6 @@
+[[introduction]]
+== Introduction
+
+This is the introduction to Atlas.  *Watch this video:*
+
+video::media/atlas_promo.m4v[width=200,options="nocontrols,autoplay"]
