@@ -1,5 +1,3 @@
-include::introduction.asciidoc[]
-
 include::ch01.asciidoc[]
 
 include::ch02.asciidoc[]
@@ -7,3 +5,9 @@ include::ch02.asciidoc[]
 include::ch03.asciidoc[]
 
 include::ch04.asciidoc[]
+
+include::ch05.asciidoc[]
+
+include::ch06.asciidoc[]
+
+include::ch07.asciidoc[]
