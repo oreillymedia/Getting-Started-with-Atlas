@@ -111,7 +111,7 @@ You can use any text editor you want to edit Atlas projects. If you're on a Mac,
 
 . Install the editor. You can download it from the http://macromates.com/[TextMate] site.
 . Install and configure the AsciiDoc bundle.
-. Enable command line usage.
+. Enable command-line usage.
 . Edit your files.
 
 More details on the bundle and configuring AsciiDoc for the command line follows.
