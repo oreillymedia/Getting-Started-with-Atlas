@@ -43,10 +43,6 @@ Build times vary based on the length of your book, but most builds finish within
 
 If the title and copyright pages in your book builds are looking bare, you can optionally fill them in by adding a file called _book-docinfo.xml_ to your project via git (see <<using_git_with_atlas>>), and then adding the appropriate metadata using XML tags. Here is an example showing the metadata that you might like to include:
 
-++++
-<?hard-pagebreak?>
-++++
-
 [source,xml]
 ----
 <title>BOOK TITLE</title>    

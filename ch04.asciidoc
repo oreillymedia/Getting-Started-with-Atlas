@@ -262,7 +262,7 @@ int direction = 1;
 ----
 ....
 
-will render in the EPUB, PDF, and Mobi (Kindle Fire only) as follows:
+will render in the EPUB, PDF, and KF8 (Kindle Fire only) as follows:
 
 [source,java]
 ----
