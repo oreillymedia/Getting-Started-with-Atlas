@@ -12,7 +12,7 @@ You can find more details and instructions in the http://cdn.oreilly.com/atlas_d
 Some of the features of Atlas are as follows:
 
 Simple markup::
-  Atlas supports http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] and, for simpler projects,http://daringfireball.net/projects/markdown/[Markdown].
+  Atlas supports http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] and, for simpler projects, http://daringfireball.net/projects/markdown/[Markdown].
 Git backend::
   If you have a book, you have a http://git-scm.com/[git] repository and all of the power and convenience that comes with using git version control.
 Easy book and ebook builds::
