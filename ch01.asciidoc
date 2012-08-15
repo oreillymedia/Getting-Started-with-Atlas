@@ -5,7 +5,7 @@
 
 Thank you for your interest in Atlas! Atlas is a wiki-like, git-managed authoring platform for creating books. If you haven't already, you may want to check out the http://atlas.labs.oreilly.com/getting_started[getting started video] for a quick introduction to Atlas.
 
-video::https://s3.amazonaws.com/orm-atlas-media/welcome_to_atlas.mp4[width=500, height=300, poster="welcome_to_atlas.png"]
+video::https://s3.amazonaws.com/orm-atlas-media/welcome_to_atlas.mp4[width=500, height=300, poster="images/welcome_to_atlas.png"]
 
 You can find more details and instructions in the http://cdn.oreilly.com/atlas_docs.zip[written documentation].
 
