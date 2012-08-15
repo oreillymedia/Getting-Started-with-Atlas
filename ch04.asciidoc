@@ -147,11 +147,49 @@ image::images/tiger.png[float="none"]
 
 [[FIG1]]
 .A Figure
-image::images/tiger.png[float="none","An image of a cartoonish tiger head"]
+[float="none"]
+image::images/tiger.png["An image of a cartoonish tiger head"]
 
 Or you may prefer an image with no caption, like so:
 
 image::images/screenshot.png["A screenshot of the AsciiDoc homepage"]
+
+===== Adding alt text to images 
+
+To improve accessibility in your ebook files, please consider adding alt text to the images, like so:
+
+----
+[[FIG1]]
+.A Figure
+image::images/tiger.png["An image of a cartoonish tiger head"]
+----
+
+Or combine it with a `float="none`:
+
+----
+[[FIG1]]
+.A Figure
+[float="none"]
+image::images/tiger.png["An image of a cartoonish tiger head"]
+----
+
+===== Using AsciiDoc to size images
+
+While it should not be necessary in most circumstances, you can control the size of an image in the PDF output by adding an absolute value of width or height, like so:
+
+----
+image::images/filename.png[width="2in"] 
+
+image::images/filename.png[height="2in"]
+----
+
+Or you can use scale as a percentage to limit the width:
+
+----
+image::images/filename.png[scale="75"]
+----
+
+Not that you should not include the percentage sign.
 
 [[Lists]]
 ==== Lists
@@ -171,7 +209,10 @@ Term 2::
 * tigers
 ** sabre-toothed
 ** teapotted
-* bears
+* Lions, tigers, and bears.
++
+Use a plus sign (on its own line) with the text below to add a paragraph to a list item.
+
 
 [[Ordered]]
 ===== Ordered (aka Numbered) Lists
@@ -182,6 +223,8 @@ Term 2::
 .. Combine
 .. Bake
 . Applause
++
+Use a plus sign (on its own line) with the text below to add a paragraph to a list item.
 
 [[tables_desc]]
 ==== Tables
