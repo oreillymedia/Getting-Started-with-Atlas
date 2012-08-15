@@ -154,7 +154,7 @@ Or you may prefer an image with no caption, like so:
 
 image::images/screenshot.png["A screenshot of the AsciiDoc homepage"]
 
-===== Adding alt text to images 
+===== Adding Alt Text to Images 
 
 To improve accessibility in your ebook files, please consider adding alt text to the images, like so:
 
@@ -173,7 +173,7 @@ Or combine it with a `float="none`:
 image::images/tiger.png["An image of a cartoonish tiger head"]
 ----
 
-===== Using AsciiDoc to size images
+===== Using AsciiDoc to Size Images
 
 While it should not be necessary in most circumstances, you can control the size of an image in the PDF output by adding an absolute value of width or height, like so:
 

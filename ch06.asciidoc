@@ -1,27 +1,18 @@
 [[using_git_with_atlas]]
 == Using Git with Atlas
 
-While Atlas hides a lot of the complexity of using git, there are still times
-when you may want to use it, such as:
+While Atlas hides a lot of the complexity of using git, there are still times when you may want to use it, such as:
 
-* You hate editing in a web browser and would prefer a text editor, such as
-  TextMate, emacs, or BBEdit.
+* You hate editing in a web browser and would prefer a text editor, such as TextMate, Emacs, or BBEdit.
 * You want to write when you're offline--during a flight, for example.
 * You've got a bunch of images to upload in bulk.
 
-If this sounds like you, then using git directly may be an attractive option.
-This is a quick introduction to using git with Atlas. If you want to know more
-about git and all the things you can do with it, check out these resources:
+If this sounds like you, then using git directly may be an attractive option. This is a quick introduction to using git with Atlas. If you want to know more about git and all the things you can do with it, check out these resources:
 
-* http://help.github.com/git-cheat-sheets/[Git Cheat Sheet (GitHub)]. A great
-  reference to the key commands.
-* http://hoth.entp.com/output/git_for_designers.html[Git for Designers]. A
-  nice introduction to git for non-programmers.
-* http://progit.org/book/[Pro Git]. The online version of Scott Chacon's
-  excellent book, _Pro Git_.
-* http://www.youtube.com/watch?v=OFkgSjRnay4[O'Reilly Webcast: Git in One
-  Hour]. A nice video from Scott Chacon that introduces all the key parts of
-  using git.
+* http://help.github.com/git-cheat-sheets/[Git Cheat Sheet (GitHub)]. A great reference to the key commands.
+* http://hoth.entp.com/output/git_for_designers.html[Git for Designers]. A nice introduction to git for non-programmers.
+* http://progit.org/book/[Pro Git]. The online version of Scott Chacon's excellent book, _Pro Git_.
+* http://www.youtube.com/watch?v=OFkgSjRnay4[O'Reilly Webcast: Git in One Hour]. A nice video from Scott Chacon that introduces all the key parts of using git.
 
 [[git_terminology]]
 === Git Terminology and Command Reference
@@ -48,12 +39,7 @@ Commit::
 
 [WARNING]
 ====
-One major difference between editing in the Atlas wiki and editing
-locally is that in the wiki, all changes are committed for you
-automatically. This is _not_ the case when you're editing locally: you
-can make and save changes, but until you commit, you cannot push changes
-to Atlas. Why? The reason is a reflection of git's history as a
-software development tools.
+One major difference between editing in the Atlas wiki and editing locally is that, in the wiki, all changes are committed for you automatically. This is _not_ the case when you're editing locally: you can make and save changes, but until you commit, you cannot push changes to Atlas. Why? The reason is a reflection of git's history as a software development tools.
 
 Git was designed to allow developers to experiment with their code by changing lots of files. Assuming everything works, the programmer can then commit the changes into the master branch of the code. If the changes don't work, he or she can simply roll back the changes to the last version that worked and start over. So a commit is an affirmative statement that the changes are acceptable.
 ====
@@ -63,13 +49,13 @@ Git was designed to allow developers to experiment with their code by changing l
 [[command_reference]]
 .Command quick reference
 |===================================================
-| git init | Creates a new blank repo 
-| git commit -a -m"Your helpful commit message" | Commits changes to the repo 
-| git status | Returns the commit status of the current repo
-| git add * | Adds all files to the repo
-| git remote add _remote_name_ _remote_URL_ | Adds a remote repository to which you can push or pull changes
-| git remote -v | Lists the remotes in your repo
-| git push _remote_name_ _branch_name_ | Pushes changes from the specified local branch specified to a remote repo.  We'll mostly use "git push origin master"
+|`git init`|Creates a new blank repo 
+|`git commit -a -m"Your helpful commit message"`|Commits changes to the repo 
+|`git status`|Returns the commit status of the current repo
+|`git add *`|Adds all files to the repo
+|`git remote add _remote_name_ _remote_URL_`|Adds a remote repository to which you can push or pull changes
+|`git remote -v`|Lists the remotes in your repo
+|`git push _remote_name_ _branch_name_`| Pushes changes from the specified local branch specified to a remote repo. We'll mostly use "git push origin master"
 |===================================================
 
 [[faqs_git_atlas]]
@@ -130,7 +116,7 @@ Now the the bundle is installed, your AsciiDoc markup will have all the color-co
 
 [NOTE]
 ====
-You have to give the files an extension of _.asciidoc_ for the color coding to happen. 
+You have to give the files an extension of _.asciidoc_ for the syntax highlighting to work. 
 ====
 
 Change into the directory where you installed the sample repository and type the following command:
@@ -145,21 +131,15 @@ to open the file called _sec_environments.asc_, as shown in <<textmate-fig>>.
 
 [[textmate-fig]]
 .Using TextMate and the AsciiDoc Bundle
-image::images/textmate_editor.png[]
+image::images/textmate_editor.png["A screenshot of AsciiDoc text in TextMate with colored syntax highlighting"]
 
-If you've worked in a wiki before, this markup should look pretty familiar.
-Also, note how the various AsciiDoc elements are all nicely color coded
-because of the AsciiDoc bundle that you installed earlier.
+If you've worked in a wiki before, this markup should look pretty familiar. Also, note how the various AsciiDoc elements are all nicely color coded because of the AsciiDoc bundle that you installed earlier.
 
-To run TextMate from the command line, you must configure your system so that
-it ``knows'' where TextMate is installed. The simplest way to do this is to
-use the ``Terminal Usage'' feature right in TextMate's control bar. Just click
-``Help -> Terminal Usage...'' and then click ``Create Link.''
-<<textmate_cmd_line>> shows how this works.
+To run TextMate from the command line, you must configure your system so that it ``knows'' where TextMate is installed. The simplest way to do this is to use the ``Terminal Usage'' feature right in TextMate's control bar. Just click ``Help -> Terminal Usage...'' and then click ``Create Link.'' <<textmate_cmd_line>> shows how this works.
 
 [[textmate_cmd_line]]
 .Setting Up TextMate for the Command Line
-image::images/textmate_cmd_line.png[]
+image::images/textmate_cmd_line.png["A screenshot showing how to enable Terminal Usage in TextMate"]
 
 [[edited_now_what]]
 ==== I've Edited My Files. Now What?
@@ -215,11 +195,7 @@ new-host:1230000000197 odewahn$
 [[push_rejected]]
 ==== Hey, My Push to Atlas Keeps Getting Rejected. What's Up with That?
 
-If you're getting a message that your changes are rejected, it's most likely
-because someone has changed the files on Atlas since you started working
-locally. To fix this, you'll need to commit your current changes and then use
-`git pull origin master` to pull in the changes from Atlas. Once you've synced
-the changes, you'll be able to push your work back up.
+If you're getting a message that your changes are rejected, it's most likely because someone has changed the files on Atlas since you started working locally. To fix this, you'll need to commit your current changes and then use `git pull origin master` to pull in the changes from Atlas. Once you've synced the changes, you'll be able to push your work back up.
 
 Here's the rejection notice:
 
@@ -300,24 +276,16 @@ From https://atlas-admin.oreilly.com/git/1230000000065
    92d4f99..e9fbbe2  master     -> origin/master
 ----
 
-This fetches the changes into a local branch, but does not merge them in
-automatically, which is what `pull` does. (In fact, as Mark Longair argues in
-link:http://longair.net/blog/2009/04/16/git-fetch-and-merge/[git: fetch and
-merge, don't pull], this workflow is much better than just blindly pulling in
-remote changes without review.)
+This fetches the changes into a local branch, but does not merge them in automatically, which is what `pull` does. (In fact, as Mark Longair argues in link:http://longair.net/blog/2009/04/16/git-fetch-and-merge/[git: fetch and merge, don't pull], this workflow is much better than just blindly pulling in remote changes without review.)
 
-Once you've fetched, you can use this command to see the files that have
-changed between your local copy and the remote copy:
+Once you've fetched, you can use this command to see the files that have changed between your local copy and the remote copy:
 
 [source,console]
 ----
 $ git diff --name-only master..origin/master
 ----
 
-This command will just give you the list of files. (If you want to see the
-actual differences, just leave off the "--name-only" flag). Once you're
-satisfied that nothing nefarious is in there, you can then merge in the changes
-you just fetched using the command `git merge origin/master`, like this:
+This command will just give you the list of files. (If you want to see the actual differences, just leave off the "--name-only" flag). Once you're satisfied that nothing nefarious is in there, you can then merge in the changes you just fetched using the command `git merge origin/master`, like this:
 
 [source,console]
 ----
