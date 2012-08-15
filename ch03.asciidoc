@@ -27,8 +27,9 @@ A few things to keep in mind when building books in Atlas:
 ====
 
 [[files_to_build]]
-.Select your ebook formats and files 
-image::images/files_to_build.png[float="none","A screenshot of the Atlas build screen interface"]
+.Select your ebook formats and files
+[float="none"] 
+image::images/files_to_build.png["A screenshot of the Atlas build screen interface"]
 
 The builds will change to a status of pending. Wait a few minutes, and then refresh the page. Assuming the builds were successful, you can download your files right from Atlas. If you run into an error, see <<debugging_errors>>.
 
