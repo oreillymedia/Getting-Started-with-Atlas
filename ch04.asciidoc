@@ -103,21 +103,24 @@ Using the syntax below, you can insert index markers anywhere in your text. To i
 
 See the http://cdn.oreilly.com/atlas_docs.zip[AsciiDoc source] of this documentation for an example.
 
-The complete list of indexing syntax follows:
+The complete list of indexing syntax follows.
 
-Basic index entry::
+Basic index entry:
 ----
 ((("primary index term")))
 ----
-Secondary entry::
+
+Secondary entry:
 ----
 ((("primary index term", "subentry")))
 ----
-Tertiary entry::
+
+Tertiary entry:
 ----
 ((("primary index term", "subentry", "sub-subentry")))
 ----
-An index entry with a range::
+
+An index entry with a range:
 ----
 The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange"))) In the following pages
 ...
@@ -127,15 +130,18 @@ blah blah blah geolocation
 ...
 Learn HTML 5 today!(((range="endofrange", startref="ix_html5")))
 ----
-An index entry with a “(see)” and no page reference::
+
+An index entry with a “(see)” and no page reference:
 ----
 Flash has been supplanted by HTML5.((("Flash", see="HTML5")))
 ----
-A “(see also)” entry::
+
+A “(see also)” entry:
 ----
 In addition to the Makerbot, RepRap also allows you to make 3-D stuff((("Makerbot", seealso="RepRap")))
 ----
-Changing how an entry is alphabetized::
+
+Changing how an entry is alphabetized:
 ----
 Makerbot lets you produce your own 3-D trinkets.((("3-D", sortas="three-d")))
 ----
