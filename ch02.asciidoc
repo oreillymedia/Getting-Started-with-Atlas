@@ -1,7 +1,7 @@
 [[write_how_you_want]]
 == Write How You Want
 
-When you are using Altas to write your book, you have the option of writing in the wiki interface or locally on your own computer. This chapter covers each of those scenarios. As you write your book, you can jump back and forth between the two writing environments. As long as you are saving in the web interface or using git to `push` and `pull` from your local machine, you'll always be in sync.
+When you are using Altas to write your book, you have the option of writing in the wiki interface((("wiki interface"))) or locally on your own computer. This chapter covers each of those scenarios. As you write your book, you can jump back and forth between the two writing environments. As long as you are saving in the web interface or using git to `push` and `pull` from your local machine, you'll always be in sync.
 
 [TIP]
 .Get Your Gravatar
@@ -16,7 +16,7 @@ If you've used a wiki before, you will find the Atlas interface to be very famil
 
 .Invite Some Collaborators
 ****
-Once you are working on a project in Atlas, you can invite additional collaborators at any time. First, create your project. Then, click on the Collaborators tab. Enter the mail address of anyone you'd like to collaborate with on your project. If you choose a permission type of Collaborator, the invited author will have full read and write access to your project, via the wiki interface and the git repository.
+Once you are working on a project in Atlas, you can invite additional collaborators(((collaborators, inviting))) at any time. First, create your project. Then, click on the Collaborators tab. Enter the mail address of anyone you'd like to collaborate with on your project. If you choose a permission type of Collaborator, the invited author will have full read and write access to your project, via the wiki interface and the git repository.
 
 You can also remove collaborators using the same Collaborators tab.
 ****

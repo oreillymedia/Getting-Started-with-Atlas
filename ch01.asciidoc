@@ -3,7 +3,7 @@
 [[chapid_1]]
 == Join the Publishing Revolution
 
-Thank you for your interest in Atlas! Atlas is a wiki-like, git-managed authoring platform for creating books. If you haven't already, you may want to check out the http://atlas.labs.oreilly.com/getting_started[getting started video] for a quick introduction to Atlas.
+Thank you for your interest in Atlas! Atlas is a wiki-like, git-managed authoring platform for creating books. If you haven't already, you may want to check out the http://atlas.labs.oreilly.com/getting_started[getting started video] ((("video", "introduction to Atlas")))for a quick introduction to Atlas.
 
 video::https://s3.amazonaws.com/orm-atlas-media/welcome_to_atlas.mp4[width=500, height=300, poster="images/welcome_to_atlas.png"]
 
@@ -25,7 +25,7 @@ Flexible writing options::
 [[howitworks]]
 === How It Works
 
-. Receive an invite from an O'Reilly editor or another author and create an account.
+. Receive an invite(((invitation))) from an O'Reilly editor or another author and create an account.
 . Write in AsciiDoc, an open source text format developed by http://www.methods.co.nz/asciidoc/[Stuart Rackham]. Each time you save a file, it will be logged into a git repository, so it's always under version control.
 . When you're ready, build your book. Atlas interfaces with O'Reilly's publishing toolchain, generating PDF, EPUB, and Mobi files for you on the fly. Theebook files look just like those for sale on oreilly.com.
 

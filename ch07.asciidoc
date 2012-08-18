@@ -82,5 +82,3 @@ $ git push atlas master
 
 Note that you'd need to pull in any changes from the GitHub wiki into Atlas.
 ****
-
-= Index

@@ -1,7 +1,7 @@
 [[using_git_with_atlas]]
 == Using Git with Atlas
 
-While Atlas hides a lot of the complexity of using git, there are still times when you may want to use it, such as:
+While Atlas hides a lot of the complexity of using git(((git))), there are still times when you may want to use it, such as:
 
 * You hate editing in a web browser and would prefer a text editor, such as TextMate, Emacs, or BBEdit.
 * You want to write when you're offline--during a flight, for example.

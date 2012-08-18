@@ -247,7 +247,15 @@ Atlas table styles vary slightly between series are supplied by the template sty
 
 We've extended http://www.methods.co.nz/asciidoc/userguide.html#\_indexes[indexing in AsciiDoc] to include ranges, sees, and see alsos.
 
-The complete list of indexing markup follows:
+Using the syntax below, you can insert index markers anywhere in your text. To include an index in your book, you must also include an _index.asciidoc_ file with a single header:
+
+----
+= Index
+----
+
+See the http://cdn.oreilly.com/atlas_docs.zip[AsciiDoc source] of this documentation for an example.
+
+The complete list of indexing syntax follows:
 
 Basic index entry::
 ----
