@@ -249,23 +249,19 @@ We've extended http://www.methods.co.nz/asciidoc/userguide.html#\_indexes[indexi
 
 The complete list of indexing markup follows:
 
-* Basic index entry:
-+
+Basic index entry::
 ----
 ((("primary index term")))
 ----
-* Secondary entry:
-+
+Secondary entry::
 ----
 ((("primary index term", "subentry")))
 ----
-* Tertiary entry:
-+
+Tertiary entry::
 ----
 ((("primary index term", "subentry", "sub-subentry")))
 ----
-* An index entry with a range:
-+
+An index entry with a range::
 ----
 The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange"))) In the following pages
 ...
@@ -275,25 +271,22 @@ blah blah blah geolocation
 ...
 Learn HTML 5 today!(((range="endofrange", startref="ix_html5")))
 ----
-* An index entry with a "(see)" and no page reference
-+
+An index entry with a “(see)” and no page reference::
 ----
 Flash has been supplanted by HTML5.((("Flash", see="HTML5")))
 ----
-* A "(see also)" entry
-+
+A “(see also)” entry::
 ----
 In addition to the Makerbot, RepRap also allows you to make 3-D stuff((("Makerbot", seealso="RepRap")))
 ----
-* Changing how an entry is alphabetized
-+
+Changing how an entry is alphabetized::
 ----
 Makerbot lets you produce your own 3-D trinkets.((("3-D", sortas="three-d")))
 ----
 
 [WARNING]
 ====
-For basic index entries without attributes (i.e., without ranges, a "see", a "see also", or a "sortas"), you do not need to enclose terms in quotation marks. For example, the following markup is fine:
+For basic index entries without attributes (i.e., without ranges, a “see,” a “see also,” or a “sortas”), you do not need to enclose terms in quotation marks. For example, the following markup is fine:
 ----
 (((XML, RDF, SPARQL)))
 ----
