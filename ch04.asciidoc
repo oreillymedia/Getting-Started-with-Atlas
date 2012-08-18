@@ -91,7 +91,7 @@ Please do not use AsciiDoc's optional `xreflabel` and `caption` features on anch
 ====
 
 [[indexing]]
-==== Indexing
+=== Indexing
 
 We've extended http://www.methods.co.nz/asciidoc/userguide.html#\_indexes[indexing in AsciiDoc] to include ranges, sees, and see alsos.
 
