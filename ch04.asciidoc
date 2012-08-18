@@ -242,6 +242,69 @@ Atlas table styles vary slightly between series are supplied by the template sty
 |F|F|F
 |=======
 
+[[indexing]]
+==== Indexing
+
+We've extended http://www.methods.co.nz/asciidoc/userguide.html#\_indexes[indexing in AsciiDoc] to include ranges, sees, and see alsos.
+
+The complete list of indexing markup follows:
+
+* Basic index entry:
++
+----
+((("primary index term")))
+----
+* Secondary entry:
++
+----
+((("primary index term", "subentry")))
+----
+* Tertiary entry:
++
+----
+((("primary index term", "subentry", "sub-subentry")))
+----
+* An index entry with a range:
++
+----
+The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange"))) In the following pages
+...
+blah blah blah canvas
+blah blah blah local storage
+blah blah blah geolocation
+...
+Learn HTML 5 today!(((range="endofrange", startref="ix_html5")))
+----
+* An index entry with a "(see)" and no page reference
++
+----
+Flash has been supplanted by HTML5.((("Flash", see="HTML5")))
+----
+* A "(see also)" entry
++
+----
+In addition to the Makerbot, RepRap also allows you to make 3-D stuff((("Makerbot", seealso="RepRap")))
+----
+* Changing how an entry is alphabetized
++
+----
+Makerbot lets you produce your own 3-D trinkets.((("3-D", sortas="three-d")))
+----
+
+[WARNING]
+====
+For basic index entries without attributes (i.e., without ranges, a "see", a "see also", or a "sortas"), you do not need to enclose terms in quotation marks. For example, the following markup is fine:
+----
+(((XML, RDF, SPARQL)))
+----
+However, if you include any attributes, you must put all entries in quotes, e.g.:
+----
+((("XML", "RDF", "SPARQL", seealso="XQuery")))
+----
+====
+
+Please refer to the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] or contact us if you have index entries with special characters (e.g., quote marks, commas) and need guidance on how to format the markup.
+
 [[code_explanation]]
 ==== Code
 
@@ -315,7 +378,7 @@ float speed = 0.5;
 int direction = 1;
 ----
 
-Pygments supports a wide variety of languages that can be used in +[source]+; see the full list avaliable on the http://pygments.org/docs/lexers/[the Pygments website]. Ebook readers that do not have color screens will still display thehighlighting, but in more subtle shades of gray.
+Pygments supports a wide variety of languages that can be used in +[source]+; see the full list available on the http://pygments.org/docs/lexers/[the Pygments website]. Ebook readers that do not have color screens will still display the highlighting, but in more subtle shades of gray.
 
 Please note the following caveats:
 
