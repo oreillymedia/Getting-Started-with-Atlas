@@ -1,7 +1,7 @@
 [[working_with_github]]
 == Working with GitHub
 
-Because book files in Atlas are managed with git, you could easily sync those files with a repository on GitHub. This chapter describes that process. 
+Because book files in Atlas are managed with git(((git)))(((GitHub))), you could easily sync those files with a repository on GitHub. This chapter describes that process. 
 
 If you're totally new to link:http://www.github.com[GitHub], the best place to start is the http://help.github.com/[GitHub help pages]. They'll walk you through what you need to know to set up an account, create a repo, set up your security credentials, and so on. Once you've got an account and have successfully completed the steps on http://help.github.com/mac-set-up-git/[setting up git], it's pretty simple to move stuff back and forth between Atlas and GitHub.
 
@@ -82,3 +82,5 @@ $ git push atlas master
 
 Note that you'd need to pull in any changes from the GitHub wiki into Atlas.
 ****
+
+= Index
