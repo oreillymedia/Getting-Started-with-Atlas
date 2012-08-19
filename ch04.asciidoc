@@ -234,7 +234,7 @@ To improve accessibility in your ebook files, please consider adding alt text to
 image::images/tiger.png["An image of a cartoonish tiger head"]
 ----
 
-Or combine it with a `float="none`:
+Or combine it with a `float="none"`:
 
 ----
 [[FIG1]]
@@ -259,7 +259,7 @@ Or you can use scale as a percentage to limit the width:
 image::images/filename.png[scale="75"]
 ----
 
-Not that you should not include the percentage sign.
+Note that you should not include a percentage sign.
 
 [[Lists]]
 ==== Lists
