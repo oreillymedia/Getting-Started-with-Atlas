@@ -6,7 +6,7 @@ When you are using Altas to write your book, you have the option of writing in t
 [TIP]
 .Get Your Gravatar
 =======
-You may notice that some users have personal icons in the Changes and Collaborators sections of Atlas. Those image icons are pulled in from http://en.gravatar.com/[Gravatar], based on the user's email address. Set up your Gravatar to get a more personalized icon.
+You (((gravatar)))may notice that some users have personal icons in the Changes and Collaborators sections of Atlas. Those image icons are pulled in from http://en.gravatar.com/[Gravatar], based on the user's email address. Set up your Gravatar to get a more personalized icon.
 =======
 
 [[workingintheatlaswiki]]
