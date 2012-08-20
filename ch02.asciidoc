@@ -24,7 +24,7 @@ You can also remove collaborators using the same Collaborators tab.
 [[creatingnewfiles]]
 ==== Creating New Files
 
-When you create your book in Atlas, it will have no files, as shown in <<blank_slate>>.
+When you create your book(((creating files))) in Atlas, it will have no files, as shown in <<blank_slate>>.
 
 [[blank_slate]]
 .When you create a new book in Atlas, you start off with a blank slate
