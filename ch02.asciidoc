@@ -49,7 +49,7 @@ The Atlas wiki editor works just as you'd expect. Use the buttons to insert simp
 .Use the Atlas wiki interface to write in your web browser
 image::images/atlas_editor.png["A screenshot of the Atlas wiki interface"]
 
-Once you've entered some text, click Save and your changes will be committed to a git repository that is created automatically each time you start a new book. Optionally, you can enter a log message before you click Save, and it will be included with the commit to the git repository, as show in <<log_message>>. Read more about making the most of your git repository in <<working_locally>> and <<using_git_with_atlas>>.
+Once you've entered some text, click Save and your changes will be committed to a git repository that is created automatically each time you start a new book. Optionally, you can enter a log message(((entering a log message))) before you click Save, and it will be included with the commit to the git repository, as show in <<log_message>>. Read more about making the most of your git repository in <<working_locally>> and <<using_git_with_atlas>>.
 
 [[log_message]]
 .It's good practice to add a meaningful log message
