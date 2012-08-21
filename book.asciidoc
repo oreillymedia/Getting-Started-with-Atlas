@@ -1,3 +1,5 @@
+= Getting Started with Atlas
+
 include::ch01.asciidoc[]
 
 include::ch02.asciidoc[]
