@@ -4,6 +4,8 @@
 
 include::ch01.asciidoc[]
 
+include::test2.asciidoc[]
+
 include::ch02.asciidoc[]
 
 include::ch03.asciidoc[]
