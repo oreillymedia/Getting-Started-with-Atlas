@@ -1,3 +1,5 @@
+:bookseries: maker
+
 = Getting Started with Atlas
 
 include::ch01.asciidoc[]
