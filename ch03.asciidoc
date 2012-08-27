@@ -109,7 +109,8 @@ Book builds will sometimes fail. The most likely cause of a failure is that your
 For example, here is an Atlas error log for a PDF build that failed:
 
 ----
-book.xml:291: element xref: validity error : IDREF attribute linkend references an unknown ID "cloning_to_github"
+book.xml:291: element xref: validity error : IDREF attribute
+linkend references an unknown ID "cloning_to_github"
 ----
 
 In this case, the problem is that there is a cross-reference referring to an ID that does not exist. You can fix it by adding an ID to the appropriate block, as explained in <<intro_to_asc>>.
