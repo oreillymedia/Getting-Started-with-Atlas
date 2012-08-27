@@ -48,9 +48,13 @@ Conversely, if you already have a repo on GitHub that you'd like to pull into At
 $ git clone git@github.com:MakerPress/new_project.git
 Cloning into new_project...
 warning: You appear to have cloned an empty repository.
-admins-MacBook-Air-2:Desktop odewahn$ cd new_project/
-admins-MacBook-Air-2:new_project odewahn$ git remote add atlas https://odewahn%40oreilly.com@atlas-admin.oreilly.com/git/1230000000197.git
-admins-MacBook-Air-2:new_project odewahn$ git push atlas master
+admins-MacBook-Air-2:Desktop odewahn
+$ cd new_project/
+admins-MacBook-Air-2:new_project odewahn
+$ git remote add atlas https://odewahn%40oreilly.com@atlas-
+admin.oreilly.com/git/1230000000197.git
+admins-MacBook-Air-2:new_project odewahn
+$ git push atlas master
 ...
 ----
 
@@ -76,7 +80,8 @@ Receiving objects: 100% (3/3), done.
 
 $ cd new_project.wiki/
 
-$ git remote add atlas https://odewahn%40oreilly.com@atlas-admin.oreilly.com/git/1230000000197.git
+$ git remote add atlas https://odewahn%40oreilly.com@atlas-
+  admin.oreilly.com/git/1230000000197.git
 $ git push atlas master
 ----
 
