@@ -59,7 +59,7 @@ The Atlas build system will transform this ID into a standard cross-reference (o
 
 [[XREF_TABLE]]
 .Standard Cross-Reference Formats
-[options="header"]
+[width="50%",options="header"]
 |=======
 |Target|Generated Cross-Reference Text
 |chapter|Chapter 17
@@ -122,7 +122,8 @@ Tertiary entry:
 
 An index entry with a range:
 ----
-The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange"))) In the following pages
+The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange"))) 
+In the following pages
 ...
 blah blah blah canvas
 blah blah blah local storage
