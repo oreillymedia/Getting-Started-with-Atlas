@@ -139,7 +139,8 @@ Flash has been supplanted by HTML5.((("Flash", see="HTML5")))
 
 A “(see also)” entry:
 ----
-In addition to the Makerbot, RepRap also allows you to make 3-D stuff((("Makerbot", seealso="RepRap")))
+In addition to the Makerbot, RepRap also allows you to make 3-D stuff
+((("Makerbot", seealso="RepRap")))
 ----
 
 Changing how an entry is alphabetized:
