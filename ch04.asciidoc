@@ -317,7 +317,7 @@ Atlas table styles vary slightly between series are supplied by the template sty
 [[code_explanation]]
 ==== Code
 
-The http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation] refers to code blocks as ``listing'' blocks. Here's one:
+The http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation] refers to code blocks as ``listing'' blocks. Here's an example:
 
 ....
 ----
@@ -337,7 +337,22 @@ Hello world!
 1234567890123456789012345678901234567890
 ----
 
-Contrast the code block above with <<EX1>>, which is a _formal_ code example (titled and cross-referenced).
+Contrast the code block above with <<EX1>>, which is a _formal_ code example (titled and cross-referenced) Here's the markup:
+
+....
+[[EX1]]
+.An Example
+====
+----
+Hello world!
+
+0        10        20        30        40
+1234567890123456789012345678901234567890
+----
+====
+....
+
+And here's how it renders:
 
 [[EX1]]
 .An Example
