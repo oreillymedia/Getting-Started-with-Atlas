@@ -320,6 +320,17 @@ Atlas table styles vary slightly between series are supplied by the template sty
 The http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation] refers to code blocks as ``listing'' blocks. Here's one:
 
 ----
+\----
+Hello world!
+
+0        10        20        30        40
+1234567890123456789012345678901234567890
+\----
+----
+
+Which will render like this:
+
+----
 Hello world!
 
 0        10        20        30        40
