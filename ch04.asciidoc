@@ -337,7 +337,7 @@ Hello world!
 1234567890123456789012345678901234567890
 ----
 
-Contrast the code block above with <<EX1>>, which is a _formal_ code example (titled and cross-referenced) Here's the markup:
+Contrast the code block above with <<EX1>>, which is a _formal_ code example (titled and cross-referenced). Here's the markup:
 
 ....
 [[EX1]]
