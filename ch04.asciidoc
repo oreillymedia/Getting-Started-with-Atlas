@@ -15,13 +15,31 @@ If you're viewing this document as a PDF, EPUB, or KF8, you're seeing the _outpu
 
 [[SECTION_ID]]
 === Top-Level Section
-This one designates AsciiDoc level 2 (DocBook +<sect1>+).
+This one designates AsciiDoc level 2 (DocBook +<sect1>+). The markup looks like this:
+
+-----------
+=== Top-Level Section
+-----------
 
 ==== Second-Level Section (Delimited Style) ====
-This one designates AsciiDoc level 3 (DocBook +<sect2>+). Also note that you can have the delimiter on both sides as in this one.
+This one designates AsciiDoc level 3 (DocBook +<sect2>+). The markup looks like this:
+
+-----------
+==== Second-Level Section (Delimited Style)
+-----------
+
+Also note that you can have the delimiter on both sides of the title, like this:
+
+-----------
+==== Second-Level Section (Delimited Style) ====
+-----------
 
 ===== Third-Level Section (Delimited Style)
-This one designates AsciiDoc level 4 (DocBook +<sect3>+).
+This one designates AsciiDoc level 4 (DocBook +<sect3>+). The markup looks like this:
+
+-----------
+===== Third-Level Section (Delimited Style)
+-----------
 
 [[INLINES]]
 === Inline Elements
