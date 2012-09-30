@@ -106,7 +106,7 @@ image::images/changes_in_atlas.png["A screenshot of how Atlas displays edits to 
 [[working_locally]]
 === Working Locally
 
-Atlas sits on top of a git repository, giving you the flexibility to write how and when you want. For example, suppose you have a long flight and want to write edit on the plane. No problem--just pull down your book files, make your changes locally, and then push them back up when your connected to the internet again. Or perhaps you'd rather skip the wiki interface entirely and work on your local machine exclusively. That's fine too.
+Atlas sits on top of a git repository, giving you the flexibility to write how and when you want. For example, suppose you have a long flight and want to write edit on the plane. No problem--just pull down your book files, make your changes locally, and then push them back up when you're connected to the Internet again. Or perhaps you'd rather skip the wiki interface entirely and work on your local machine exclusively. That's fine too.
 
 [[cloning_your_book]]
 ==== Cloning Your Book
