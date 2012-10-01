@@ -83,4 +83,10 @@
 
         <revremark>Third release</revremark>
       </revision>
+      
+      <revision>
+        <date>2012-10-01</date>
+
+        <revremark>Fourth release</revremark>
+      </revision>
    </revhistory>
