@@ -227,7 +227,7 @@ This one is a +<caution>+.
 [[figures_and_other_images]]
 ==== Figures and Other Images
 
-Below this paragraph is <<FIG1>> (a figure, titled and cross-referenced). Figures appear exactly where you place them in the text, which can sometimes create pages with a lot of white space. You can add an attribute of `float="true"` to float an image to the top of the page, with the text flowing around it:
+Below this paragraph is <<FIG1>> (a figure, titled and cross-referenced). Figures appear exactly where you place them in the text, which can sometimes create PDF pages with a lot of white space. While it is not generally necessary, you can add an attribute of `float="true"` so that the text flows around the image:
 
 ----
 [[FIG1]]
