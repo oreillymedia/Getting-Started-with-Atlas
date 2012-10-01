@@ -227,12 +227,12 @@ This one is a +<caution>+.
 [[figures_and_other_images]]
 ==== Figures and Other Images
 
-Somewhere nearby is <<FIG1>> (a figure, titled and cross-referenced). Unlike other block elements, figures ``float'' by default. While AsciiDoc permits you to specify http://www.methods.co.nz/asciidoc/userguide.html#X9[various image-related attributes] for scaling/alignment/etc., generally these sorts of adjustments are not necessary. You can, however, prevent a float by adding `float="none"` like so:
+Below this paragraph is <<FIG1>> (a figure, titled and cross-referenced). Figures appear exactly where you place them in the text, which can sometimes create pages with a lot of white space. You can add an attribute of `float="true"` to float an image to the top of the page, with the text flowing around it:
 
 ----
 [[FIG1]]
 .A Figure
-image::images/tiger.png[float="none"]
+image::images/tiger.png[float="true"]
 ----
 
 [[FIG1]]
@@ -254,12 +254,12 @@ To improve accessibility in your ebook files, please consider adding alt text to
 image::images/tiger.png["An image of a cartoonish tiger head"]
 ----
 
-Or combine it with a `float="none"`:
+Or combine it with a `float="true"`:
 
 ----
 [[FIG1]]
 .A Figure
-[float="none"]
+[float="true"]
 image::images/tiger.png["An image of a cartoonish tiger head"]
 ----
 
