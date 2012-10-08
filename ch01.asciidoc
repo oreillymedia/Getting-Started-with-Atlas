@@ -7,16 +7,6 @@ video::https://s3.amazonaws.com/orm-atlas-media/welcome_to_atlas.mp4[width=500, 
 
 You can find more details and instructions in the http://cdn.oreilly.com/atlas_docs.zip[written documentation].
 
-==== Hi world!!
-
-Adding more text here
-
-[source, python]
-----
-print "Hello world"
-exit
-----
-
 Some of the features of Atlas are as follows:
 
 Simple markup::
