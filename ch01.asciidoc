@@ -9,9 +9,12 @@ You can find more details and instructions in the http://cdn.oreilly.com/atlas_d
 
 ==== Hi world!!
 
+Adding more text here
+
 [source, python]
 ----
 print "Hello world"
+exit
 ----
 
 Some of the features of Atlas are as follows:
