@@ -1,4 +1,4 @@
-:bookseries: animal
+:bookseries: maker4c
 
 = Getting Started with Atlas
 
