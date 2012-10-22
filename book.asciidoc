@@ -1,4 +1,4 @@
-:bookseries: hacks
+:bookseries: maker4c
 
 = Getting Started with Atlas
 
