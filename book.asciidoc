@@ -1,4 +1,4 @@
-:bookseries: animal
+:bookseries: hacks
 
 = Getting Started with Atlas
 
