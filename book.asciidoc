@@ -1,4 +1,4 @@
-:bookseries: maker4c
+:bookseries: maker
 
 = Getting Started with Atlas
 
