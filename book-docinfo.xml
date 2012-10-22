@@ -90,3 +90,9 @@
         <revremark>Fourth release</revremark>
       </revision>
    </revhistory>
+   
+   <mediaobject role="cover"> <!-- source in the cover -->
+     <imageobject role="front-large" remap="lrg">
+       <imagedata format="PNG" fileref="images/cover.png"/>
+     </imageobject>
+   </mediaobject>
