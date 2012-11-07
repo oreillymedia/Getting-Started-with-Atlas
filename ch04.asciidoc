@@ -62,11 +62,10 @@ pass:[<replaceable>pass&#x3a;&#x5b;&#x3c;replaceable&#x3e;Constant width italic&
 
 ~&#x7e;Subscript&#x7e;~:: Subscript text.
 
-Hyperlinks:: For hyperlinks to external sources, use the following markup:  
+Hyperlinks:: For hyperlinks to external sources, use the following markup. The text inside the brackets will appear as a clickable link in online versions.
 ----
 http://oreilly.com[Visit O'Reilly's website]
 ----
-The text inside the brackets will appear as a clickable link in online versions.
 
 
 [WARNING]
