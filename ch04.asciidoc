@@ -46,14 +46,12 @@ This one designates AsciiDoc level 4 (DocBook +<sect3>+). The markup looks like 
 
 Here's some _italic_, `monospaced` (aka ``constant-width'' or “CW”), *bold*, *+CW bold+*, ^super^, and ~sub~ text.
 
-Plus signs can also be used for literal (CW) text, for example: +ls -al+
+Standard O'Reilly font conventions are as follows. The correct asciidoc markup for each is shown below.
 
-Standard O'Reilly font conventions are as follows:
-
-Italic:: _Ital_ indicates new terms, URLs, email addresses, filenames, and file extensions.
-+Constant width+:: +CW+ is used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords.
-*+Constant width bold+*:: *+CWB+* shows commands or other text that should be typed literally by the user.
-pass:[<replaceable>Constant width italic</replaceable>]:: pass:[<replaceable>CWI</replaceable>] shows text that should be replaced with user-supplied values or by values determined by context.
+_&#x5f;Italic&#x5f;_:: Indicates new terms, URLs, email addresses, filenames, and file extensions. The asciidoc markup is one underscore character on either side of the text to be italic.
++&#x2b;Constant width&#x2b;+:: Used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords.
+*+&#x2a;&#x2b;Constant width bold&#x2b;&#x2a;+*:: Used to show commands or other text that should be typed literally by the user.
+pass:[<replaceable>Constant width italic</replaceable>]:: Indicates text that should be replaced with user-supplied values or by values determined by context. This inline element markup uses a docbook passthrough, like this: +pass:[<replaceable>Constant width italic</replaceable>]+
 
 [WARNING]
 ====
