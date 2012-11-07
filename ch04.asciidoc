@@ -48,16 +48,12 @@ Here's some _italic_, `monospaced` (aka ``constant-width'' or “CW”), *bold*,
 
 Standard O'Reilly font conventions are as follows. The correct asciidoc markup for each is shown below.
 
-Italic:: 
 _&#x5f;Italic&#x5f;_
 Indicates new terms, URLs, email addresses, filenames, and file extensions. The asciidoc markup is one underscore character on either side of the text to be italic.
-Constant width:: 
 +&#x2b;Constant width&#x2b;+
 Used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords.
-Constant width bold:: 
 *+&#x2a;&#x2b;Constant width bold&#x2b;&#x2a;+*
 Used to show commands or other text that should be typed literally by the user.
-Constant width italic:: 
 pass:[<replaceable>pass&#x3a;&#x5b;&#x3c;replaceable&#x3e;Constant width italic&#x3c;/replaceable&#x3e;&#x5d;</replaceable>]
 Indicates text that should be replaced with user-supplied values or by values determined by context. This inline element markup uses a docbook passthrough.
 
