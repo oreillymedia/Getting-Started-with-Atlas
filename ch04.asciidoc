@@ -50,15 +50,24 @@ Standard O'Reilly font conventions are as follows. The correct asciidoc markup f
 
 _&#x5f;Italic&#x5f;_:: Indicates new terms, URLs, email addresses, filenames, and file extensions. The asciidoc markup is one underscore character on either side of the text to be italic.
 
+*&#x2a;Bold&#x2a;*:: A general-purpose tag provided for where you would use bold type to emphasize a word or phrase. (Note that http://oreilly.com/oreilly/author/stylesheet.html[O’Reilly house style] prefers italics for emphasis.)
+
 +&#x2b;Constant width&#x2b;+:: Used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords.
 
 *+&#x2a;&#x2b;Constant width bold&#x2b;&#x2a;+*:: Used to show commands or other text that should be typed literally by the user. Note that the asterisk (*) pair must be outside and the plus-symbol (+) pair inside.
 
 pass:[<replaceable>pass&#x3a;&#x5b;&#x3c;replaceable&#x3e;Constant width italic&#x3c;/replaceable&#x3e;&#x5d;</replaceable>]:: Indicates text that should be replaced with user-supplied values or by values determined by context. This inline element markup uses a docbook passthrough.
 
-^&#x5e;super&#x5e;^script:: Superscript text.
+^&#x5e;Superscript&#x5e;^:: Superscript text.
 
-~&#x7e;sub&#x7e;~script:: Subscript text.
+~&#x7e;Subscript&#x7e;~:: Subscript text.
+
+Hyperlinks:: For hyperlinks to external sources, use the following markup:  
+----
+http://oreilly.com[Visit O'Reilly's website]
+----
+The text inside the brackets will appear as a clickable link in online versions.
+
 
 [WARNING]
 ====
