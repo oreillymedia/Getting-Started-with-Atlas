@@ -199,7 +199,16 @@ Please refer to the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc Us
 [[SIDEBARS]]
 ==== Sidebars
 
-Here's a +<sidebar>+:
+Sidebar markup looks like this:
+
+----
+.Sidebar Title
+****
+Sidebar text is surrounded by four asterisk characters above and below.
+****
+----
+
+Sidebars render like this:
 
 .What's Going On, Anyway?
 ****
