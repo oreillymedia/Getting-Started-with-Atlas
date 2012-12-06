@@ -1,3 +1,4 @@
+[preface]
 == QuickStart Guide
 
 Why is Atlas great? How can I get up and running in 5 minutes or less? Read on!
