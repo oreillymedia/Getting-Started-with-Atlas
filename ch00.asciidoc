@@ -12,7 +12,7 @@ Why is Atlas great? How can I get up and running in 5 minutes or less? read on!
 
 === Creating a New project
 
-* Text goes here
+* Invite Collabortaors by clicking the Collaborators button in the toolbar, and entering the email address of the person you'd like to add.
 
 === Building a Project
 
