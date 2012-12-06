@@ -13,33 +13,83 @@ This chapter illustrates some of the most common elements used in writing techni
 If you're viewing this document as a PDF, EPUB, or KF8, you're seeing the _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself. Since this chapter is intended as an introduction to the markup, you should view the source, available at http://cdn.oreilly.com/atlas_docs.zip[cdn.oreilly.com/atlas_docs.zip].
 ====
 
-[[SECTION_ID]]
-=== Top-Level Section
-This one designates AsciiDoc level 2 (DocBook +<sect1>+). The markup looks like this:
+=== Chapters
+
+Each chapter should begin with a chapter title preceded by two equals signs. It's good practice to always include a unique ID string above the chapter title. Here's the markup:
+
+----
+[[unique_chapter_id]]
+== Chapter Title
+----
+
+==== Top-Level Section
+Within the chapter, this is the first and highest heading level. This markup designates AsciiDoc level 2 (equivalent to DocBook +<sect1>+). The markup looks like this:
 
 -----------
 === Top-Level Section
 -----------
 
-==== Second-Level Section (Delimited Style) ====
-This one designates AsciiDoc level 3 (DocBook +<sect2>+). The markup looks like this:
+==== Second-Level Section
+This heading level should only follow a top-level heading. It designates AsciiDoc level 3 (equivalent to DocBook +<sect2>+). The markup looks like this:
 
 -----------
-==== Second-Level Section (Delimited Style)
+==== Second-Level Section
 -----------
 
-Also note that you can have the delimiter on both sides of the title, like this:
+==== Third-Level Section
+This heading level should only follow a second-level heading. It designates AsciiDoc level 4 (equivalent to DocBook +<sect3>+). The markup looks like this:
 
 -----------
-==== Second-Level Section (Delimited Style) ====
+===== Third-Level Section
 -----------
 
-===== Third-Level Section (Delimited Style)
-This one designates AsciiDoc level 4 (DocBook +<sect3>+). The markup looks like this:
+=== Divide the Book into Parts
 
------------
-===== Third-Level Section (Delimited Style)
------------
+If you want to group your chapters into parts, navigate to the file that should be the first chapter in that part, and add the part markup above the chapter title. It’s good practice to always include a unique ID string above the part title.
+
+Here's the markup:
+
+----
+[[unique_part_id]]
+= Part Title
+
+[[unique_chapter_id]]
+== Chapter Title
+
+Chapter text begins here.
+----
+
+To add introductory text in the part, add this +partintro+ markup after the part title, but before the chapter title:
+
+----
+[partintro]
+--
+Insert introductory text here.
+--
+----
+
+=== Add a Preface
+
+To add a preface, use this markup at the top of your preface file:
+
+----
+[preface]
+[[unique_preface_id]]
+== Preface Title
+
+Preface text begins here.
+----
+
+=== Add a Dedication
+
+To add a dedication, use this markup at the top of your dedication file:
+
+----
+[dedication]
+= Dedication
+
+Dedication text begins here.
+----
 
 [[INLINES]]
 === Inline Elements
@@ -153,7 +203,7 @@ Tertiary entry:
 
 An index entry with a range:
 ----
-The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange"))) 
+The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange")))
 In the following pages
 ...
 blah blah blah canvas
@@ -215,7 +265,7 @@ Sidebars render like this:
 A general understanding of what is going on under the hood of Atlas will help you make the most of the system. One of the primary appeals of AsciiDoc is that it was created to export to http://www.docbook.org/[DocBook XML]. In other words, for each AsciiDoc markup syntax, there is an equivalent DocBook element. When you build your book (as described in <<building_and_debugging>>), Atlas converts the AsciiDoc to DocBook and then generates the book formats from that DocBook. This series of magical transformations is part of what makes writing in Atlas fun, but it also requires you to use the correct AsciiDoc markup for things to work right.
 
 If you get a build error, the most likely cause is an AsciiDoc markup error. Atlas provides error message logs to help you troubleshoot and fix syntax errors. Read more about building and debugging in <<building_and_debugging>>.
-**** 
+****
 
 [[Admonitions]]
 ==== Admonitions (Notes and Warnings)
@@ -266,7 +316,7 @@ Or you may prefer an image with no caption, like so:
 
 image::images/screenshot.png["A screenshot of the AsciiDoc homepage"]
 
-===== Adding Alt Text to Images 
+===== Adding Alt Text to Images
 
 To improve accessibility in your ebook files, please consider adding alt text to the images, like so:
 
@@ -290,7 +340,7 @@ image::images/tiger.png["An image of a cartoonish tiger head"]
 While it should not be necessary in most circumstances, you can control the size of an image in the PDF output by adding an absolute value of width or height, like so:
 
 ----
-image::images/filename.png[width="2in"] 
+image::images/filename.png[width="2in"]
 
 image::images/filename.png[height="2in"]
 ----
@@ -423,7 +473,7 @@ or this:
 <programlisting>
 from __future__ import with_statement # This isn't required in Python 2.6
                           <lineannotation>Above is a comment in the code, while this is an "annotation"</lineannotation>
-with open("<replaceable>hello.txt</replaceable>") as f:  
+with open("<replaceable>hello.txt</replaceable>") as f:
     for line in f:        <lineannotation>(note regular italic here vs. constant-width in "hello.txt" on line above)</lineannotation>
         print line</programlisting>
 ++++
@@ -495,8 +545,8 @@ If you have a need to refer to the same bit of explanatory text from more than o
  10/17/97   9:04         <DIR>    tmp
  10/16/97  14:37         <DIR>    WINNT
  10/16/97  14:25             119  AUTOEXEC.BAT   <2>
-  2/13/94   6:21          54,619  COMMAND.COM    
- 10/16/97  14:25             115  CONFIG.SYS     
+  2/13/94   6:21          54,619  COMMAND.COM
+ 10/16/97  14:25             115  CONFIG.SYS
  11/16/97  17:17      61,865,984  pagefile.sys
   2/13/94   6:21           9,349  WINA20.386     <3>
 -----------------------------------------------------
