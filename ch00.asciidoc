@@ -1,6 +1,6 @@
 == QuickStart Guide
 
-Why is Atlas great? How can I get up and running in 5 minutes or less? read on!
+Why is Atlas great? How can I get up and running in 5 minutes or less? Read on!
 
 === Why Is Atlas Great?
 
