@@ -1,0 +1,23 @@
+== QuickStart Guide
+
+Why is Atlas great? How can I get up and running in 5 minutes or less? read on!
+
+=== Why Is Atlas Great?
+
+* Text goes here
+
+=== Signing Up and Logging In
+
+* Text goes here
+
+=== Creating a New project
+
+* Text goes here
+
+=== Building a Project
+
+* Text goes here
+
+=== Publishing to Chimera
+
+* Text goes here
