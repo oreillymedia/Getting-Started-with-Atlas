@@ -74,7 +74,6 @@ To add a preface, use this markup at the top of your preface file:
 
 ----
 [preface]
-[[unique_preface_id]]
 == Preface Title
 
 Preface text begins here.
@@ -530,46 +529,54 @@ include::code/inline_markup.txt[]
 
 http://www.sagehill.net/docbookxsl/AnnotateListing.html#Callouts[Code callouts] are used to mark specific lines of code with icons keyed to explanatory text outside the code block. These icon pairs function as bidirectional links in electronic PDF and downstream formats (i.e., you can click on the icon in the code to jump to the explanation, and vice versa).
 
-The built-in AsciiDoc mechanism (shown in <<asc_callouts>>) is somewhat more limited; for one thing, icons are hyperlinked from text to code, but not vice versa. However, you can always use a passthrough block (see <<passthroughs>>) for full functionality, as shown in <<bidir_callouts>>.
+The built-in AsciiDoc mechanism (shown below) is somewhat more limited; for one thing, icons are hyperlinked from text to code, but not vice versa. However, you can always use a passthrough block (see <<passthroughs>>) for full functionality..
 
 If you have a need to refer to the same bit of explanatory text from more than one line of code, see <<callout-multiples>> (in <<advanced_asciidoc>>).
 
-[[asc_callouts]]
-.Built-in Callout Mechanism (Unidirectional Callouts)
-====
------------------------------------------------------
- 10/17/97   9:04         <DIR>    bin
- 10/16/97  14:11         <DIR>    DOS            <1>
- 10/16/97  14:40         <DIR>    Program Files
- 10/16/97  14:46         <DIR>    TEMP
- 10/17/97   9:04         <DIR>    tmp
- 10/16/97  14:37         <DIR>    WINNT
- 10/16/97  14:25             119  AUTOEXEC.BAT   <2>
-  2/13/94   6:21          54,619  COMMAND.COM
- 10/16/97  14:25             115  CONFIG.SYS
- 11/16/97  17:17      61,865,984  pagefile.sys
-  2/13/94   6:21           9,349  WINA20.386     <3>
------------------------------------------------------
-====
-<1> This directory holds MS-DOS.
-<2> System startup code for DOS.
-<3> Some sort of Windows 3.1 hack.
+Here's the AsciiDoc markup for code callouts:
 
-[[bidir_callouts]]
-.Bidirectional Callouts, via Passthrough Markup
-====
+[[asc_callouts]]
+....
+----
+Roses are red,
+   Violets are blue. \<1>
+Some poems rhyme;
+   This one doesn't. \<2>
+----
+\<1> Violets actually have a color value of +#9933cc+.
+\<2> This poem uses the literary device known as a "surprise ending."
+....
+
+which renders like this:
+
+----
+Roses are red,
+   Violets are blue. <1>
+Some poems rhyme;
+   This one doesn't. <2>
+----
+<1> Violets actually have a color value of +#9933cc+.
+<2> This poem uses the literary device known as a "surprise ending."
+
+To use a DocBook passthrough for bidirectional callouts, the markup looks like this:
+
+....
 ++++
-<programlisting>class C: <co id="thing-co" linkends="thing"/>
-    def method(self):
-        pass</programlisting>
+<programlisting>Roses are red,
+   Violets are blue. <co id="violets-co" linkends="violets"/>
+Some poems rhyme;
+   This one doesn't. <co id="poem-co" linkends="poem"/></programlisting>
 
 <calloutlist>
-<callout id="thing" arearefs="thing-co">
-<para>The benefits of bidirectional callouts are more evident on longer listings...</para>
-</callout>
+  <callout id="violets" arearefs="violets-co">
+    <para>Violets actually have a color value of +#9933cc+.</para>
+  </callout>
+  <callout id="poem" arearefs="poem-co">
+    <para>This poem uses the literary device known as a &ldquo;surprise ending.&rdquo;</para>
+  </callout>
 </calloutlist>
 ++++
-====
+....
 
 [WARNING]
 ===============================
