@@ -390,7 +390,23 @@ Use a plus sign (on its own line) with the text below to add a paragraph to a li
 [[tables_desc]]
 ==== Tables
 
-Atlas table styles vary slightly between series are supplied by the template stylesheets. If your material warrants something other than the default style as shown in <<STD_TABLE>>, please consult with your editor.
+Atlas table styles vary slightly between series. If your material warrants something other than the default style as shown in <<STD_TABLE>>, please consult with your editor.
+
+The Asciidoc markup for tables looks like this:
+
+....
+.A Table
+[width="50%",options="header"]
+|=======
+|P|Q|P^Q
+|T|T|T
+|T|F|F
+|F|T|F
+|F|F|F
+|=======
+....
+
+Depending on the particular series your book is in, it will render similar to this:
 
 [[STD_TABLE]]
 .A Table
