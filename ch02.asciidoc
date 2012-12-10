@@ -1,7 +1,7 @@
 [[write_how_you_want]]
 == Write How You Want
 
-When you are using Altas to write your book, you have the option of writing in the wiki interface((("wiki interface"))) or locally on your own computer. This chapter covers each of those scenarios. As you write your book, you can jump back and forth between the two writing environments. As long as you are saving in the web interface or using git to `push` and `pull` from your local machine, you'll always be in sync.
+When you are using Atlas to write your book, you have the option of writing in the wiki interface((("wiki interface"))) or locally on your own computer. This chapter covers each of those scenarios. As you write your book, you can jump back and forth between the two writing environments. As long as you are saving in the web interface or using git to `push` and `pull` from your local machine, you'll always be in sync.
 
 [TIP]
 .Get Your Gravatar
