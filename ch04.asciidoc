@@ -553,11 +553,11 @@ Please note the following caveats:
 [[external_code_files]]
 ===== External Code Files
 
-There are two ways to include external code files. You can include an external file that is text-only (no markup like callouts, inline formatting, etc.), or you can include an external file marked up with valid Docbook that can contain these items.
+There are two ways to include external code files. You can include an external file that is text-only (no markup like line annotations or inline formatting), or you can include an external file marked up with valid Docbook, which can contain inline markup. Callouts will work with either method.
 
-*Text-only External Code File*
+*Text-only External Code File (Asciidoc markup)*
 
-To include an external code file that is text-only (no markup), use the +include::+ macro inside of a delimited code block, as shown here:
+To include an external code file that is text-only (no inline markup besides callouts), use the +include::+ macro inside of a delimited code block, as shown here:
 
 ....
 [source,java]
@@ -566,16 +566,11 @@ To include an external code file that is text-only (no markup), use the +include
 ----
 ....
 
-which will render like this:
+For info about using callouts with your external Asciidoc code file, see <<code_callouts>>.
 
-[source,java]
-----
-include::code/HelloWorld.java[]
-----
+*External Code File with Inline Markup (Docbook markup)*
 
-*External Code File with Inline Markup*
-
-To include an external file that contains inline markup (e.g., for callouts, line annotations, or inline font formatting), use passthrough markup around around the +include::+ macro, instead of code block delimiters:
+To include an external file that contains inline markup (e.g., line annotations or inline font formatting), use passthrough markup around around the +include::+ macro, instead of code block delimiters:
 
 ....
 ++++
@@ -583,46 +578,13 @@ To include an external file that contains inline markup (e.g., for callouts, lin
 ++++
 ....
 
-The contents of inline_markup.txt would contain only the Docbook markup. In our example, it might look something like this:
+And then the contents of inline_markup.txt would contain only the Docbook markup. In our example, it might look something like this:
 
 ....
-<programlisting>int GetCustLastOrder(DatabaseHandle db, string customer_id, Order* order) {
-  string customer_name;
-  LOOKUP_OR_RETURN("names", customer_id, &amp;customer_name);  <co id="escape-src" linkends="escapes-co"/>
-  order-&gt;set_customer_name(customer_name);
-
-  string <replaceable>last_order_id</replaceable>;  <co id="inline1-src" linkends="inline1-co"/>
-  LOOKUP_OR_RETURN("recent_orders", customer_id, &amp;last_order_id); <lineannotation>lineannotation...</lineannotation>
-
-  string <userinput>order_data</userinput>; <co id="inline2-src" linkends="inline2-co"/>
-  LOOKUP_OR_RETURN("orders", last_order_id, &amp;order_data);
-  order-&gt;set_order_data(order_data);
-
-  return SUCCESS;
-}
-
-#define LOOKUP_OR_RETURN(table_id, row_id, data_ptr) { \
-  Table table; \
-  int err = OpenTable(db, table_id, &amp;table);   \
-  if (err != SUCCESS) return err;   \
-  err = RetrieveRow(db, table, row_id, data_ptr); \
-  if (err != SUCCESS) return err; \
-}</programlisting>
-
-<calloutlist>
-  <callout id="escapes-co" arearefs="escape-src">
-    <para>When using this approach to include code from an external
-    file, you'll have to escape special XML characters such as <literal>&amp;</literal>
-    (<markup>&amp;amp;</markup>), <literal>&gt;</literal> (<markup>&amp;gt;</markup>),
-    and <literal>&lt;</literal> (<markup>&amp;gt;</markup>).</para>
-  </callout>
-  <callout id="inline1-co" arearefs="inline1-src">
-    <para>Inline markup here: <markup>&lt;replaceable&gt;</markup></para>
-  </callout>
-  <callout id="inline2-co" arearefs="inline2-src">
-    <para>Inline markup here: <markup>&lt;userinput&gt;</markup></para>
-  </callout>
-</calloutlist>
+<programlisting>Roses are <replaceable>red</replaceable>,
+   Violets are <replaceable>blue</replaceable>. <lineannotation>This is a line annotation</lineannotation>
+Some poems rhyme;
+   This one <userinput>doesn't</userinput>.</programlisting>
 ....
 
 and it will render like this:
@@ -640,7 +602,9 @@ The built-in AsciiDoc mechanism (shown below) is somewhat more limited; for one 
 
 If you have a need to refer to the same bit of explanatory text from more than one line of code, see <<callout-multiples>> (in <<advanced_asciidoc>>).
 
-Here's the AsciiDoc markup for code callouts:
+*AsciiDoc Code Callouts*
+
+Here's the Asciidoc markup for code callouts:
 
 [[asc_callouts]]
 ....
@@ -665,14 +629,59 @@ Some poems rhyme;
 <1> Violets actually have a color value of +#9933cc+.
 <2> This poem uses the literary device known as a "surprise ending."
 
-To use a DocBook passthrough for bidirectional callouts, the markup looks like this:
+*Asciidoc External Code File with Callouts*
+
+To use code callouts with an external Asciidoc code file, add the callout text items below the code block:
+
+....
+[source,java]
+----
+\include::code/HelloWorld.java[]
+----
+\<1> This is number one.
+\<2> This is number two.
+....
+
+The corresponding callout markers should be present in the external code file. In our example, the external HelloWorld.java file contents would look like this:
+
+....
+package com.marakana;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class HelloWorld extends Activity {  \<1>
+  /** Called when the activity is first created. */
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);  \<2>
+    setContentView(R.layout.main);
+  }
+}
+....
+
+And it would render like this:
+
+[source,java]
+----
+include::code/HelloWorld.java[]
+----
+<1> This is number one.
+<2> This is number two.
+
+
+*Docbook Passthroughs with Callouts*
+
+You can use Docbook passthroughs for your code if you'd like to have bidirectional callout links, or if you have inline formatting in your code. The markup for Docbook passthrough callouts is mostly the same whether you're writing the markup directly in the Asciidoc chapter file or writing the markup in an external file.
+
+If you're adding the passthrough directly in the Asciidoc chapter file, the markup looks like this:
 
 ....
 ++++
-<programlisting>Roses are red,
-   Violets are blue. <co id="violets-co" linkends="violets"/>
+<programlisting>Roses are <replaceable>red</replaceable>,
+   Violets are <replaceable>blue</replaceable>. <co id="violets-co" linkends="violets"/>
 Some poems rhyme;
-   This one doesn't. <co id="poem-co" linkends="poem"/></programlisting>
+   This one <userinput>doesn't</userinput>. <co id="poem-co" linkends="poem"/></programlisting>
 
 <calloutlist>
   <callout id="violets" arearefs="violets-co">
@@ -689,6 +698,38 @@ Some poems rhyme;
 ===============================
 If using passthroughs for callouts, please use the paired markup as shown above (not +<areaspec>+).
 ===============================
+
+If you have your code in an external file, your markup will look like this:
+
+....
+++++
+\include::code/inline_markup_with_callouts.txt[]
+++++
+....
+
+And the contents of your external code file (inline_markup_with_callouts.txt, in our example here) will look something like this:
+
+....
+<programlisting>Roses are <replaceable>red</replaceable>,
+   Violets are <replaceable>blue</replaceable>. <co id="violets-co" linkends="violets"/>
+Some poems rhyme;
+   This one doesn't. <co id="poem-co" linkends="poem"/></programlisting>
+
+<calloutlist>
+  <callout id="violets" arearefs="violets-co">
+    <para>Violets actually have a color value of +#9933cc+.</para>
+  </callout>
+  <callout id="poem" arearefs="poem-co">
+    <para>This poem uses the literary device known as a &ldquo;surprise ending.&rdquo;</para>
+  </callout>
+</calloutlist>
+....
+
+which will render like this:
+
+++++
+include::code/inline_markup_with_callouts.txt[]
+++++
 
 [[other_block_elements]]
 ==== Other Block Elements
