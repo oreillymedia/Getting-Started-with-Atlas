@@ -553,39 +553,83 @@ Please note the following caveats:
 [[external_code_files]]
 ===== External Code Files
 
+There are two ways to include external code files. You can include an external file that is text-only (no markup like callouts, inline formatting, etc.), or you can include an external file marked up with valid Docbook that can contain these items.
+
+*Text-only External Code File*
+
 To include an external code file that is text-only (no markup), use the +include::+ macro inside of a delimited code block, as shown here:
 
 ....
 [source,java]
 ----
-\include::code/externalcode.txt[]
+\include::code/HelloWorld.java[]
 ----
 ....
 
-To include an external file that contains inline markup (e.g., for callouts, line annotations, or inline font formatting), skip the code block delimiters around the +include::+ macro:
+which will render like this:
 
-....
-\include::code/externalcode.txt[]
-....
+[source,java]
+----
+include::code/HelloWorld.java[]
+----
 
-and instead place passthrough delimiters within the included file. So in our example, the contents of externalcode.txt would look like this:
+*External Code File with Inline Markup*
+
+To include an external file that contains inline markup (e.g., for callouts, line annotations, or inline font formatting), use passthrough markup around around the +include::+ macro, instead of code block delimiters:
 
 ....
 ++++
-<programlisting language="text">Roses are <userinput>red</userinput>,
-   Violets are <userinput>blue</userinput>.  <co id="violets" linkends="violets-co"/>
-  Some poems rhyme;
-   This one doesn't. <co id="poem" linkends="poem-co"/></programlisting>
+\include::code/inline_markup.txt[]
+++++
+....
+
+The contents of inline_markup.txt would contain only the Docbook markup. In our example, it might look something like this:
+
+....
+<programlisting>int GetCustLastOrder(DatabaseHandle db, string customer_id, Order* order) {
+  string customer_name;
+  LOOKUP_OR_RETURN("names", customer_id, &amp;customer_name);  <co id="escape-src" linkends="escapes-co"/>
+  order-&gt;set_customer_name(customer_name);
+
+  string <replaceable>last_order_id</replaceable>;  <co id="inline1-src" linkends="inline1-co"/>
+  LOOKUP_OR_RETURN("recent_orders", customer_id, &amp;last_order_id); <lineannotation>lineannotation...</lineannotation>
+
+  string <userinput>order_data</userinput>; <co id="inline2-src" linkends="inline2-co"/>
+  LOOKUP_OR_RETURN("orders", last_order_id, &amp;order_data);
+  order-&gt;set_order_data(order_data);
+
+  return SUCCESS;
+}
+
+#define LOOKUP_OR_RETURN(table_id, row_id, data_ptr) { \
+  Table table; \
+  int err = OpenTable(db, table_id, &amp;table);   \
+  if (err != SUCCESS) return err;   \
+  err = RetrieveRow(db, table, row_id, data_ptr); \
+  if (err != SUCCESS) return err; \
+}</programlisting>
+
 <calloutlist>
-  <callout id="violet-co" arearefs="violet">
-    <para>Violets actually have a color <literal>value</literal> of +#9933cc+.</para>
+  <callout id="escapes-co" arearefs="escape-src">
+    <para>When using this approach to include code from an external
+    file, you'll have to escape special XML characters such as <literal>&amp;</literal>
+    (<markup>&amp;amp;</markup>), <literal>&gt;</literal> (<markup>&amp;gt;</markup>),
+    and <literal>&lt;</literal> (<markup>&amp;gt;</markup>).</para>
   </callout>
-  <callout id="poem-co" arearefs="poem">
-    <para>This poem uses the literary device known as a "surprise ending."</para>
+  <callout id="inline1-co" arearefs="inline1-src">
+    <para>Inline markup here: <markup>&lt;replaceable&gt;</markup></para>
+  </callout>
+  <callout id="inline2-co" arearefs="inline2-src">
+    <para>Inline markup here: <markup>&lt;userinput&gt;</markup></para>
   </callout>
 </calloutlist>
-++++
 ....
+
+and it will render like this:
+
+++++
+include::code/inline_markup.txt[]
+++++
 
 [[code_callouts]]
 ===== Code Callouts

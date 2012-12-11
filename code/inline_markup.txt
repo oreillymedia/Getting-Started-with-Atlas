@@ -1,4 +1,3 @@
-++++
 <programlisting>int GetCustLastOrder(DatabaseHandle db, string customer_id, Order* order) {
   string customer_name;
   LOOKUP_OR_RETURN("names", customer_id, &amp;customer_name);  <co id="escape-src" linkends="escapes-co"/>
@@ -36,4 +35,3 @@
     <para>Inline markup here: <markup>&lt;userinput&gt;</markup></para>
   </callout>
 </calloutlist>
-++++
