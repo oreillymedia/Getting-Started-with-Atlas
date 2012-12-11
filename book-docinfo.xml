@@ -89,6 +89,13 @@
 
         <revremark>Fourth release</revremark>
       </revision>
+
+      <revision>
+        <date>2012-12-11</date>
+
+        <revremark>Fifth release</revremark>
+      </revision>
+
    </revhistory>
    
    <mediaobject role="cover"> <!-- source in the cover -->
