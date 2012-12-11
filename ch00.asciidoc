@@ -5,11 +5,11 @@ Why is Atlas great? How can I get up and running in 5 minutes or less? Read on!
 
 === Why Is Atlas Great?
 
-* Text goes here
+* Text to come!
 
 === Signing Up and Logging In
 
-* Text goes here
+* Text to come!
 
 === Creating a New project
 
@@ -25,8 +25,8 @@ Why is Atlas great? How can I get up and running in 5 minutes or less? Read on!
 
 === Building a Project
 
-* Text goes here
+* Text to come!
 
 === Publishing to Chimera
 
-* Text goes here
+* Text to come!
