@@ -422,7 +422,7 @@ Depending on the particular series your book is in, it will render similar to th
 [[code_explanation]]
 ==== Code
 
-The http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation] refers to code blocks as ``listing'' blocks. Here's an example:
+Code blocks (or as the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation] refers to them, ``listing'' blocks), are defined using four hyphens above and below the code block content.  Here's an example of the markup:
 
 ....
 ----
@@ -442,7 +442,7 @@ Hello world!
 1234567890123456789012345678901234567890
 ----
 
-Contrast the code block above with <<EX1>>, which is a _formal_ code example (titled and cross-referenced). Here's the markup:
+Formal code blocks (titled and cross-referenced) use the following markup:
 
 ....
 [[EX1]]
@@ -473,7 +473,18 @@ Hello world!
 [[inline-formatting]]
 ===== Inline Formatting Within Code
 
-In AsciiDoc, there is no built-in mechanism for inline formatting within code. If you want to use inline formatting--in particular, for standard O'Reilly font conventions such as *+<userinput> (CW+bold)+* and _++<replaceable> (CW+italic)++_ or if you want to include line annotations--you can do so by using a passthrough block (see <<passthroughs>> for an explanation of passthroughs), like so:
+In AsciiDoc, there is no built-in mechanism for inline formatting within code. If you want to use inline formatting--in particular, for standard O'Reilly font conventions such as *+<userinput> (CW+bold)+* and _++<replaceable> (CW+italic)++_ or if you want to include line annotations--you can do so by using a passthrough block (see <<passthroughs>> for an explanation of passthroughs). Here's the markup to use a passthrough with the Docbook element +<screen>+:
+
+....
+++++
+<screen>
+hostname $ <userinput>date</userinput>
+Sun Apr  1 12:34:56 GMT 1984
+</screen>
+++++
+....
+
+which renders like this:
 
 ++++
 <screen>
@@ -482,7 +493,20 @@ Sun Apr  1 12:34:56 GMT 1984
 </screen>
 ++++
 
-or this:
+And here's the markup to use a passthrough with the +<programlisting>+ and +&#x3c;lineannotation>+ Docbook elements:
+
+....
+++++
+<programlisting>
+from __future__ import with_statement # This isn't required in Python 2.6
+                          <lineannotation>Above is a comment in the code, while this is an "annotation"</lineannotation>
+with open("<replaceable>hello.txt</replaceable>") as f:
+    for line in f:        <lineannotation>(note regular italic here vs. constant-width in "hello.txt" on line above)</lineannotation>
+        print line</programlisting>
+++++
+....
+
+which renders like this:
 
 ++++
 <programlisting>
@@ -531,21 +555,44 @@ Please note the following caveats:
 
 To include an external code file that is text-only (no markup), use the +include::+ macro inside of a delimited code block, as shown here:
 
+....
 [source,java]
 ----
-include::code/HelloWorld.java[]
+\include::code/externalcode.txt[]
 ----
+....
 
-To include an external file that contains inline markup (e.g., for callouts, line annotations, or inline font formatting), skip the code block delimiters around the +include::+ macro and instead place passthrough delimiters within the included file, like so:
+To include an external file that contains inline markup (e.g., for callouts, line annotations, or inline font formatting), skip the code block delimiters around the +include::+ macro:
 
-include::code/inline_markup.txt[]
+....
+\include::code/externalcode.txt[]
+....
+
+and instead place passthrough delimiters within the included file. So in our example, the contents of externalcode.txt would look like this:
+
+....
+++++
+<programlisting language="text">Roses are <userinput>red</userinput>,
+   Violets are <userinput>blue</userinput>.  <co id="violets" linkends="violets-co"/>
+  Some poems rhyme;
+   This one doesn't. <co id="poem" linkends="poem-co"/></programlisting>
+<calloutlist>
+  <callout id="violet-co" arearefs="violet">
+    <para>Violets actually have a color <literal>value</literal> of +#9933cc+.</para>
+  </callout>
+  <callout id="poem-co" arearefs="poem">
+    <para>This poem uses the literary device known as a "surprise ending."</para>
+  </callout>
+</calloutlist>
+++++
+....
 
 [[code_callouts]]
 ===== Code Callouts
 
 http://www.sagehill.net/docbookxsl/AnnotateListing.html#Callouts[Code callouts] are used to mark specific lines of code with icons keyed to explanatory text outside the code block. These icon pairs function as bidirectional links in electronic PDF and downstream formats (i.e., you can click on the icon in the code to jump to the explanation, and vice versa).
 
-The built-in AsciiDoc mechanism (shown below) is somewhat more limited; for one thing, icons are hyperlinked from text to code, but not vice versa. However, you can always use a passthrough block (see <<passthroughs>>) for full functionality..
+The built-in AsciiDoc mechanism (shown below) is somewhat more limited; for one thing, icons are hyperlinked from text to code, but not vice versa. However, you can always use a passthrough block (see <<passthroughs>>) for full functionality.
 
 If you have a need to refer to the same bit of explanatory text from more than one line of code, see <<callout-multiples>> (in <<advanced_asciidoc>>).
 
@@ -602,13 +649,30 @@ If using passthroughs for callouts, please use the paired markup as shown above 
 [[other_block_elements]]
 ==== Other Block Elements
 
+===== Notes to Production
+
+To leave a note to the Production team, please use a passthrough block with the Docbook +<remark>+ element, like this:
+
+....
 ++++
 <remark>Use a passthrough block like this for notes to production staff</remark>
 ++++
+....
 
 // NB: AsciiDoc comments do _not_ get passed to DocBook output by default.
 
-Here's a +<quote>+ attributed to Benjamin Disraeli (by Wilfred Meynell, according to Frank Muir):
+===== Quotes
+
+To add a quote block to your text, use the following markup. Here's a +<quote>+ attributed to Benjamin Disraeli (by Wilfred Meynell, according to Frank Muir):
+
+....
+[quote, Wilfred Meynell]
+____
+Many thanks; I shall lose no time in reading it.
+____
+....
+
+which renders like this:
 
 [quote, Wilfred Meynell]
 ____
