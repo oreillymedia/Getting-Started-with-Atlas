@@ -546,9 +546,8 @@ Pygments supports a wide variety of languages that can be used in +[source]+; se
 
 Please note the following caveats:
 
-* Highlighting will not be applied to any code that has inline markup (as described in <<inline-formatting>>), even if +[source]+ is added above the code block.
-* The color scheme cannot be changed at this time.
-* The PDF used for print will contain no highlighting.
+* The color scheme is consistent across books and cannot be changed at this time.
+* Unless your book is printing in color, the PDF used for print will contain no highlighting.
 
 [[external_code_files]]
 ===== External Code Files
