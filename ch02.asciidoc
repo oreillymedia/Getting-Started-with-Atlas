@@ -34,7 +34,7 @@ You can create your first file by clicking on Open Editor. Atlas will recognize 
 
 [[create_file]]
 .Create your first file
-image:images/create_file.png["A screenshot of creating an new file in the Atlas user interface"]
+image::images/create_file.png["A screenshot of creating an new file in the Atlas user interface"]
 
 Once you've created the file, you're ready to start writing!
 
