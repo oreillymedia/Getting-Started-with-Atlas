@@ -26,6 +26,7 @@ A few things to keep in mind when building books in Atlas:
 * Do not include _book-docinfo.xml_ file in the build. This metadata-only file is described in <<adding_metadata>>.
 ====
 
+
 [[files_to_build]]
 .Select your ebook formats and files
 [float="none"] 
