@@ -1,0 +1,6 @@
+Getting-Started-with-Atlas
+==========================
+
+A guide to using Atlas, O'Reilly's wiki-like, git-managed authoring platform.
+
+The source of the official documentation, which you can read here: http://chimera.labs.oreilly.com/books/1230000000065/index.html
