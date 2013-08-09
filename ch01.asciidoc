@@ -1,11 +1,11 @@
 [[chapid_1]]
 == Join the Publishing Revolution
 
+This is where I like to write!
+
 Thank you for your interest in Atlas! Atlas is a wiki-like, git-managed authoring platform for creating books. If you haven't already, you may want to check out the http://atlas.labs.oreilly.com/getting_started[getting started video] ((("video", "introduction to Atlas")))for a quick introduction to Atlas.
 
-video::https://s3.amazonaws.com/orm-atlas-media/welcome_to_atlas.mp4[width=500, height=300, poster="images/welcome_to_atlas.png"]
-
-You can find more details and instructions in the http://cdn.oreilly.com/atlas_docs.zip[written documentation].
+video::http://d4uxalfja0cvd.cloudfront.net/1230000000065/videos/5fb6a4eabc0c613836d71f2035e9f5d5.mp4[poster='http://d4uxalfja0cvd.cloudfront.net/1230000000065/videos/5fb6a4eabc0c613836d71f2035e9f5d5_4.jpg']
 
 Some of the features of Atlas are as follows:
 
@@ -13,8 +13,8 @@ Simple markup::
   Atlas supports http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] and, for simpler projects, http://daringfireball.net/projects/markdown/[Markdown].
 Git backend::
   If you have a book, you have a http://git-scm.com/[git] repository and all of the power and convenience that comes with using git version control.
-Easy book and ebook builds::
-  Atlas lets you build your project in three formats at any time: Mobi (for the Kindle), EPUB (for most other ebook platforms), and PDF. Atlas also gives you tools to debug your ebook formats so that you can identify and fix problems quickly.
+Easy book, ebook, and web builds::
+  Atlas lets you build your project in four formats at any time: Mobi (for the Kindle), EPUB (for most other ebook platforms), PDF (for print), and HTML (for the web). Atlas also gives you tools to debug your ebook formats so that you can identify and fix problems quickly.
 An invitation system::
   Add collaborators to your project at any time by simply sending an invite.
 Flexible writing options::
@@ -35,6 +35,6 @@ Why bother with this, you ask? We're trying to create an appealing authoring pro
 We're just getting started with Atlas, and you can play a role in determining future development by using the platform to write your book. If you're willing to use Atlas, we ask that you:
 
 * Write in AsciiDoc, which is the preferred formats for Atlas.
-* Provide feedback. Atlas is currently in alpha testing, and we need to hear from you to take the platform to the next level. To submit feedback, simply click on the Feedback tab within Atlas and create an Issue. You will need a GitHub account to create an Issue. If you're not able or willing to provide feedback, Atlas might not be right for you at this time.
+* Provide feedback. Atlas is currently in beta testing, and we need to hear from you to take the platform to the next level. To submit feedback, simply click on the Feedback tab within Atlas and create an Issue. You will need a GitHub account to create an Issue. If you're not able or willing to provide feedback, Atlas might not be right for you at this time.
 
 If the above sounds good to you, then you're the perfect candidate to work in Atlas. We're eager to help you get started. Let's revolutionize publishing together!

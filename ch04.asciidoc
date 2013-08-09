@@ -1,53 +1,119 @@
 [[intro_to_asc]]
 == AsciiDoc 101
 
-http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing tools, including Atlas. It's similar to wiki markup--if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. This http://powerman.name/doc/asciidoc[Asciidoc cheat sheet] covers a lot of the nitty-gritty, but the following sections will give you an overview of the markup you'll use most frequently.
-
-You can create and edit AsciiDoc in any text editor, and then add it to Atlas by either pasting it into the wiki interface or using git. If you're on Windows, you can use http://notepad-plus-plus.org/[Notepad++] or any other text editor. If you're on a Mac, you can use TextEdit, http://macromates.com/[TextMate] (which you can pair with an https://github.com/zuckschwerdt/asciidoc.tmbundle[AsciiDoc bundle]), http://www.barebones.com/products/textwrangler/[TextWrangler], or any of a number of choices. Or maybe you prefer old school vi or Emacs. That's okay, too. The important thing is that you use the AsciiDoc markup.
-
-This chapter illustrates some of the most common elements used in writing technical documentation.
+http://www.methods.co.nz/asciidoc/index.html[AsciiDoc] is a text document format for writing (among other things) books, ebooks, and documentation. It's similar to wiki markup--if you can write a Wikipedia article, then you'll have no problem with AsciiDoc. The main advantages of AsciiDoc are that it is easy to use and plays well with O'Reilly's publishing tools, including Atlas.
 
 .Use the Source, Luke
-[WARNING]
+[NOTE]
 ====
-If you're viewing this document as a PDF, EPUB, or KF8, you're seeing the _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself. Since this chapter is intended as an introduction to the markup, you should view the source, available at http://cdn.oreilly.com/atlas_docs.zip[cdn.oreilly.com/atlas_docs.zip].
+If you're viewing this document as a PDF, EPUB, or KF8, you're seeing the _output_ from the AsciiDoc source, rather than the AsciiDoc markup itself. Since this chapter is intended as an introduction to the markup, it may be helpful to view the source, available at http://cdn.oreilly.com/atlas_docs.zip[cdn.oreilly.com/atlas_docs.zip].
 ====
 
-=== Chapters
+=== How Do I Get Started Writing?
 
-Each chapter should begin with a chapter title preceded by two equals signs. It's good practice to always include a unique ID string above the chapter title. Here's the markup:
+There are two ways you can write with AsciiDoc in Atlas:
+
+. *Write directly in the Atlas web interface.* Simply click on the "Write" tab in Atlas. Select an existing chapter file to edit, or choose "New File" to create one.
+. *Write in a text editor and add it to Atlas.* You can add text to Atlas by pasting the text directly into the writing interface or by using git (see <<using_git_with_atlas>>) to push your local +.asciidoc+ files to the Atlas repository.
+
+.Text Editors
+****
+Looking for a text editor to use? If you're on Windows, you could try http://notepad-plus-plus.org/[Notepad++], or any other text editor. If you're on a Mac, TextEdit, http://macromates.com/[TextMate] paired with an https://github.com/zuckschwerdt/asciidoc.tmbundle[AsciiDoc bundle]), or http://www.barebones.com/products/textwrangler/[TextWrangler], are great choices. Or maybe you prefer old school vi or Emacs. That's okay, too.
+****
+
+=== Notes to Production
+
+To leave a note to the Production team, please use a passthrough block with the Docbook +<remark>+ element, like this:
+
+....
+++++
+<remark>Use a passthrough block like this for notes to production staff</remark>
+++++
+....
+
+AsciiDoc does have specific markup for comments (two slash characters, like this: //, followed by the comment text), but they do not get passed to the DocBook output by default. In order to make sure the Production team sees your comments, please use the DocBook passthrough method listed above. (See <<passthroughs>> for more info on DocBook passthroughs.)
+
+=== AsciiDoc Markup Reference
+
+This section illustrates some of the most common elements used in writing technical documentation. The http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] and the http://powerman.name/doc/asciidoc[AsciiDoc cheat sheet] are other helpful references, but the following sections will give you an overview of the markup you'll use most frequently, plus some customized markup that is specific to Atlas.
+
+If you can't find what you're looking for here or if you just need a quick answer, please don't hesitate to email our support team at mailto:toolsreq@oreilly.com[toolsreq@oreilly.com].
+
+[[text_markup]]
+==== Text
+
+Regular paragraph text does not need any special markup in AsciiDoc. Just add a blank line both above and below each paragraph, and the first word in the paragraph should not have a space before it. Here are some example paragraphs in AsciiDoc:
+
+----
+
+This is an example paragraph written in AsciiDoc. See, it's just plain text; no special markup necessary! Do make sure there aren't spaces or manual indentations at the beginning of your paragraph text.
+
+This is a second example paragraph in AsciiDoc. Note that there's a line break and a blank line between paragraphs.
+
+----
+
+To learn how to add inline markup such as italics to your text see the <<INLINES>> section below.
+
+.What's Going On, Anyway?
+****
+A general understanding of what is going on under the hood of Atlas will help you make the most of the system. When you build your book (as described in <<building_and_debugging>>), Atlas first converts the AsciiDoc to http://www.docbook.org/[DocBook XML] and then generates the book formats from that DocBook. For each AsciiDoc markup, there is an equivalent DocBook element. As long as the AsciiDoc markup uses the expected syntax, the conversion to DocBook (and then to the book formats) goes smoothly.
+
+If you get a build error, the most likely cause is an AsciiDoc markup error. Atlas provides error message logs to help you troubleshoot and fix syntax errors. Read more about building and debugging in <<building_and_debugging>>.
+****
+
+[[chapter_markup]]
+==== Chapters
+
+The top of each chapter file should begin with a chapter title preceded by two equals signs. It's good practice to always include a unique ID string above the chapter title, surrounded in double brackets, for example:
 
 ----
 [[unique_chapter_id]]
 == Chapter Title
+
+Chapter text begins here.
 ----
 
-==== Top-Level Section
-Within the chapter, this is the first and highest heading level. This markup designates AsciiDoc level 2 (equivalent to DocBook +<sect1>+). The markup looks like this:
+[[headings_markup]]
+==== Headings
+
+There are multiple ways to mark up heading levels in AsciiDoc. We've chosen our favorite "delimited" style to show you below, but feel free to use the http://www.methods.co.nz/asciidoc/userguide.html#X17[two-line underlined heading] style if you prefer.
+
+[NOTE]
+====
+Note that the levels described in the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] can be confusing: in AsciiDoc, the document (book) is considered level 0; generally a chapter will be at AsciiDoc level 1 (unless you're dividing the book into parts), and sections within chapters start at AsciiDoc level 3 (which is equivalent to DocBook +<sect1>+).
+====
+
+[[sect1_markup]]
+===== Top-level heading
+
+Within a chapter, the first and highest heading level uses three equals signs:
 
 -----------
-=== Top-Level Section
+=== Top-Level Heading
 -----------
 
-==== Second-Level Section
-This heading level should only follow a top-level heading. It designates AsciiDoc level 3 (equivalent to DocBook +<sect2>+). The markup looks like this:
+[[sect2_markup]]
+===== Second-level heading
+
+This heading level should only follow a top-level heading:
 
 -----------
-==== Second-Level Section
+==== Second-Level Heading
 -----------
 
-==== Third-Level Section
-This heading level should only follow a second-level heading. It designates AsciiDoc level 4 (equivalent to DocBook +<sect3>+). The markup looks like this:
+[[sect3_markup]]
+===== Third-level heading
+
+This heading level should follow a second-level heading only:
 
 -----------
-===== Third-Level Section
+===== Third-level heading
 -----------
 
-=== Divide the Book into Parts
+[[part_markup]]
+==== Parts
 
-If you want to group your chapters into parts, navigate to the file that should be the first chapter in that part, and add the part markup above the chapter title. It’s good practice to always include a unique ID string above the part title.
-
-Here's the markup:
+If you want to group your chapters into parts, navigate to the file that should be the first chapter in that part, and add the part markup above the chapter title. It’s good practice to always include a unique ID string above the part title, like so:
 
 ----
 [[unique_part_id]]
@@ -59,18 +125,27 @@ Here's the markup:
 Chapter text begins here.
 ----
 
-To add introductory text in the part, add this +partintro+ markup after the part title, but before the chapter title:
+To add introductory text to a part, add this +partintro+ markup after the part title, but before the chapter title:
 
 ----
+[[unique_part_id]]
+= Part Title
+
 [partintro]
 --
 Insert introductory text here.
 --
+
+[[unique_chapter_id]]
+== Chapter Title
+
+Chapter text begins here.
 ----
 
-=== Add a Preface
+[[preface_markup]]
+==== Prefaces
 
-To add a preface, use this markup at the top of your preface file:
+A preface file should begin with the word _preface_ in single brackets, followed on the next line by two equals signs and the preface title:
 
 ----
 [preface]
@@ -79,171 +154,213 @@ To add a preface, use this markup at the top of your preface file:
 Preface text begins here.
 ----
 
-=== Add a Dedication
+==== Forewords
 
-To add a dedication, use this markup at the top of your dedication file:
+Forewords are treated as prefaces, except they have a title of _Foreword_. For example:
+
+----
+[preface]
+== Foreword
+
+Foreword text begins here.
+----
+
+==== Afterwords
+
+The markup for an Afterword is similar to the preface markup, but it has an additional role attribute with a value of "afterword". Here's the markup:
+
+----
+[preface]
+[role="afterword"]
+== Afterword
+
+Afterword text begins here.
+----
+
+[[add_dedication]]
+==== Dedications
+
+A dedication file should begin with the word _dedication_ in single brackets, followed by a blank line and then the dedication title and text. The title must be present, but it will not render in the output:
 
 ----
 [dedication]
-= Dedication
+== Dedication
 
-Dedication text begins here.
+This book is dedicated to my cat, Garfield.
+----
+
+Dedication pages render on their own page at the beginning of the book, before the table of contents.
+
+[[praise_markup]]
+==== Praise Pages
+
+Praise pages are marked up similarly to <<add_dedication>>, but you will add a special +role="praise"+ attribute. For each item of praise, use the quote markup (discussed in <<add_quotes>>):
+
+----
+["dedication", role="praise"]
+== Praise for Getting Started with Atlas
+
+[quote, Jane Doe]
+____
+"This book is awesome."
+____
+
+----
+
+Praise pages render at the beginning of the book, before the title page, and are not included in the regular page numbering of the book.
+
+[[add_glossary]]
+==== Glossaries
+
+A glossary file should begin with the word _glossary_ in double brackets, followed by the glossary title and a blank line. Following the blank line should be another instance of the word _glossary_, this time in single brackets.
+
+Each glossary entry should consist of one glossary term, followed by two colons and a space, then the glossary definition. If you'd like to add an additional paragraph to a glossary definition, add a plus sign ("+") on the following line by itself, and begin the additional paragraph on the line after it.
+
+Here's an example of the markup:
+
+----
+[[glossary]]
+== Glossary
+
+[glossary]
+Crawler:: A program used to index documents.
++
+See Also Spider
+----
+
+[[add_appendix]]
+==== Appendixes
+
+To designate a file as an appendix, simply add the word _appendix_ in single brackets at the top of the file. Immediately below it should be the title of the Appendix. For example:
+
+----
+[appendix]
+== Resources
+
+The following list of resources ...
+----
+
+==== Chapter Contributors
+
+For books with multiple contributors, you may want an author name to appear with each chapter. Simply add the following markup above each chapter title:
+
+----
+[au="Author Name"]
+== Chapter Title
+----
+
+For multiple authors of one chapter, the markup looks like this:
+
+----
+[au="Author Name", au2="Another Author", au3="Last Author"]
+== Chapter Title
+----
+
+You can also use this same markup for forewords, prefaces, and appendixes. Please note that contributor names in a foreword will render at the end of the foreword, right-aligned, and preceded by an em dash. Foreword author attributions can also include an affiliation. The markup looks like this:
+
+----
+[au="Author Name", auaffil="Editor, Such and Such Journal"]
 ----
 
 [[INLINES]]
-=== Inline Elements
+==== Inline Markup
 
-Here's some _italic_, `monospaced` (aka ``constant-width'' or “CW”), *bold*, *+CW bold+*, ^super^, and ~sub~ text.
+Here are some standard O'Reilly typographical conventions with explanations of their use:
 
-Standard O'Reilly font conventions are as follows. The correct asciidoc markup for each is shown below.
+++++
+<variablelist>
 
-_&#x5f;Italic&#x5f;_:: Indicates new terms, URLs, email addresses, filenames, and file extensions. The asciidoc markup is one underscore character on either side of the text to be italic.
+  <varlistentry>
+    <term>_Italic_</term>
+      <listitem>
+        <para>Italic text indicates new terms, URLs, email addresses, filenames, and file extensions. The AsciiDoc markup is one underscore character on either side of the text to be italic.</para>
+        <para>To mark a a few letters of a word in italics, or a word that abuts a non-whitespace character, double up the underscore characters on either side of the text, like this: <literal>__Part__ial word i__tal__ic</literal></para>
+      </listitem>
+  </varlistentry>
 
-*&#x2a;Bold&#x2a;*:: A general-purpose tag provided for where you would use bold type to emphasize a word or phrase. (Note that http://oreilly.com/oreilly/author/stylesheet.html[O’Reilly house style] prefers italics for emphasis.)
+  <varlistentry>
+    <term role="plain"><emphasis role="bold">*Bold*</emphasis></term>
+      <listitem>
+        <para>Bolded text is used to emphasize a word or phrase. Note that <ulink url="http://oreilly.com/oreilly/author/stylesheet.html">O'Reilly house style</ulink> prefers italics for emphasis. The AsciiDoc markup is one asterisk on either side of the text to be bolded.</para>
+        <para>To mark a partial word in bold, or a word that abuts a non-whitespace character, double up the asterisk characters on either side of the text, like this: <literal>**Part**ial word b**ol**d</literal></para>
+      </listitem>
+  </varlistentry>
 
-+&#x2b;Constant width&#x2b;+:: Used for program listings, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords.
+  <varlistentry>
+    <term><literal>+Constant Width+</literal></term>
+      <listitem>
+        <para>Constant width, or monospaced, text is used for code, as well as within paragraphs to refer to program elements such as variable or function names, databases, data types, environment variables, statements, and keywords. The AsciiDoc markup is one plus sign on either side of the text to monospaced.</para>
+        <para>To mark a partial word in constant width, or a word that abuts a non-whitespace character, double up the plus signs on either side of the text, like this: <literal>++Part++ial word con++st++ant wid++th++</literal></para>
+      </listitem>
+    </varlistentry>
 
-*+&#x2a;&#x2b;Constant width bold&#x2b;&#x2a;+*:: Used to show commands or other text that should be typed literally by the user. Note that the asterisk (*) pair must be outside and the plus-symbol (+) pair inside.
+  <varlistentry>
+    <term><userinput>*+Constant Width Bold+*</userinput></term>
+      <listitem>
+        <para>Monospaced and bolded text is used to show commands or other text that should be typed literally by the user. The AsciiDoc markup is one asterisk and one plus sign on either side of the text. Note that the asterisk (*) pair should be on the outside and the plus-symbol (+) pair on the inside.</para>
+        <para>To mark a partial word in constant width bold, or a word that abuts a non-whitespace character, double up the markup on either side of the text, like this: <literal>**++Part++**ial word constant w**++id++**th bold</literal></para>
+      </listitem>
+   </varlistentry>
 
-pass:[<replaceable>pass&#x3a;&#x5b;&#x3c;replaceable&#x3e;Constant width italic&#x3c;/replaceable&#x3e;&#x5d;</replaceable>]:: Indicates text that should be replaced with user-supplied values or by values determined by context. This inline element markup uses a docbook passthrough.
+    <varlistentry>
+      <term><replaceable>_++Constant Width Italic++_</replaceable></term>
+        <listitem>
+          <para>Monospaced and italicized text indicates where text should be replaced with user-supplied values or by values determined by context. The AsciiDoc markup is one underscore and two plus signs on either side of the text. Note that the underscore (_) must be on the outside and the plus-symbol (+) pair on the inside.</para>
+          <para>To mark a partial word in constant width italic, or a word that abuts a non-whitespace character, double up the underscore markup on either side of the text, like this: <literal>__++Part++__ial word con__++st++__ant width ital__++ic++__</literal></para>
+        </listitem>
+    </varlistentry>
 
-^&#x5e;Superscript&#x5e;^:: Superscript text.
+    <varlistentry>
+      <term role="plain"><subscript>~subscript~</subscript></term>
+        <listitem>
+          <para>For <subscript>subscript</subscript> text, use a tilde character (~) on either side of the subscript text.</para>
+        </listitem>
+    </varlistentry>
 
-~&#x7e;Subscript&#x7e;~:: Subscript text.
+    <varlistentry>
+      <term role="plain"><superscript>^superscript^</superscript></term>
+        <listitem>
+          <para>For <superscript>superscript</superscript> text, use a caret (^) character on either side of the superscript text.</para>
+        </listitem>
+    </varlistentry>
 
-Hyperlinks:: For hyperlinks to external sources, use the following markup. The text inside the brackets will appear as a clickable link in online versions.
+    <varlistentry>
+      <term>Hyperlinks</term>
+        <listitem>
+          <para>For hyperlinks to external sources, just add the full URL string followed by brackets containing the text you'd like to appear with the URL. The bracketed text will become a clickable link in web versions. In print versions, it will appear in the text, followed by the actual URL in parenthesis.</para>
+          <para>The markup looks like this:</para>
+            <programlisting>Visit the http://oreilly.com[O'Reilly website]</programlisting>
+          <para>Note that these will become hyperlinks in online versions, so for fake or example URLs, use <literal>+constant width+</literal> or <emphasis>_italic_</emphasis> markup instead.</para>
+        </listitem>
+    </varlistentry>
+
+</variablelist>
+++++
+
+[[challenging_inlines]]
+.Troubleshooting Inline Markup
+****
+
+Using inlines in AsciiDoc can sometimes be tricky. If you're having problems with inline markup not rendering correctly, or if it's producing
+validation errors, check if it's an issue with nested inlines. Attempting to nest inlines within each other may sometimes result in problems if the markup is done in the wrong order. For example, constant width bold text uses an asterisk and a plus sign on either side of the text, but the asterisk pair must be on the outside of the plus sign pair, otherwise you'll get an error.
+
+Another common issue is when inline markup occurs within a single word, like foobar, or if the inline markup abuts some other non-whitespace character on one or more sides (like an em dash), it may render incorrectly like this: foo\+bar. The fix for this is to double up the markup. For example: ++foo++bar. See the previous section <<INLINES>>.
+
+When all else fails, you can always use passthroughs to embed DocBook markup as is (see <<passthroughs>>). For example, these example passthroughs are rendered as constant-width italic, constant-width bold, and constant-width bold italic, respectively.:
+
 ----
-http://oreilly.com[Visit O'Reilly's website]
-----
-
-
-[WARNING]
-====
-Please do not use AsciiDoc's mechanisms for forcing line breaks, page breaks, or ``ruler'' lines, as these don't mesh with Atlas's book building tools.
-====
-
-[[XREFS]]
-=== Cross-References
-
-To generate a cross-reference, use this syntax:
-
-----
-<<ID>>
-----
-
-where `ID` is the anchor or BlockID of the target, which you place in double square-brackets above that block.
-
-The Atlas build system will transform this ID into a standard cross-reference (or +<xref>+) for you: the rendered text will adjust automatically if you later move the target or reword its title, and it will work as a hyperlink in online versions. Any time you refer to another component of your book, please be sure to use xref markup, not hardcoded text.
-
-<<XREF_TABLE>> shows the standard text generated from xrefs in PDF builds.
-
-[[XREF_TABLE]]
-.Standard Cross-Reference Formats
-[width="50%",options="header"]
-|=======
-|Target|Generated Cross-Reference Text
-|chapter|Chapter 17
-|table|Table 4-1
-|figure|Figure 2-3
-|example|Example 3-5
-|sidebar|"Fooing the Bar" on page 23
-|section|"Inline Macros" on page 14
-|=======
-
-Here are some live examples (hover over the text in the PDF to locate the
-hyperlink):
-
-* See <<BLOCKS>> for details.
-* The results is shown in <<FIG1>>.
-* Flip ahead to <<advanced_asciidoc>> for a preview.
-
-generated from this source:
-
-----
-* See <<BLOCKS>> for details.
-* The results is shown in <<FIG1>>.
-* Flip ahead to <<advanced_asciidoc>> for a preview.
-----
-
-[WARNING]
-====
-Please do not use AsciiDoc's optional `xreflabel` and `caption` features on anchors and xrefs, as these interfere with standard generated xref formats.
-====
-
-[[indexing]]
-=== Indexing
-
-We've extended http://www.methods.co.nz/asciidoc/userguide.html#\_indexes[indexing in AsciiDoc] to include ranges, sees, and see alsos.
-
-Using the syntax below, you can insert index markers anywhere in your text. To include an index in your book, you must also include an _index.asciidoc_ file with a single header:
-
-----
-= Index
-----
-
-See the http://cdn.oreilly.com/atlas_docs.zip[AsciiDoc source] of this documentation for an example.
-
-The complete list of indexing syntax follows.
-
-Basic index entry:
-----
-((("primary index term")))
+pass:[<replaceable>foo</replaceable>]
+pass:[<userinput>foo</userinput>]
+pass:[<userinput><replaceable>foo</replaceable></userinput>]
 ----
 
-Secondary entry:
-----
-((("primary index term", "subentry")))
-----
+As an enhancement for finer-tuned semantic distinctions downstream, the Atlas configuration file supports the following variants, via +@role+ attributes:
 
-Tertiary entry:
-----
-((("primary index term", "subentry", "sub-subentry")))
-----
+* To indicate a filename or path, use: pass:[<literal>[role="filename"\]_/path/to/file.ext_</literal>]
+* For a book title, use: pass:[<literal>[role="citetitle"\]_This Book Needs No Title_</literal>]
 
-An index entry with a range:
-----
-The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange")))
-In the following pages
-...
-blah blah blah canvas
-blah blah blah local storage
-blah blah blah geolocation
-...
-Learn HTML 5 today!(((range="endofrange", startref="ix_html5")))
-----
-
-An index entry with a “(see)” and no page reference:
-----
-Flash has been supplanted by HTML5.((("Flash", see="HTML5")))
-----
-
-A “(see also)” entry:
-----
-In addition to the Makerbot, RepRap also allows you to make 3-D stuff
-((("Makerbot", seealso="RepRap")))
-----
-
-Changing how an entry is alphabetized:
-----
-Makerbot lets you produce your own 3-D trinkets.((("3-D", sortas="three-d")))
-----
-
-[WARNING]
-====
-For basic index entries without attributes (i.e., without ranges, a “see,” a “see also,” or a “sortas”), you do not need to enclose terms in quotation marks. For example, the following markup is fine:
-----
-(((XML, RDF, SPARQL)))
-----
-However, if you include any attributes, you must put all entries in quotes, e.g.:
-----
-((("XML", "RDF", "SPARQL", seealso="XQuery")))
-----
-====
-
-Please refer to the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] or contact us if you have index entries with special characters (e.g., quote marks, commas) and need guidance on how to format the markup.
-
-[[BLOCKS]]
-=== Block Elements
+Curly brackets, ++\{++ and ++\}++, may cause rendering problems because they indicate macros in AsciiDoc. If you are having trouble getting curly brackets to render, try escaping them with backslashes like this: +\\{+ and +\\}+
+****
 
 [[SIDEBARS]]
 ==== Sidebars
@@ -259,82 +376,190 @@ Sidebar text is surrounded by four asterisk characters above and below.
 
 Sidebars render like this:
 
-.What's Going On, Anyway?
+.Sidebar Title
 ****
-A general understanding of what is going on under the hood of Atlas will help you make the most of the system. One of the primary appeals of AsciiDoc is that it was created to export to http://www.docbook.org/[DocBook XML]. In other words, for each AsciiDoc markup syntax, there is an equivalent DocBook element. When you build your book (as described in <<building_and_debugging>>), Atlas converts the AsciiDoc to DocBook and then generates the book formats from that DocBook. This series of magical transformations is part of what makes writing in Atlas fun, but it also requires you to use the correct AsciiDoc markup for things to work right.
-
-If you get a build error, the most likely cause is an AsciiDoc markup error. Atlas provides error message logs to help you troubleshoot and fix syntax errors. Read more about building and debugging in <<building_and_debugging>>.
+Sidebar text is surrounded by four asterisk characters above and below.
 ****
 
 [[Admonitions]]
-==== Admonitions (Notes and Warnings)
+==== Notes, Tips, Warnings, and Cautions
 
-Here are some admonitions:
+You have the option of using note, tip, warning, and caution elements for supplemental information. Please note that the O'Reilly stylesheets make no visual distinction between the way warning and caution elements render, as well as the way note and tip elements render.
+
+You may also notice that some of the admonitions below have a title. We do support optional titles in admonitions (in most series). If you don't want a title for your note, tip, warning, or caution, just leave out the entire _.Tip Title_ line in the markup below.
+
+The markup for a note looks like this:
+
+----
+[NOTE]
+====
+Here's some text inside a note.
+====
+----
+
+And here's how it renders:
 
 [NOTE]
-===============================
-O'Reilly books traditionally make no visual distinction between the DocBook
-+<note>+, +<tip>+, and +<important>+ elements.
-===============================
+====
+Here's some text inside a note.
+====
+
+You'd create a tip with a title like so:
+
+----
+.Tip Title
+[TIP]
+====
+Here's some text inside a tip.
+====
+----
+
+...which will yield this result:
 
 .Titled Tip
 [TIP]
-===============================
-We do support optional titles in admonitions (in most series).
-===============================
+====
+Here's some text inside a tip.
+====
+
+
+Or you could use a warning:
+
+----
+.Warning Title
+[TIP]
+====
+Here's some text inside a warning.
+====
+----
 
 .Titled Warning
 [WARNING]
-===============================
-O'Reilly Animal books traditionally make no visual distinction between the
-DocBook +<warning>+ and +<caution>+ elements.
-===============================
+====
+This is how warnings render. Warnings can be used for including supplemental information in your text. Including a warning title is optional.
+====
+
+Finally, here's a caution:
+
+----
+[CAUTION]
+====
+Here's some text inside a caution.
+====
+----
 
 [CAUTION]
-===============================
-This one is a +<caution>+.
-===============================
+====
+This is how cautions render. Cautions can be used for including supplemental information in your text.
+====
+
+[[adding_footnotes]]
+==== Footnotes
+
+To create a footnote, place the footnote macro directly after the text where the note number should appear, with no space between.footnote:[Otherwise you'll introduce extra space in the text] The content of the footnote should appear within the brackets. Footnotes at the end of a sentence belong after the period:
+
+----
+footnote:[This is a standard footnote.]
+----
+
+Here's an example of the markup placement in the text:
+
+----
+There should be no spacefootnote:[This is a standard footnote.] between the text and the note number.
+----
+
+For an example of the footnote rendering, see the first paragraph in this <<adding_footnotes>> section. You should see the content of the note rendering at the bottom of the page.
+
+[[add_quotes]]
+==== Quotes
+
+To add a block quote to your text, use the word +quote+ inside single brackets, followed by a comma and the full name of the quote's author. The text of the quote itself should appear immediately below, with four underscore characters above and below it.
+
+Here's some example markup, a +<quote>+ attributed to Benjamin Disraeli (by Wilfred Meynell, according to Frank Muir):
+
+....
+[quote, Wilfred Meynell]
+____
+Many thanks; I shall lose no time in reading it.
+____
+....
+
+And here's how it renders:
+
+[quote, Wilfred Meynell]
+____
+Many thanks; I shall lose no time in reading it.
+____
+
 
 [[figures_and_other_images]]
 ==== Figures and Other Images
 
-Below this paragraph is <<FIG1>> (a figure, titled and cross-referenced). Figures appear exactly where you place them in the text, which can sometimes create PDF pages with a lot of white space. While it is not generally necessary, you can add an attribute of `float="true"` so that the text flows around the image:
+Full figure markup should include a unique ID attribute, so the figure can be cross-referenced (see <<XREFS>> for more info on using cross-references). Please note the figure IDs should be unique throughout the book. Non-captioned figures don't have ID attributes or figure numbers and are not cross-referenced.
+
+Create a figure with a caption like so:
 
 ----
-[[FIG1]]
-.A Figure
-image::images/tiger.png[float="true"]
-----
-
-[[FIG1]]
-.A Figure
-[float="none"]
-image::images/tiger.png["An image of a cartoonish tiger head"]
-
-Or you may prefer an image with no caption, like so:
-
-image::images/screenshot.png["A screenshot of the AsciiDoc homepage"]
-
-===== Adding Alt Text to Images
-
-To improve accessibility in your ebook files, please consider adding alt text to the images, like so:
-
-----
-[[FIG1]]
+[[unique_id]]
 .A Figure
 image::images/tiger.png["An image of a cartoonish tiger head"]
 ----
 
-Or combine it with a `float="true"`:
+And here's how it renders:
+
+[[unique_id]]
+.An example figure
+image::images/tiger.png["An image of a cartoonish tiger head"]
+
+If you'd like your figure to appear without a caption, just omit the +.title+ line. Please keep in mind that in addition to having no title, these figures will also have no figure number and cannot be cross-referenced in the body of the text.
+
+Here's the markup:
 
 ----
-[[FIG1]]
+image::images/screenshot.png["Screenshot of the AsciiDoc website."]
+----
+
+And here's how it renders:
+
+image::images/screenshot.png["Screenshot of the AsciiDoc website."]
+
+[[figure_floating]]
+===== Figure floating
+
+Figures appear exactly where you place them in the text, which can sometimes create PDF pages with a lot of white space. While it is not generally necessary, you can add an attribute of `float="true"` so that the text flows around the image:
+
+----
+[[unique_id]]
+.A Figure
+[float="true"]
+image::images/tiger.png[]
+----
+
+To combine a float attribute with alt text, see <<combine_alt_and_float>> below.
+
+[[adding_alt_text_to_images]]
+===== Adding alt text an images
+
+To improve accessibility in your ebook files, please consider adding alt-text to the images. To do this, just add the descriptive text in quotes inside the brackets,  which are at the end of the image markup:
+
+----
+[[unique_id]]
+.A Figure
+image::images/tiger.png["An image of a cartoonish tiger head"]
+----
+
+[[combine_alt_and_float]]
+Please note, to combine the alt-text attribute with a `float="true"` attribute, use the following markup:
+
+----
+[[unique_id]]
 .A Figure
 [float="true"]
 image::images/tiger.png["An image of a cartoonish tiger head"]
 ----
 
-===== Using AsciiDoc to Size Images
+[[using_asciidoc_to_size_images]]
+===== Adjust image size
 
 While it should not be necessary in most circumstances, you can control the size of an image in the PDF output by adding an absolute value of width or height, like so:
 
@@ -355,28 +580,52 @@ Note that you should not include a percentage sign.
 [[Lists]]
 ==== Lists
 
-[[Labeled]]
-===== Labeled (aka Variable or Term-Definition) Lists
-
-Term 1::
-  Definition/description
-Term 2::
-  Something else
+There are three common types of lists. The http://oreilly.com/oreilly/author/stylesheet.html#lists[O’Reilly Stylesheet and Word List] has more details about when to use them, but here’s the markup and an example of each.
 
 [[Bulleted]]
-===== Bulleted (aka Itemized) Lists
+===== Bulleted (aka itemized) lists
+
+Here's the markup for a bulleted list:
+
+----
+* lions
+* tigers
+** sabre-toothed
+** teapotted
+* lions, tigers, and bears
++
+Use a plus sign (on its own line) with the text below to add multiple paragraphs to a list item.
+----
+
+The list renders as you'd expect:
 
 * lions
 * tigers
 ** sabre-toothed
 ** teapotted
-* Lions, tigers, and bears.
+* lions, tigers, and bears
 +
-Use a plus sign (on its own line) with the text below to add a paragraph to a list item.
+Use a plus sign (on its own line) with the text below to add multiple paragraphs to a list item.
 
+Note that the final item in the list has multiple paragraphs. As you can see in the markup example, a plus (+) character can be used to add additional paragraphs to a list item.
 
 [[Ordered]]
-===== Ordered (aka Numbered) Lists
+===== Ordered (aka numbered) lists
+
+Here's the markup for a numbered list:
+
+----
+. Preparation
+. Assembly
+.. Measure
+.. Combine
+.. Bake
+. Applause
++
+Use a plus sign (on its own line) with the text below to add multiple paragraphs to a list item.
+----
+
+Using the above markup will generate a numbered list:
 
 . Preparation
 . Assembly
@@ -385,18 +634,39 @@ Use a plus sign (on its own line) with the text below to add a paragraph to a li
 .. Bake
 . Applause
 +
-Use a plus sign (on its own line) with the text below to add a paragraph to a list item.
+Use a plus sign (on its own line) with the text below to add multiple paragraphs to a list item.
+
+Note that the final item in the list has multiple paragraphs. As you can see in the markup example, a plus (+) character can be used to add additional paragraphs to a list item.
+
+[[Labeled]]
+===== Labeled (aka variable or term-definition) lists
+
+Here's the markup for a labeled list:
+
+----
+Term 1::
+  Definition/description
+Term 2::
+  Something else
+----
+
+Labeled lists look like this:
+
+Term 1::
+  Definition/description
+Term 2::
+  Something else
 
 [[tables_desc]]
 ==== Tables
 
 Atlas table styles vary slightly between series. If your material warrants something other than the default style as shown in <<STD_TABLE>>, please consult with your editor.
 
-The Asciidoc markup for tables looks like this:
+Standard AsciiDoc markup for a simple table follows:
 
 ....
 .A Table
-[width="50%",options="header"]
+[options="header"]
 |=======
 |P|Q|P^Q
 |T|T|T
@@ -406,10 +676,15 @@ The Asciidoc markup for tables looks like this:
 |=======
 ....
 
-Depending on the particular series your book is in, it will render similar to this:
+[NOTE]
+=========================================
+Note that a single vertical bar (|)+ character is used to separate each box in the table. If you're having a problem with your table columns rendering oddly, make you have that you have the same number of vertical bars for each row.
+=========================================
+
+The table will render with a title and a header row:
 
 [[STD_TABLE]]
-.A Table
+.An example table
 [width="50%",options="header"]
 |=======
 |P|Q|P^Q
@@ -422,7 +697,7 @@ Depending on the particular series your book is in, it will render similar to th
 [[code_explanation]]
 ==== Code
 
-Code blocks (or as the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation] refers to them, ``listing'' blocks), are defined using four hyphens above and below the code block content.  Here's an example of the markup:
+Code blocks (or as the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc documentation] refers to them, ``listing'' blocks), are defined using four hyphens above and below the code block content:
 
 ....
 ----
@@ -442,11 +717,13 @@ Hello world!
 1234567890123456789012345678901234567890
 ----
 
-Formal code blocks (titled and cross-referenced) use the following markup:
+===== Formal code blocks (titled and cross-referenced)
+
+If you'd like the code block to have a title and be able to cross-reference it, you should use the formal code block markup. As you can see below, you'll need to additionally surround the code block with four equals signs, a title, and an ID in double brackets:
 
 ....
 [[EX1]]
-.An Example
+.A code block with a title
 ====
 ----
 Hello world!
@@ -457,10 +734,10 @@ Hello world!
 ====
 ....
 
-And here's how it renders:
+The results:
 
 [[EX1]]
-.An Example
+.A code block with a title
 ====
 ----
 Hello world!
@@ -471,9 +748,9 @@ Hello world!
 ====
 
 [[inline-formatting]]
-===== Inline Formatting Within Code
+===== Inline formatting within code
 
-In AsciiDoc, there is no built-in mechanism for inline formatting within code. If you want to use inline formatting--in particular, for standard O'Reilly font conventions such as *+<userinput> (CW+bold)+* and _++<replaceable> (CW+italic)++_ or if you want to include line annotations--you can do so by using a passthrough block (see <<passthroughs>> for an explanation of passthroughs). Here's the markup to use a passthrough with the Docbook element +<screen>+:
+In AsciiDoc, there is no built-in mechanism for inline formatting within code.pass:[<footnote><simpara>We do support <literal>[subs="quotes"\]</literal> markup in <ulink url="http://www.methods.co.nz/asciidoc/userguide.html#X76">passthrough blocks</ulink>, but note that this markup can become complicated. Contact <email>toolsreq@oreilly.com</email> with any questions.</simpara></footnote>] If you want to use inline formatting--in particular, for standard O'Reilly typographical conventions such as *+<userinput> (CW+bold)+* and _++<replaceable> (CW+italic)++_ or if you want to include line annotations--you can do so by using a passthrough block (see <<passthroughs>> for an explanation of passthroughs). Here's the markup to use a passthrough with the DocBook element +<screen>+:
 
 ....
 ++++
@@ -493,15 +770,15 @@ Sun Apr  1 12:34:56 GMT 1984
 </screen>
 ++++
 
-And here's the markup to use a passthrough with the +<programlisting>+ and +&#x3c;lineannotation>+ Docbook elements:
+And here's the markup to use a passthrough with the +<programlisting>+ and +&#x3c;lineannotation>+ DocBook elements:
 
 ....
 ++++
-<programlisting>
-from __future__ import with_statement # This isn't required in Python 2.6
-                          <lineannotation>Above is a comment in the code, while this is an "annotation"</lineannotation>
+<programlisting>from __future__ import with_statement # This isn't required in Python 2.6
+                     <lineannotation>Above is a comment in the code, while this is an "annotation"</lineannotation>
+
 with open("<replaceable>hello.txt</replaceable>") as f:
-    for line in f:        <lineannotation>(note regular italic here vs. constant-width in "hello.txt" on line above)</lineannotation>
+    for line in f:  <lineannotation>(note regular italic here vs. constant-width in "hello.txt" on line above)</lineannotation>
         print line</programlisting>
 ++++
 ....
@@ -509,18 +786,18 @@ with open("<replaceable>hello.txt</replaceable>") as f:
 which renders like this:
 
 ++++
-<programlisting>
-from __future__ import with_statement # This isn't required in Python 2.6
-                          <lineannotation>Above is a comment in the code, while this is an "annotation"</lineannotation>
+<programlisting>from __future__ import with_statement # This isn't required in Python 2.6
+                     <lineannotation>Above is a comment in the code, while this is an "annotation"</lineannotation>
+
 with open("<replaceable>hello.txt</replaceable>") as f:
-    for line in f:        <lineannotation>(note regular italic here vs. constant-width in "hello.txt" on line above)</lineannotation>
+    for line in f:  <lineannotation>(note regular italic here vs. constant-width in "hello.txt" on line above)</lineannotation>
         print line</programlisting>
 ++++
 
 [[syntax_highlighting]]
-===== Syntax Highlighting
+===== Syntax highlighting
 
-The Atlas book-building toolchain supports syntax highlighting via http://pygments.org/[Pygments]. You need only add +[source]+ above each code block that you want to be syntax-highlighted, and specify the language of the code. For example, the following code:
+The Atlas book-building toolchain supports syntax highlighting via http://pygments.org/[Pygments]. You need only add +[source]+ above each code block that should include syntax highlighting, and specify the language of the code. For example:
 
 ....
 [source,java]
@@ -532,7 +809,7 @@ int direction = 1;
 ----
 ....
 
-will render in the EPUB, PDF, and KF8 (Kindle Fire only) as follows:
+This will render in the EPUB, PDF, and KF8 (Kindle Fire only) as follows:footnote:[If you are viewing the HTML version of these guidelines on Chimera, syntax highlighting will not be shown.]
 
 [source,java]
 ----
@@ -541,6 +818,22 @@ float x = 110;
 float speed = 0.5;
 int direction = 1;
 ----
+
+Here is the markup if you want to add syntax highlighting to a formal code block--note the placement of +[source]+ is the same:
+
+....
+[[id_here]]
+.Syntax highlighting sample
+====
+[source,java]
+----
+int radius = 40;
+float x = 110;
+float speed = 0.5;
+int direction = 1;
+----
+====
+....
 
 Pygments supports a wide variety of languages that can be used in +[source]+; see the full list available on the http://pygments.org/docs/lexers/[the Pygments website]. Ebook readers that do not have color screens will still display the highlighting, but in more subtle shades of gray.
 
@@ -550,11 +843,9 @@ Please note the following caveats:
 * Unless your book is printing in color, the PDF used for print will contain no highlighting.
 
 [[external_code_files]]
-===== External Code Files
+===== External code files
 
 There are two ways to include external code files. You can include an external file that is text-only (no markup like line annotations or inline formatting), or you can include an external file marked up with valid Docbook, which can contain inline markup. Callouts will work with either method.
-
-*Text-only External Code File (Asciidoc markup)*
 
 To include an external code file that is text-only (no inline markup besides callouts), use the +include::+ macro inside of a delimited code block, as shown here:
 
@@ -567,8 +858,6 @@ To include an external code file that is text-only (no inline markup besides cal
 
 For info about using callouts with your external Asciidoc code file, see <<code_callouts>>.
 
-*External Code File with Inline Markup (Docbook markup)*
-
 To include an external file that contains inline markup (e.g., line annotations or inline font formatting), use passthrough markup around around the +include::+ macro, instead of code block delimiters:
 
 ....
@@ -577,7 +866,7 @@ To include an external file that contains inline markup (e.g., line annotations 
 ++++
 ....
 
-And then the contents of inline_markup.txt would contain only the Docbook markup. In our example, it might look something like this:
+In the above case, the contents of __inline_markup.txt__ would contain only the DocBook markup. In our example, which might look something like this:
 
 ....
 <programlisting>Roses are <replaceable>red</replaceable>,
@@ -586,24 +875,144 @@ Some poems rhyme;
    This one <userinput>doesn't</userinput>.</programlisting>
 ....
 
-and it will render like this:
+The results will look like this:
 
 ++++
 include::code/inline_markup.txt[]
 ++++
 
+[[code_snippets_section]]
+===== Code snippets
+
+Atlas now supports including “snippets” in your book content so that you can excerpt just a portion of a code listing from an external code file.
+
+[NOTE]
+====
+The code snippet functionality is currently in beta. https://github.com/MakerPress/atlas-public-feedback/issues[Feedback] is welcome.
+====
+
+Each snippet that you’d like to pull into the book content must be delimited with +BEGIN _identifier_+ and +END _identifier_+ comment lines, where +_identifier_+ is a unique identifier for the given snippet. Here is a sample JavaScript file with one snippet:
+
+.factorial.js
+====
+[source, js]
+----
+alert("This code has a snippet below!");
+factorial(3);
+
+// BEGIN FACTORIAL_FUNC
+function factorial(number) {
+    if (number == 0) {
+       return 1
+       } else {
+	return factorial(number - 1) * number
+  }
+}
+// END FACTORIAL_FUNC
+----
+====
+
+To include this snippet in an AsciiDoc file, add the following block:
+
+----
+[filename="factorial.js", language="js", identifier="FACTORIAL_FUNC"]
+snippet~~~~
+Put any descriptive text you want here. It will be replaced with the
+specified code snippet when you build ebook outputs
+snippet~~~~
+----
+
+When the ebook is generated, the following output will be present in place of the +snippet+ block:
+
+[source, js]
+----
+function factorial(number) {
+    if (number == 0) {
+       return 1
+       } else {
+    return factorial(number - 1) * number
+  }
+}
+----
+
+The +filename+ attribute references the external file containing the snippet. Paths to filenames should be _relative_ to the AsciiDoc file to which you're adding the snippet. So if you've got all your book files in the repository root directory, and all your code files in a _code_ directory in the root directory, your filename attribute will look like +filename="code/filename.js"+.
+
+The +language+ attribute is the programming language of the code snippet you're including. Current supported language values are:
+
+* +clj+ (clojure)
+* +css+
+* +groovy+
+* +html+
+* +java+
+* +js+ (javascript)
+* +pl+ (perl)
+* +py+ (python)
+* +rb+ (ruby)
+* +scala+
+* +xml+
+
+If you'd like support added for another programming language, please https://github.com/MakerPress/atlas-public-feedback/issues[give us feedback].
+
+The +identifier+ attribute references the unique identifier used in your snippet delimiters.
+
+.Some Notes on Snippet Handling
+****
+You can nest code snippets within each other like so:
+
+[source, js]
+----
+// BEGIN FACTORIAL_FUNC
+function factorial(number) {
+// BEGIN IF_STATEMENT
+    if (number == 0) {
+       return 1
+       } else {
+    return factorial(number - 1) * number
+  }
+// END IF_STATEMENT
+}
+// END FACTORIAL_FUNC
+----
+
+When snippets that contain nested snippets are referenced for inclusion into book content, the delimiters for nested snippets are removed. For example, if the above +FACTORIAL_FUNC+ snippet is included into the book, the delimiters for the +IF_STATEMENT+ will be stripped out from the code listing.
+
+If you'd like to use <<asc_callouts, AsciiDoc callouts>> in your external code files, you can comment them out (to ensure the code is runnable), and the comment delimiters will be removed when the snippet is incorporated into the book. For example, the following snippet:
+
+[source, js]
+----
+// BEGIN FACTORIAL_FUNC
+function factorial(number) {
+    if (number == 0) { // <1>
+       return 1
+       } else { // <2>
+    return factorial(number - 1) * number
+  }
+}
+// END FACTORIAL_FUNC
+----
+
+Will be converted to this in the ebook output:
+
+[source, js]
+----
+function factorial(number) {
+    if (number == 0) {  <1>
+       return 1
+       } else {  <2>
+    return factorial(number - 1) * number
+  }
+}
+----
+
+If snippet incorporation fails (e.g., due to a bad +filename+ reference), any text included between the pass:[<literal>snippet~~~~</literal>] delimiters will be used as fallback text.
+****
+
 [[code_callouts]]
-===== Code Callouts
+===== Code callouts
 
-http://www.sagehill.net/docbookxsl/AnnotateListing.html#Callouts[Code callouts] are used to mark specific lines of code with icons keyed to explanatory text outside the code block. These icon pairs function as bidirectional links in electronic PDF and downstream formats (i.e., you can click on the icon in the code to jump to the explanation, and vice versa).
+http://www.sagehill.net/docbookxsl/AnnotateListing.html#Callouts[Code callouts] are used to mark specific lines of code with icons keyed to explanatory text outside the code block. These icon pairs function as bidirectional links in electronic PDF and downstream formats (i.e., you can click on the icon in the code to jump to the explanation, and vice versa).footnote:[The built-in AsciiDoc mechanism is somewhat more limited in that icons are hyperlinked from text to code, but not vice versa. If two-way linking is important to you, consider using a passthrough block (see <<passthroughs>>).]
 
-The built-in AsciiDoc mechanism (shown below) is somewhat more limited; for one thing, icons are hyperlinked from text to code, but not vice versa. However, you can always use a passthrough block (see <<passthroughs>>) for full functionality.
-
-If you have a need to refer to the same bit of explanatory text from more than one line of code, see <<callout-multiples>> (in <<advanced_asciidoc>>).
-
-*AsciiDoc Code Callouts*
-
-Here's the Asciidoc markup for code callouts:
+Here's the AsciiDoc markup for code callouts:
 
 [[asc_callouts]]
 ....
@@ -617,20 +1026,29 @@ Some poems rhyme;
 \<2> This poem uses the literary device known as a "surprise ending."
 ....
 
-which renders like this:
+The output will include callouts numbers in the code, followed by a numbered list, as shown here:
 
-----
-Roses are red,
-   Violets are blue. <1>
+++++
+<programlisting>Roses are red,
+   Violets are blue. <co id="poemco1" linkends="poemcallout1"/>
 Some poems rhyme;
-   This one doesn't. <2>
-----
-<1> Violets actually have a color value of +#9933cc+.
-<2> This poem uses the literary device known as a "surprise ending."
+   This one doesn't. <co id="poemco2" linkends="poemcallout2"/></programlisting>
 
-*Asciidoc External Code File with Callouts*
+<calloutlist>
+<callout arearefs="poemco1" id="poemcallout1">
+<para>
+Violets actually have a color value of <literal>#9933cc</literal>.
+</para>
+</callout>
+<callout arearefs="poemco2" id="poemcallout2">
+<para>
+This poem uses the literary device known as a "surprise ending."
+</para>
+</callout>
+</calloutlist>
+++++
 
-To use code callouts with an external Asciidoc code file, add the callout text items below the code block:
+To use code callouts with an external AsciiDoc code file, add the callout text items below the code block, like so:
 
 ....
 [source,java]
@@ -641,124 +1059,270 @@ To use code callouts with an external Asciidoc code file, add the callout text i
 \<2> This is number two.
 ....
 
-The corresponding callout markers should be present in the external code file. In our example, the external HelloWorld.java file contents would look like this:
+[[XREFS]]
+==== Cross-References
+
+All references to titled block elements and book components—figures, tables, examples, sections, chapters, parts, and so on—should be marked up as cross-references, not entered as plain text. Cross-reference markup will become a live hyperlink to the target in digital versions and will resolve automatically if you move numbered elements (figures, chapters, etc.) around while editing.
+
+To insert a cross-reference, follow these steps:
+
+++++
+<orderedlist>
+
+  <listitem>
+    <para>Note the id of the element you are referencing. If the element does not have an id, you will need to add one. For the book to be valid, ids must be unique across the entire book, have no spaces, and not start with a number. For example, a figure id looks like this:</para>
+    <programlisting>[[unique_id]]
+    .Figure title
+    image::images/figure.png[]</programlisting>
+  </listitem>
+
+  <listitem>
+    <para>Once you have the id, you can insert a cross-reference to that element elsewhere in the text by enclosing the id in double angle brackets, like so:</para>
+    <programlisting>&lt;&lt;unique_id&gt;&gt;</programlisting>
+  </listitem>
+
+</orderedlist>
+++++
+
+The Atlas build system will transform this ID into a standard cross-reference (or +<xref>+) for you: the rendered text will adjust automatically if you later move the target or reword its title, and it will work as a hyperlink in digital versions.
+
+<<XREF_TABLE>> shows the standard text generated from the cross-references in PDF builds.
+
+[[XREF_TABLE]]
+.Standard cross-reference formats
+[width="50%",options="header"]
+|=======
+|Target|Generated Cross-Reference Text
+|chapter|Chapter 17
+|table|Table 4-1
+|figure|Figure 2-3
+|example|Example 3-5
+|sidebar|"Fooing the Bar" on page 23
+|section|"Inline Macros" on page 14
+|=======
+
+Here are some live examples (hover over the text in the PDF to locate the
+hyperlink):
+
+* See <<indexing>> for details.
+* The results is shown in <<unique_id>>.
+* Flip ahead to <<working_with_github>> for a preview.
+
+which were generated from this source:
+
+----
+* See <<indexing>> for details.
+* The results is shown in <<unique_id>>.
+* Flip ahead to <<working_with_github>> for a preview.
+----
+
+[[passthroughs]]
+==== Passthroughs
+
+<<intro_to_asc>> makes several references to ``passthroughs.'' You can use a DocBook passthrough when you've got an especially complex piece of markup or you're trying to do something that AsciiDoc doesn't support. AsciiDoc supports two types of passthroughs:
+
+Inline passthroughs::
+  For inlines, you can indicate a passthrough at any time by like this: ++pass:[passthrough goes here]++. See <<challenging_inlines>> for examples of inline passthroughs.
+Block passthroughs::
+  You can also pass though a block of DocBook XML. Here's the image markup that we used in <<intro_to_asc>>, passed through as DocBook:
 
 ....
-package com.marakana;
-
-import android.app.Activity;
-import android.os.Bundle;
-
-public class HelloWorld extends Activity {  \<1>
-  /** Called when the activity is first created. */
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);  \<2>
-    setContentView(R.layout.main);
-  }
-}
+----
+<figure id="unique_id" float="none">
+<title>A Figure</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/tiger.png"/>
+  </imageobject>
+</mediaobject>
+</figure>
+----
 ....
 
-And it would render like this:
+==== Math Support via LaTeX
 
-[source,java]
+Atlas supports math equations set as LaTeX. For inline LaTeX equations, use the +latexmath:+ macro as follows:
+
 ----
-include::code/HelloWorld.java[]
+The Pythagorean Theorem is latexmath:[\(a^2 + b^2 = c^2\)].
 ----
-<1> This is number one.
-<2> This is number two.
 
+yielding this result:
 
-*Docbook Passthroughs with Callouts*
+The Pythagorean Theorem is latexmath:[\(a^2 + b^2 = c^2\)].
 
-You can use Docbook passthroughs for your code if you'd like to have bidirectional callout links, or if you have inline formatting in your code. The markup for Docbook passthrough callouts is mostly the same whether you're writing the markup directly in the Asciidoc chapter file or writing the markup in an external file.
+For block TeX equations, use a +latexmath+ passthrough as follows:
 
-If you're adding the passthrough directly in the Asciidoc chapter file, the markup looks like this:
+----
+[latexmath]
+++++
+\begin{equation}
+{x = \frac{{ - b \pm \sqrt {b^2 - 4ac} }}{{2a}}}
+\end{equation}
+++++
+----
+
+And the results:
+
+[latexmath]
+++++
+\begin{equation}
+{x = \frac{{ - b \pm \sqrt {b^2 - 4ac} }}{{2a}}}
+\end{equation}
+++++
+
+You could also add a title. Use this:
+
+----
+[latexmath]
+.The quadratic formula
+++++
+\begin{equation}
+{x = \frac{{ - b \pm \sqrt {b^2 - 4ac} }}{{2a}}}
+\end{equation}
+++++
+----
+
+And get:
+
+[latexmath]
+.The quadratic formula
+++++
+\begin{equation}
+{x = \frac{{ - b \pm \sqrt {b^2 - 4ac} }}{{2a}}}
+\end{equation}
+++++
+
+[[page_breaking]]
+==== Page Breaking
+
+If you want to insert a hard page break into your PDF builds, you can do so with this passthrough:
 
 ....
 ++++
-<programlisting>Roses are <replaceable>red</replaceable>,
-   Violets are <replaceable>blue</replaceable>. <co id="violets-co" linkends="violets"/>
-Some poems rhyme;
-   This one <userinput>doesn't</userinput>. <co id="poem-co" linkends="poem"/></programlisting>
-
-<calloutlist>
-  <callout id="violets" arearefs="violets-co">
-    <para>Violets actually have a color value of +#9933cc+.</para>
-  </callout>
-  <callout id="poem" arearefs="poem-co">
-    <para>This poem uses the literary device known as a &ldquo;surprise ending.&rdquo;</para>
-  </callout>
-</calloutlist>
+<?hard-pagebreak?>
 ++++
 ....
+
+Please note that adding this page break processing instruction will have no effect on the EPUB and KF8 files.
 
 [WARNING]
-===============================
-If using passthroughs for callouts, please use the paired markup as shown above (not +<areaspec>+).
-===============================
+====
+Please do not use AsciiDoc's mechanisms for forcing page breaks, as these don't mesh with Atlas's book building tools.
+====
 
-If you have your code in an external file, your markup will look like this:
+[[controlling_line_breaks]]
+==== Controlling Line Breaks
 
-....
-++++
-\include::code/inline_markup_with_callouts.txt[]
-++++
-....
+Use an inline passthrough to prevent a line break:
 
-And the contents of your external code file (inline_markup_with_callouts.txt, in our example here) will look something like this:
+----
+pass:[<phrase role='keep-together'>Don'tBreakMe</phrase>]
+----
 
-....
-<programlisting>Roses are <replaceable>red</replaceable>,
-   Violets are <replaceable>blue</replaceable>. <co id="violets-co" linkends="violets"/>
-Some poems rhyme;
-   This one doesn't. <co id="poem-co" linkends="poem"/></programlisting>
+[WARNING]
+====
+Please do not use AsciiDoc's mechanisms for forcing line breaks, as these don't mesh with Atlas's book building tools.
+====
 
-<calloutlist>
-  <callout id="violets" arearefs="violets-co">
-    <para>Violets actually have a color value of +#9933cc+.</para>
-  </callout>
-  <callout id="poem" arearefs="poem-co">
-    <para>This poem uses the literary device known as a &ldquo;surprise ending.&rdquo;</para>
-  </callout>
-</calloutlist>
-....
+[[indexing]]
+==== Indexing
 
-which will render like this:
+This section describes how to create an automatically generated index in AsciiDoc. We've extended http://www.methods.co.nz/asciidoc/userguide.html#\_indexes[indexing in AsciiDoc] to include ranges, sees, and see alsos.
 
-++++
-include::code/inline_markup_with_callouts.txt[]
-++++
+===== Create the index file
 
-[[other_block_elements]]
-==== Other Block Elements
+To include an index in your book, first create a blank _index.asciidoc_ file and add this single line of text:
 
-===== Notes to Production
+----
+== Index
+----
 
-To leave a note to the Production team, please use a passthrough block with the Docbook +<remark>+ element, like this:
+The index entries will be auto-generated during the build process, using the index markers you place in the text, as described in the next section. Just be sure to include the _index.asciidoc_ file in the build.
 
-....
-++++
-<remark>Use a passthrough block like this for notes to production staff</remark>
-++++
-....
+See the http://cdn.oreilly.com/atlas_docs.zip[AsciiDoc source] of this documentation for an example index.
 
-// NB: AsciiDoc comments do _not_ get passed to DocBook output by default.
+===== Syntax
 
-===== Quotes
+Each index marker is generally surrounded with quotation marks. But for basic index entries without attributes (i.e., without ranges, a “see,” a “see also,” or a “sortas”), you do not need to enclose terms in quotation marks. For example, the following markup is fine:
 
-To add a quote block to your text, use the following markup. Here's a +<quote>+ attributed to Benjamin Disraeli (by Wilfred Meynell, according to Frank Muir):
+----
+(((XML, RDF, SPARQL)))
+----
 
-....
-[quote, Wilfred Meynell]
-____
-Many thanks; I shall lose no time in reading it.
-____
-....
+However, if you include any attributes, you must put all entries in quotes as seen below, e.g.:
 
-which renders like this:
+----
+((("XML", "RDF", "SPARQL", seealso="XQuery")))
+----
 
-[quote, Wilfred Meynell]
-____
-Many thanks; I shall lose no time in reading it.
-____
+[NOTE]
+====
+For anything not mentioned below, please refer to the http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide], or contact us if you have index entries with special characters (e.g., quote marks, commas) and need guidance on how to format the markup.
+====
+
+Basic index entry:
+
+----
+((("primary index term")))
+----
+
+Secondary entry:
+
+----
+((("primary index term", "subentry")))
+----
+
+Tertiary entry:
+
+----
+((("primary index term", "subentry", "sub-subentry")))
+----
+
+An index entry with a range:
+
+----
+The future of ebooks is HTML5.((("HTML5", id="ix_html5", range="startofrange")))
+In the following pages
+...
+blah blah blah canvas
+blah blah blah local storage
+blah blah blah geolocation
+...
+Learn HTML 5 today!(((range="endofrange", startref="ix_html5")))
+----
+
+An index entry with a “(see)” and no page reference:
+
+----
+Flash has been supplanted by HTML5.((("Flash", see="HTML5")))
+----
+
+An index entry with a “(see also)”:
+
+There are two markup options for "see also" entries.
+
+* You can embed the +seealso+ with the primary entry. This will render a page number next to the primary entry:
+
+----
+In addition to the Makerbot, RepRap also allows you to make 3-D stuff
+((("Makerbot", seealso="RepRap")))
+----
+
+* Or if there's a subentry, you can embed the +seealso+ entry after the it:
+
+----
+In addition to the Makerbot, RepRap also allows you to make 3-D stuff
+((("Makerbot", "3-D", seealso="RepRap")))
+----
+
+[WARNING]
+====
+Any "(see also)" entries that are nested under primary entries with no page numbers of their own (i.e., primary entries that have subentries) will render with extra indentation.
+====
+
+To alphabetize an index entry differently than the default, use "sortas" to assign a new label to be used for alphabetization. For example:
+
+----
+Makerbot lets you produce your own 3-D trinkets.((("3-D", sortas="three-d")))
+----

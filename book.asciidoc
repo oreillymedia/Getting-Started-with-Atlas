@@ -1,8 +1,6 @@
-:bookseries: maker
+:bookseries: animal
 
 = Getting Started with Atlas
-
-include::ch00.asciidoc[]
 
 include::ch01.asciidoc[]
 
@@ -16,6 +14,8 @@ include::ch05.asciidoc[]
 
 include::ch06.asciidoc[]
 
-include::ch07.asciidoc[]
+include::collecting_feedback_with_chimera.asciidoc[]
+
+include::social_sidebar.asciidoc[]
 
 include::index.asciidoc[]

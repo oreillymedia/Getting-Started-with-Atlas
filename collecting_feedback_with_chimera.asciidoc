@@ -1,0 +1,61 @@
+[[collecting_feedback]]
+== Using Atlas to Collect Early Feedback
+
+O'Reilly is testing ways to help authors get early feedback on books being written in Atlas, O'Reilly's new authoring tool. Chimera is a site where you can host a web version of your book, with one-click publishing from Atlas (our authoring platform).  Atlas and Chimera make it easy to:
+
+* Receive comments from readers at a paragraph level, much like our earlier OFPS system.
+* Publish surveys, polls, and other feedback tools. In addition to helping you answer specific questions, asking readers to complete a poll or survey is a great way to create interest around your project.
+* View your Google Analytics data.  In addition to direct feedback from readers, you can use Google Analytics to see how readers are acually using your content.
+
+Our goal is to help you improve your book by getting it out as soon as you feel it's ready for people to look at it.
+
+The following sections provide more detail for each step.
+
+=== Receive Comments
+
+When you publish your book to Chimera, readers can leave comments for you simply by clicking on a paragraph. This will open a comment box where they can leave feedback that will flow back into the authoring system, as shown in <<chimera_comments>>.
+
+[[chimera_comments]]
+.Readers can leave comments on each paragraph.
+image::images/chimera_leave_a_comment.png[]
+
+=== Publish Surveys and Polls
+
+Surveys and polls are great ways to quickly collect data from your readers on targeted topics.  In addition, asking for targeted feedback is a great great tool for promoting your book. <<embed_a_survey>> shows how an embedded survey might appear.
+
+[[embed_a_survey]]
+.Embedding a survey inside your book on Chimera is a great way to gather early feedback.
+image::images/embed_a_survey.png[]
+
+There are three main steps for collecting this type of feedback:
+
+. Create a survey form in Google Docs
+. Embed the form in a http://jsbin.com/[JSBin] or http://jsfiddle.net/[JSFiddle]
+. Embed the JSBin or JSFiddle into your project
+
+<<howto_embed_a_survey>> illustrates this in action.
+
+[[howto_embed_a_survey]]
+.There are 3 steps to embedding a survey: create the survey in Google drive, embed it in a JSBin, and source the JSBin into Atlas.
+video::http://d4uxalfja0cvd.cloudfront.net/1234000001554/videos/e3d0d0f8b5a4203e886c62a857bc3a7f.mp4[poster='http://d4uxalfja0cvd.cloudfront.net/1234000001554/videos/e3d0d0f8b5a4203e886c62a857bc3a7f_4.jpg']
+
+=== View Google Analytics Data
+
+Google Analytics is a powerful tool for tracking how readers actually use your material: where they come from, what they read, what search terms they use, and a host of other invaluable information.
+
+[WARNING]
+==================================
+Before you can use Google Analytics, 
+we'll need to link our account to 
+yours so that you can see your data.
+Please make a request in the 
+https://github.com/MakerPress/atlas-public-feedback/issues[Atlas feedback] so that we can set up your account.
+==================================
+
+You can either log in directly to the google analytics portal or you can turn on GA's "In Page Analytics" to see the stats for your book directly in the site, as shown in <<in_page_analytics>>.
+
+[[in_page_analytics]]
+.Google's "In Page Analytics" will superimpose the stats for your book directly in the browser.
+image::images/ga_in_page_analytics.png[]
+
+We're working on more documentation for how to make the most of this powerful tool.

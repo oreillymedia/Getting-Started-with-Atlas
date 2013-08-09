@@ -1,0 +1,56 @@
+== Atlas Social Sidebar
+
+The Social Sidebar is a new feature of Atlas to help you more easily engage with your readers, collaborators, and O'Reilly.  The sidebar, which appears in the slide out panel on the right hand side of the writing tab, has two main functions:
+
+* Comments from Chimera.  This section pulls in comments from Chimera, the web-version of your book. Comments left in Chimera will appear as a list in the side panel so that you can address them in your book. 
+* Chat and Commands. This section allows you to use interactive chat, either with your collaborators or with the new Atlas chatbot.
+
+<<social_sidebar_fig>> shows the two different functions available in the sidebar.
+
+[[social_sidebar_fig]]
+.Click on the right sidepanel in Atlas' writing tab to open the social sidebar.  The figure on the left shows how comments come in from Chimera, while the one on the right shows the "Chat and Command" tool.
+image::images/social_sidebar.png[]
+
+=== Comments from Chimera 
+
+Chimera, the name for the web version of your book, allows readers and collaborators to leave comments at the paragraph level on your book.  The goal of these comments is to help you both better engage with your audience and get feedback to improve your book.  (See <<collecting_feedback>> for more information on how to use Chimera and Atlas to engage readers.) 
+
+Comments left in Chimera will flow into the social sidebar so that you can more easily address whatever issue is they raise.  Click on a comment to jump to the corresponding paragraph in Atlas.
+
+Once you've addressed the comment, you have the option to delete it by clicking the small "x" to the comment's right.
+
+=== Chat and Commands 
+
+In addition to managing comments from Chimera, you can also use the sidebar to chat with collaborators and issue various commands for Atlas to perform.
+
+To chat with collaborators, simply type your message in the chat box and it will be broadcast to everyone else viewing the project.  The goal of the chat is to allow you to more easily collaborate in real time with your co-authors and O'Reilly staff.  For example, you might schedule a review session with your editor or tech reviewer to work on the project together using chat.
+
+[[live_editing_warning]]
+[WARNING]
+====
+Live, multiuser editing of documents is not yet supported in the Atlas Web interface. Multiple users should avoid editing the same document at once, as they may overwrite each other's changes when they save.
+====
+
+In addition to chatting with collaborators, you can also chat with the Atlas chatbot to perform various tasks.  The following table summarizes the things you can currently do with the bot:
+
+
+|=============================================================================================
+|  Command   |  Description                 | Example
+| calculate  | Do calculations with Google  | atlas calculate square root of 400
+| convert    | Convert units with Google    | atlas convert 70 mph to kph
+| howdoi     | Search stack overflow        | atlas howdoi reverse a ruby array?
+| html5ref   | Examples of HTML5 tags       | atlas html5ref video
+| latexmath  | Render an equation           | atlas latexmath $a^2 + b^2 = c^2$ 
+| shorten    | Shorten a link using bit.ly  | atlas shorten http://www.example.com/big/long/path 
+|=============================================================================================
+
+In addition, Atlas can send you notifications, as well.  For example, it will send you a message when your build completes, which has been a much requested feature.
+
+[WARNING]
+======================================
+Atlas does not currently support private chat, so everything you do will be visible to all other people on the project.  This includes both your requests and responses for the Atlas chatbot.
+======================================
+
+We'll be adding a lot more functionality to the atlas bot over the coming months, so stay tuned for more here.  If you have suggestions for new features, post them in the "Feedback" tab.  
+
+PS -- The Atlas chatbot is based on the GitHub's awesome Hubot project (http://hubot.github.com/).  If you're familiar with that project and would like to contribute a script, let us know.

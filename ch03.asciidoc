@@ -1,7 +1,7 @@
 [[building_and_debugging]]
 == Building and Debugging
 
-You can use Atlas to build your book in three formats--PDF, EPUB, and KF8--whenever you like.
+You can use Atlas to build your book in three formats--PDF, EPUB, KF8, and HTML--whenever you like.
 
 .Three Major Ebook Formats
 ****
@@ -25,7 +25,6 @@ A few things to keep in mind when building books in Atlas:
 * When you trigger a build, Atlas automatically creates a _book.asciidoc_ file that references the files that you choose to include in the build, so there is no need to add one.
 * Do not include _book-docinfo.xml_ file in the build. This metadata-only file is described in <<adding_metadata>>.
 ====
-
 
 [[files_to_build]]
 .Select your ebook formats and files
