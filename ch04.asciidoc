@@ -501,7 +501,7 @@ Create a figure with a caption like so:
 
 ----
 [[unique_id]]
-.A Figure
+.An example figure
 image::images/tiger.png["An image of a cartoonish tiger head"]
 ----
 
