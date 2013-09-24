@@ -407,7 +407,7 @@ Here's some text inside a note.
 You'd create a tip with a title like so:
 
 ----
-.Tip Title
+.Titled Tip
 [TIP]
 ====
 Here's some text inside a tip.
@@ -426,8 +426,8 @@ Here's some text inside a tip.
 Or you could use a warning:
 
 ----
-.Warning Title
-[TIP]
+.Titled Warning
+[WARNING]
 ====
 Here's some text inside a warning.
 ====
